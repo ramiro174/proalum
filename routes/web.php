@@ -20,5 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
     
     Route::get('/who', function () {
-        return "ss";
+        return exec('whoami');
     });
