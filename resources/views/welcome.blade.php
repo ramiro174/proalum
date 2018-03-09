@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                   Listo para empezar!!
+                   Listo para empezaraaa!!
                 </div>
 
                 <div class="links">
