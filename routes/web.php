@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
     
-    Route::get('/baraja', function () {
-        return  array("numero"=>2);
+    Route::post('/baraja', function () {
+        
+       
+        return  array("numero"=>rand(1,13));
     });
     
 
