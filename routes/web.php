@@ -27,6 +27,7 @@
         
         $r->numero="2";
         $r->nombre="ramiro";
+        $r->save();
         
         
         return $r;
