@@ -22,11 +22,13 @@
        
         return  array("numero"=>rand(1,13));
     });
-    Route::post('/enviar', function () {
+    Route::post('/enviar', function (Request $resq) {
         $r=new Resultado();
+        $numero=$resq->input("numero");
+        $nombre=$resq->input("nombre");
         
-        $r->numero="2";
-        $r->nombre="ramiro";
+        $r->numero=$numero;
+        $r->nombre=$nombre;
         $r->save();
         
         
