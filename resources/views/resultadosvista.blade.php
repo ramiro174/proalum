@@ -42,40 +42,68 @@
     </div>
 </nav>
 
-<div class="row" style="margin-top:120px">
-   
-    <div class="col-sm-5  col-md-6 offset-md-2">
+
+
+
+<div style="margin-top:120px" class="container">
     
-        <div class="card border-success mb-6 offset-sm-3">
-            <div class="card-header">Resulados</div>
-            <div class="card-body text-success">
-                
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Resultado</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($Resultados as  $resultado)
-            
-                        <tr>
-                            <td>{{$resultado->nombre}}</td>
-                            <td>{{$resultado->numero}}</td>
-                        </tr>
-                    @endforeach
-        
-        
-        
-                    </tbody>
-                </table>
+    <div class="row">
+        <div class="col-4 offset-md-3">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="/borrardatos" class="btn  btn-outline-danger btn-lg active" role="button" aria-pressed="true">Eliminar</a>
             </div>
         </div>
-     
-       
     </div>
+    </br>
+    
+    <div class="row">
+      
+        <div class="col-sm-5  col-md-6 offset-md-3">
+            
+            <div class="card border-success ">
+                <div class="card-header">Resulados</div>
+                <div class="card-body text-success">
+                    
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Resultado</th>
+                            <th></th>
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($Resultados as  $resultado)
+                            
+                            <tr>
+                                <td>{{$resultado->nombre}}</td>
+                                <td>{{
+                               
+                               $resultado->numero
+                             
+                             
+                             }}</td>
+                                <td>{{"delete"}}</td>
+                            
+                            </tr>
+                        @endforeach
+                        
+                        
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        
+        
+        </div>
+    </div>
+    
 </div>
+
+
+
 
 
 

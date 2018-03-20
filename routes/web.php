@@ -41,11 +41,16 @@
        
     });
     
+    Route::get("/borrardatos",function(){
+        
+        Resultado::truncate();
+        return redirect("/resultadosfinales");
+        
+        
+    });
+    
     Auth::routes();
-    
-    
     Route::get('/home', 'HomeController@index')->name('home');
-    
     Route::get('/who', function () {
         return exec('whoami');
     });
