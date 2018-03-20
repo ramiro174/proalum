@@ -36,7 +36,7 @@
     
     Route::get("/resultadosfinales",function(){
        
-       return   view("resultadosvista");
+       return   view("resultadosvista")->with("Resultados",Resultado::all());
        
        
     });

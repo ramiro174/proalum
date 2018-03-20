@@ -41,7 +41,39 @@
         </div>
     </div>
 </nav>
-
+<div class="container">
+    <div class="row">
+        <div class="col-lg-offset-3 col-md-offset-3 col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Resultados</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Resultado</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($Resultados as  $resultado)
+    
+                            <tr>
+                                <td>{{$resultado->nombre}}</td>
+                                <td>{{$resultado->numero}}</td>
+                            </tr>
+                            @endfor
+                        
+                        
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
