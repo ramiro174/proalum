@@ -22,7 +22,7 @@
        
         return  array("numero"=>rand(1,13));
     });
-    Route::get('/enviar', function () {
+    Route::post('/enviar', function () {
         $r=new Resultado();
         
         $r->numero="2";
