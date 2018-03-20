@@ -41,12 +41,7 @@
         </div>
     </div>
 </nav>
-
-
-
-
 <div style="margin-top:120px" class="container">
-    
     <div class="row">
         <div class="col-4 offset-md-3">
             <div class="btn-group" role="group" aria-label="Basic example">
@@ -55,62 +50,47 @@
         </div>
     </div>
     </br>
-    
     <div class="row">
-      
         <div class="col-sm-5  col-md-6 offset-md-3">
-            
             <div class="card border-success ">
                 <div class="card-header">Resulados</div>
                 <div class="card-body text-success">
-                    
                     <table class="table table-hover">
                         <thead>
                         <tr>
                             <th>Nombre</th>
                             <th>Resultado</th>
-                            <th></th>
-                            
+                            <th>Fecha de Registro</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($Resultados as  $resultado)
                             
-                            <tr>
-                                <td>{{$resultado->nombre}}</td>
-                                <td>{{
-                               
-                               $resultado->numero
-                             
-                             
-                             }}</td>
-                                <td>{{"delete"}}</td>
-                            
-                            </tr>
+                            @if( $resultado->numero>21)
+                                <tr class="text-danger">
+                                    <td>{{$resultado->nombre}}</td>
+                                    <td>
+                                        {{$resultado->numero}}
+                                    </td>
+                                    <td>{{  $resultado->created_at}}</td>
+                                </tr>
+                            @else
+                                <tr>
+                                    <td>{{$resultado->nombre}}</td>
+                                    <td>
+                                        {{$resultado->numero}}
+                                    </td>
+                                    <td>{{  $resultado->created_at}}</td>
+                                </tr>
+                            @endif
                         @endforeach
-                        
-                        
-                        
                         </tbody>
                     </table>
                 </div>
             </div>
-        
-        
         </div>
     </div>
-    
 </div>
-
-
-
-
-
-
-
-
-
-
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
