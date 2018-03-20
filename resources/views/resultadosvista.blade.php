@@ -63,7 +63,7 @@
                                 <td>{{$resultado->nombre}}</td>
                                 <td>{{$resultado->numero}}</td>
                             </tr>
-                            @endfor
+                            @endforeach
                         
                         
                         
