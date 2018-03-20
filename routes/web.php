@@ -10,8 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+    
+    use App\models\Resultado;
+    
+    Route::get('/', function () {
     return view('welcome');
 });
     
@@ -20,9 +22,22 @@ Route::get('/', function () {
        
         return  array("numero"=>rand(1,13));
     });
+    Route::post('/enviar', function () {
+        $r=new Resultado();
+        
+        $r->numero="2";
+        $r->nombre="ramiro";
+        
+        
+        return $r;
+        
+    
+    });
     
 
 Auth::routes();
+
+
 
 
 
