@@ -12,6 +12,7 @@
 */
     
     use App\models\Resultado;
+    use Illuminate\Http\Request;
     
     Route::get('/', function () {
     return view('welcome');
@@ -24,6 +25,7 @@
     });
     Route::post('/enviar', function (Request $resq) {
         $r=new Resultado();
+        
         $numero=$resq->input("numero");
         $nombre=$resq->input("nombre");
         
