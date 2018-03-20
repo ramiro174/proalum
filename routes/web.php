@@ -36,9 +36,9 @@
     
     Route::get("/resultadosfinales",function(){
        
-         view("resultadosvista");
-        
-        
+       return   view("resultadosvista");
+       
+       
     });
     
     Auth::routes();
