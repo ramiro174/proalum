@@ -60,7 +60,7 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Resultado</th>
-                            <th>Fecha de Registro</th>
+                            <th>Fecha de Registros</th>
                         </tr>
                         </thead>
                         <tbody>
