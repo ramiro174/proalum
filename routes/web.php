@@ -23,6 +23,15 @@
         
         return array("numero" => rand(1, 13));
     });
+    
+    Route::get('/rr', function () {
+        
+        
+        return  Resultado::all() ;
+    });
+    
+    
+    
     Route::post('/enviar', function (Request $resq) {
         $r = new Resultado();
         $numero = $resq->input("numero");
