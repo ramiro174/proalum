@@ -11,6 +11,7 @@
     |
     */
     
+    use App\models\alumno;
     use App\models\Resultado;
     use Illuminate\Http\Request;
     
@@ -40,6 +41,10 @@
         $r->nombre = $nombre;
         $r->save();
         return $r;
+    });
+    
+    Route::get("/alumnos",function(){
+       return alumno::all();
     });
     
     
