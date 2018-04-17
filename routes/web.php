@@ -47,6 +47,16 @@
        return alumno::all();
     });
     
+    Route::post('/alumnos', function (Request $resq) {
+        $r = new alumno();
+        $nombre = $resq->input("nombre");
+        $telefono = $resq->input("telefono");
+        $r->nombre = $nombre;
+        $r->telefono = $telefono;
+        $r->save();
+        return $r;
+    });
+    
     
     Route::get("/resultadosfinales",function(){
        
