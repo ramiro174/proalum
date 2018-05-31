@@ -19,6 +19,19 @@
         return view('welcome');
     });
     
+        Route::get('/register',function(){
+        return view('auth/register');
+    });
+
+Route::get("/login",function(){
+       
+       return  view("auth/login");
+       
+    });
+
+Route::get('/logout','UserController@getlogout');
+
+    
     Route::get('/baraja', function () {
         
         
@@ -64,11 +77,7 @@
        
        
     });
-     Route::get("login",function(){
-       
-       return  view("auth/login");
-       
-    });
+     
     
     Route::get("/borrardatos",function(){
         
@@ -87,3 +96,6 @@
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+

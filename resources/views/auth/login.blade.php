@@ -7,6 +7,9 @@
         margin-bottom: 15%;
         align-content: center;
      }
+     body{
+        background-color: #b9c0c7;
+     }
  </style>
 @endsection
 
@@ -61,7 +64,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary btn-xl">
+                                <button type="submit" class="btn btn-primary btn-xl text-uppercase bg-primary text-white rounded btn-outline-light">
                                     Ingresar
                                 </button>
 

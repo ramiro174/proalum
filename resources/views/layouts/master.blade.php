@@ -40,10 +40,10 @@
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contactanos</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="#contact">Inicia Sesion</a>
+                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/login">Inicia Sesion</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                   <a  class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="#contact">Registrate</a>
+                   <a  class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/register">Registrate</a>
                 </li>
             </ul>
         </div>
