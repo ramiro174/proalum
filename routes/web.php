@@ -64,6 +64,11 @@
        
        
     });
+     Route::get("login",function(){
+       
+       return  view("auth/login");
+       
+    });
     
     Route::get("/borrardatos",function(){
         
@@ -78,3 +83,7 @@
     Route::get('/who', function () {
         return exec('whoami');
     });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
