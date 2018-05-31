@@ -1,4 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.master')
+
+@section('scripts')
+ <style type="text/css">
+     .container{
+        margin-top: 10%;
+     }
+ </style>
+@endsection
 
 @section('content')
 <div class="container">
