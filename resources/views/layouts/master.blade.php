@@ -16,14 +16,14 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
-    @section('scripts')
+    @section('styles')
 @show
 </head>
 <body id="page-top">
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Proyectos Tics</a>
+        <a class="navbar-brand js-scroll-trigger" href="/">Proyectos Tics</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fa fa-bars"></i>
@@ -52,7 +52,52 @@
 
 @section('content')
 @show
-
+<footer class="footer text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-5 mb-lg-0">
+                <h4 class="text-uppercase mb-4">Location</h4>
+                <p class="lead mb-0">2215 John Daniel Drive
+                    <br>Clark, MO 65243</p>
+            </div>
+            <div class="col-md-4 mb-5 mb-lg-0">
+                <h4 class="text-uppercase mb-4">Around the Web</h4>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                            <i class="fa fa-fw fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                            <i class="fa fa-fw fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                            <i class="fa fa-fw fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                            <i class="fa fa-fw fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                            <i class="fa fa-fw fa-dribbble"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                <p class="lead mb-0">Freelance is a free to use, open source Bootstrap theme created by
+                    <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
