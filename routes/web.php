@@ -30,12 +30,16 @@ Route::get("/login",function(){
     });
 
 Route::group(['middleware'=>'auth'],function(){
+
 Route::get('/logout','UserController@getlogout');
 
 Route::get("/profile",function(){
     return view("profile");
 });
 
+Route::get('/registerproject',function(){
+    return view("registerproject");
+});
 });
 
 

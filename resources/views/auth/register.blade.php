@@ -21,7 +21,7 @@
 @section('content')
 <div class="container col-md-4 col-sm-12" id="log" >
     <div class="row">
-        <div class="col-md-12 col-sm-12">
+        <div class="col-12">
             <div class="panel panel-default">
                 <div class="panel-heading"></div>
 
@@ -30,7 +30,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name"  class="col-md-6 offset-md-4 control-label">Nombre</label>
+                            <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre</label>
 
                             <div class="col-md-12 col-sm-12">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password"  class="col-md-12 offset-md-4 control-label">Contraseña</label>
+                            <label for="password"  class="col-md-12 offset-md-3 control-label">Contraseña</label>
 
                             <div class="col-md-12">
                                 <input id="password" type="password" class="form-control" name="password" required>
