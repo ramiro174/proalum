@@ -6,17 +6,20 @@
         margin-top: 10%;
         margin-bottom: 15%;
         align-content: center;
+        font-size: 140%;
+        color: #495057;
      }
      body{
         background-color: #b9c0c7;
+
      }
  </style>
 @endsection
 
 @section('content')
-<div class="container" id="log">
+<div class="container col-md-4 col-sm-12" id="log">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12 col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading"></div>
 
@@ -25,9 +28,9 @@
                         {{ csrf_field() }}
 
                         <div class="form-group  {{ $errors->has('email') ? ' has-error' : '' }} ">
-                            <label>Correo Electronico</label>
+                            <label class="col-md-12 offset-md-3 control-label">Correo Electronico</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12 col-sm-12">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
@@ -39,9 +42,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Contraseña</label>
+                            <label for="password" class="col-md-12 offset-md-4 control-label">Contraseña</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12 col-sm-12">
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -63,8 +66,8 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary btn-xl text-uppercase bg-primary text-white rounded btn-outline-light">
+                            <div class="col-md-12 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary btn-xl col-md-12 text-uppercase bg-primary text-white rounded btn-outline-light">
                                     Ingresar
                                 </button>
 

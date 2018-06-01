@@ -39,7 +39,7 @@
                 </li>
                 @if(Auth::check())
                 <li class="nav-item mx-0 mx-lg-1">
-                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/login">
+                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/profile">
                        {{@Auth::user()->name}}
                    </a>
                 </li>

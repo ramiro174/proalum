@@ -21,8 +21,8 @@
 </head>
 <body id="page-top">
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
-    <div class="container">
+<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase col-md-12"  id="mainNav">
+    <div class="container" >
         <a class="navbar-brand js-scroll-trigger" href="/">Proyectos Tics</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
@@ -38,13 +38,23 @@
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contactanos</a>
+                 @if(Auth::check())
+                <li class="nav-item mx-0 mx-lg-1">
+                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/profile">
+                       {{@Auth::user()->name}}
+                   </a>
                 </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="{{url('/logout')}}">Cerrar Sesion</a>
+                </li>
+                @else
                 <li class="nav-item mx-0 mx-lg-1">
                    <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/login">Inicia Sesion</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
                    <a  class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/register">Registrate</a>
                 </li>
+                @endif
             </ul>
         </div>
     </div>
