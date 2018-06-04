@@ -41,24 +41,13 @@ Route::get('/registerproject',function(){
     return view("registerproject");
 });
 });
-
-
-    
-    Route::get('/baraja', function () {
-        
-        
+ Route::get('/baraja', function () {
         return array("numero" => rand(1, 13));
     });
-    
     Route::get('/rr', function () {
-        
-        
-        return  Resultado::all() ;
+    return  Resultado::all() ;
     });
-    
-    
-    
-    Route::post('/enviar', function (Request $resq) {
+   Route::post('/enviar', function (Request $resq) {
         $r = new Resultado();
         $numero = $resq->input("numero");
         $nombre = $resq->input("nombre");
@@ -67,11 +56,9 @@ Route::get('/registerproject',function(){
         $r->save();
         return $r;
     });
-    
     Route::get("/alumnos",function(){
        return alumno::all();
     });
-    
     Route::post('/alumnos', function (Request $resq) {
         $r = new alumno();
         $nombre = $resq->input("nombre");
