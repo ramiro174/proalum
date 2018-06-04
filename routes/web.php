@@ -19,6 +19,31 @@
         return view('welcome');
     });
     
+        Route::get('/register',function(){
+        return view('auth/register');
+    });
+
+Route::get("/login",function(){
+       
+       return  view("auth/login");
+       
+    });
+
+Route::group(['middleware'=>'auth'],function(){
+
+Route::get('/logout','UserController@getlogout');
+
+Route::get("/profile",function(){
+    return view("profile");
+});
+
+Route::get('/registerproject',function(){
+    return view("registerproject");
+});
+});
+
+
+    
     Route::get('/baraja', function () {
         
         
@@ -28,8 +53,9 @@
     Route::get('/rr', function () {
         
         
-        return Resultado::all();
+        return  Resultado::all() ;
     });
+    
     
     
     Route::post('/enviar', function (Request $resq) {
@@ -42,8 +68,8 @@
         return $r;
     });
     
-    Route::get("/alumnos", function () {
-        return alumno::all();
+    Route::get("/alumnos",function(){
+       return alumno::all();
     });
     
     Route::post('/alumnos', function (Request $resq) {
@@ -57,12 +83,19 @@
     });
     
     
-    Route::get("/resultadosfinales", function () {
-        return view("resultadosvista")->with("Resultados", Resultado::all()->sortByDesc("numero"));
+    Route::get("/resultadosfinales",function(){
+       
+       return   view("resultadosvista")->with("Resultados",Resultado::all()->sortByDesc("numero"));
+       
+       
     });
-    Route::get("/borrardatos", function () {
+     
+    
+    Route::get("/borrardatos",function(){
+        
         Resultado::truncate();
         return redirect("/resultadosfinales");
+        
         
     });
     
@@ -71,3 +104,10 @@
     Route::get('/who', function () {
         return exec('whoami');
     });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
