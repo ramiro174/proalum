@@ -5,6 +5,7 @@ body{
 .main-section{
 	border:1px solid #b9c0c7;
 	background-color: #fff;
+	
 }
 .profile-header{
 	background-color: #b9c0c7;
@@ -14,8 +15,8 @@ body{
 	margin:-50px 0px 30px 0px;
 }
 .user-detail img{
-	height:100px;
-	width:100px;
+	height:300px;
+	width:300px;
 }
 .user-detail h5{
 	margin:15px 0px 5px 0px;

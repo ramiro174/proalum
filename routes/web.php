@@ -14,19 +14,13 @@
     use App\models\alumno;
     use App\models\Resultado;
     use Illuminate\Http\Request;
-<<<<<<< HEAD
+
     
     Route::get('/',  function () {
         return  view('welcome');
      });
-=======
-    Route::get('/', function () {
-        return view('welcome');
-    });
-    Route::get('/ddd', function () {
-        return view('welcome');
-    });
->>>>>>> 9982a02c3369acc45c5615c96080a88c14430dba
+
+
     
         Route::get('/register', function(){
         return  view('auth/register');
