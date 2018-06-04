@@ -81,15 +81,11 @@ Route::get('/registerproject',function(){
         $r->save();
         return $r;
     });
-    
-    
     Route::get("/resultadosfinales",function(){
        
        return   view("resultadosvista")->with("Resultados",Resultado::all()->sortByDesc("numero"));
-       
-       
     });
-     
+    
     
     Route::get("/borrardatos",function(){
         
