@@ -28,9 +28,8 @@
     Route::get('/rr', function () {
         
         
-        return  Resultado::all() ;
+        return Resultado::all();
     });
-    
     
     
     Route::post('/enviar', function (Request $resq) {
@@ -43,8 +42,8 @@
         return $r;
     });
     
-    Route::get("/alumnos",function(){
-       return alumno::all();
+    Route::get("/alumnos", function () {
+        return alumno::all();
     });
     
     Route::post('/alumnos', function (Request $resq) {
@@ -58,18 +57,12 @@
     });
     
     
-    Route::get("/resultadosfinales",function(){
-       
-       return   view("resultadosvista")->with("Resultados",Resultado::all()->sortByDesc("numero"));
-       
-       
+    Route::get("/resultadosfinales", function () {
+        return view("resultadosvista")->with("Resultados", Resultado::all()->sortByDesc("numero"));
     });
-    
-    Route::get("/borrardatos",function(){
-        
+    Route::get("/borrardatos", function () {
         Resultado::truncate();
         return redirect("/resultadosfinales");
-        
         
     });
     

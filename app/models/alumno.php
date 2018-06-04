@@ -9,6 +9,6 @@ class alumno extends Model
    protected  $primary_key="id";
    protected  $table="alumnos";
    protected  $fillable=["nombre","telefono"];
-    public $timestamps = false;
+   public $timestamps = false;
    
 }
