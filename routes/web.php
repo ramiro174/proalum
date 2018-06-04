@@ -14,8 +14,10 @@
     use App\models\alumno;
     use App\models\Resultado;
     use Illuminate\Http\Request;
-    
     Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::get('/ddd', function () {
         return view('welcome');
     });
     
@@ -24,19 +26,13 @@
     });
 
 Route::get("/login",function(){
-       
        return  view("auth/login");
-       
     });
-
 Route::group(['middleware'=>'auth'],function(){
-
 Route::get('/logout','UserController@getlogout');
-
 Route::get("/profile",function(){
     return view("profile");
 });
-
 Route::get('/registerproject',function(){
     return view("registerproject");
 });
