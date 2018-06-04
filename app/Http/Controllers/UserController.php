@@ -14,7 +14,7 @@ class UserController extends Controller
     return	redirect("/");
     }
 
-    public function metodo()
+    public function metodo1()
     {
     	
     }
