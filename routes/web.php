@@ -41,13 +41,7 @@ Route::get('/registerproject',function(){
     return view("registerproject");
 });
 });
- Route::get('/baraja', function () {
-        return array("numero" => rand(1, 13));
-    });
-    Route::get('/rr', function () {
-    return  Resultado::all() ;
-    });
-   Route::post('/enviar', function (Request $resq) {
+Route::post('/enviar', function (Request $resq) {
         $r = new Resultado();
         $numero = $resq->input("numero");
         $nombre = $resq->input("nombre");
