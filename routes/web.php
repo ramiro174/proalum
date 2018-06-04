@@ -40,6 +40,21 @@ Route::get("/profile",function(){
 Route::get('/registerproject',function(){
     return view("registerproject");
 });
+Route::get('/registerteam',function(){
+    return view("registerteam");
+    });
+Route::get('/projectbrowser',function(){
+    return view("browseprojects");
+});
+
+Route::get('/projectprofile',function(){
+    return view("projectprofile");
+});
+
+Route::get('/teamprofile',function(){
+    return view("teamprofile");
+});
+
 });
 Route::post('/enviar', function (Request $resq) {
         $r = new Resultado();
