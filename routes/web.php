@@ -14,29 +14,32 @@
     use App\models\alumno;
     use App\models\Resultado;
     use Illuminate\Http\Request;
+<<<<<<< HEAD
     
     Route::get('/',  function () {
         return  view('welcome');
      });
+=======
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::get('/ddd', function () {
+        return view('welcome');
+    });
+>>>>>>> 9982a02c3369acc45c5615c96080a88c14430dba
     
         Route::get('/register', function(){
         return  view('auth/register');
     });
 
 Route::get("/login",function(){
-       
        return  view("auth/login");
-       
     });
-
 Route::group(['middleware'=>'auth'],function(){
-
 Route::get('/logout','UserController@getlogout');
-
 Route::get("/profile",function(){
     return view("profile");
 });
-
 Route::get('/registerproject',function(){
     return view("registerproject");
 });
@@ -56,13 +59,7 @@ Route::get('/teamprofile',function(){
 });
 
 });
- Route::get('/baraja', function () {
-        return array("numero" => rand(1, 13));
-    });
-    Route::get('/rr', function () {
-    return  Resultado::all() ;
-    });
-   Route::post('/enviar', function (Request $resq) {
+Route::post('/enviar', function (Request $resq) {
         $r = new Resultado();
         $numero = $resq->input("numero");
         $nombre = $resq->input("nombre");
