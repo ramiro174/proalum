@@ -37,9 +37,7 @@ Route::get("/profile",function(){
 Route::get('/registerproject',function(){
     return view("registerproject");
 });
-Route::get('/registerteam',function(){
-    return view("registerteam");
-    });
+Route::get('/registerteam','UserController@tags');
 Route::get('/projectbrowser',function(){
     return view("browseprojects");
 });

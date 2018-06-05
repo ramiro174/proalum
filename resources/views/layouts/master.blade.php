@@ -16,6 +16,11 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
+    <style type="text/css">
+        .navbar-nav .open .dropdown-menu {
+    background-color:#2c3e50;
+  }
+    </style>
     @section('styles')
 @show
 </head>
@@ -37,14 +42,19 @@
                 <li class="nav-item mx-0 mx-lg-1">
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contactanos</a>
                  @if(Auth::check())
-                <li class="nav-item mx-0 mx-lg-1">
-                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/profile">
-                       {{@Auth::user()->name}}
+               
+                <li class="nav-item dropdown mx-0 mx-lg-1">
+        <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{@Auth::user()->name}}
+        </a>
+        <div class="dropdown-menu" style="background-color: #2c3e50" aria-labelledby="navbarDropdown">
+            <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/profile">
+                       Perfil
                    </a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="{{url('/logout')}}">Cerrar Sesion</a>
-                </li>
+                   <div class="dropdown-divider col-12 offset-md-2" style=""></div>
+          <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="{{url('/logout')}}">Cerrar Sesion</a>
+        </div>
+      </li>
                 @else
                 <li class="nav-item mx-0 mx-lg-1">
                    <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/login">Inicia Sesion</a>
@@ -117,5 +127,7 @@
 <script src="js/contact_me.js"></script>
 <!-- Custom scripts for this template -->
 <script src="js/freelancer.min.js"></script>
+@section('scripts')
+@show
 </body>
 </html>

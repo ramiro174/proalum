@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('styles')
+
 @endsection
 
 @section('content')
@@ -9,8 +10,7 @@
         <hr class="star-dark mb-5">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+               
                 <form name="sentMessage" id="contactForm" novalidate="novalidate">
                     <div class="control-group" style="margin-bottom: 5%">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -22,14 +22,7 @@
                     <div class="control-group"  style="margin-bottom: 5%"> 
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Equipo</label>
-                            <select  class="form-control" id="email">
-                                <optgroup>
-                                  <option style="font-size: 140%;color: #495057;" value="nada">Miembros del Equipo</option>
-                                <option value="volvo">Volvo</option>
-                                <option value="volvo">Volvo</option>
-                                <option value="volvo">Volvo</option>  
-                                </optgroup>                           	
-                            </select>
+                            <input type="text" id="autocomplete">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
@@ -47,4 +40,21 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+  <script type="text/javascript">
+  	$(document).ready(function(){
+
+  		var states = {$alumnos}
+  		 $('#autocomplete').autocomplete({
+    lookup: alumnos,
+    onSelect: function (suggestion) {
+      var thehtml = '<strong>Currency Name:</strong> ' + suggestion.value + ' <br> <strong>Symbol:</strong> ' + suggestion.data;
+      $('#outputcontent').html(thehtml);
+    }
+  });
+  	});
+  </script>
 @endsection

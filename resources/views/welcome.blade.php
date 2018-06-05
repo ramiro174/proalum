@@ -36,14 +36,17 @@
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contactanos</a>
                 </li>
                 @if(Auth::check())
-                <li class="nav-item mx-0 mx-lg-1">
-                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/profile">
-                       {{@Auth::user()->name}}
+                 <li class="nav-item dropdown mx-0 mx-lg-1">
+        <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{@Auth::user()->name}}
+        </a>
+        <div class="dropdown-menu" style="background-color: #2c3e50" aria-labelledby="navbarDropdown">
+            <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/profile">
+                       Perfil
                    </a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="{{url('/logout')}}">Cerrar Sesion</a>
-                </li>
+          <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="{{url('/logout')}}">Cerrar Sesion</a>
+        </div>
+      </li>
                 @else
                 <li class="nav-item mx-0 mx-lg-1">
                    <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/login">Inicia Sesion</a>
