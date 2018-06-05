@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="container" style="margin-top: 15%">
+	{{csrf_field()}}
         <h2 class="text-center text-uppercase text-secondary mb-0">Registrar Equipo</h2>
         <hr class="star-dark mb-5">
         <div class="row">
@@ -22,9 +23,10 @@
                     <div class="control-group"  style="margin-bottom: 5%"> 
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Equipo</label>
-                            <input type="text" id="autocomplete">
+                            <input class="form-control" type="text" id="autocomplete" placeholder="Miembros del Equipo">
                             <p class="help-block text-danger"></p>
                         </div>
+                        <p id="output">Resultado</p>
                     </div>
                     <div class="control-group"  style="margin-bottom: 5%">
                     	<div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -46,13 +48,27 @@
   <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
   <script type="text/javascript">
   	$(document).ready(function(){
+  			/*alumnos = [{value: 'Pepe',data: '1'},
+  			{value: 'Raul',data: '2'},
+  			{value: 'Juan',data: '3'}];*/
 
-  		var states = {$alumnos}
-  		 $('#autocomplete').autocomplete({
+  			$.ajax({
+  		url:"/registerteam",
+		type:"post",
+		dataType:"JSON",
+		async:false,
+		data:{_token:$("input[name='_token']").val()},
+		success: function($r){
+			console.log("funciona");
+		}
+  			});
+
+  		$('#autocomplete').autocomplete({
     lookup: alumnos,
     onSelect: function (suggestion) {
-      var thehtml = '<strong>Currency Name:</strong> ' + suggestion.value + ' <br> <strong>Symbol:</strong> ' + suggestion.data;
-      $('#outputcontent').html(thehtml);
+
+      var thehtml = '<strong>Alumno: </strong> ' + suggestion.value + ' <strong>Id: </strong> ' + suggestion.data;
+      $('#output').html(thehtml);
     }
   });
   	});

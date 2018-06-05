@@ -19,17 +19,21 @@ class UserController extends Controller
     {
     	
     }
-
+    public function registerteamview()
+    {
+    	return view("registerteam");
+    }
     public function tags()
     {
     	$users = User::all();
-    	$alumnos = [];
+    	$alumnos;
 
     	foreach ($users as $key) {
-    		$alumnos[] = array($key->name => $key->id,   ); 
+    		//$alumnos[] = array("name" =>$key->name,"id" => $key->id);
+    		alumnos = [{"value"=> $key->name,"data"=> $key->id}]; 
     	}
-    	
-    	return view('registerteam')->with('alumnos',$alumnos);
+    	dd($alumnos);
+    	return $arreglo=['alumnos'=>$alumnos];
     }
 
 }

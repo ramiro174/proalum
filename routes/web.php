@@ -15,29 +15,29 @@
     use App\models\Resultado;
     use Illuminate\Http\Request;
 
-    
+/*=======================PROALUMNO=============================*/    
     Route::get('/',  function () {
         return  view('welcome');
      });
-
-
-    
         Route::get('/register', function(){
         return  view('auth/register');
     });
-
 Route::get("/login",function(){
        return  view("auth/login");
     });
+
 Route::group(['middleware'=>'auth'],function(){
+
 Route::get('/logout','UserController@getlogout');
 Route::get("/profile",function(){
     return view("profile");
 });
-Route::get('/registerproject',function(){
-    return view("registerproject");
+Route::get('/registerproject','UserController@registerteamview');
+
+Route::get('/registerteam',function(){
+    return view("registerteam");
 });
-Route::get('/registerteam','UserController@tags');
+Route::post('/registerteam','UserController@tags');
 Route::get('/projectbrowser',function(){
     return view("browseprojects");
 });
@@ -51,6 +51,10 @@ Route::get('/teamprofile',function(){
 });
 
 });
+
+/*=======================PROALUMNO=============================*/    
+
+
 Route::post('/enviar', function (Request $resq) {
         $r = new Resultado();
         $numero = $resq->input("numero");
