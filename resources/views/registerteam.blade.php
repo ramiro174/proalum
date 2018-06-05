@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('styles')
-
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 @endsection
 
 @section('content')
@@ -44,7 +44,7 @@
     </div>
 @endsection
 @section('scripts')
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+
   <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
   <script type="text/javascript">
   	$(document).ready(function(){

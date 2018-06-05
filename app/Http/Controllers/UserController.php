@@ -32,7 +32,6 @@ class UserController extends Controller
     		//$alumnos[] = array("name" =>$key->name,"id" => $key->id);
     		alumnos = [{"value"=> $key->name,"data"=> $key->id}]; 
     	}
-    	dd($alumnos);
     	return $arreglo=['alumnos'=>$alumnos];
     }
 
