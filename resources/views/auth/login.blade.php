@@ -11,9 +11,7 @@
      }
      body{
         background-color: #e2e2e2;
-
      }
-
  </style>
 @endsection
 
@@ -32,7 +30,7 @@
                             <label class="col-md-12 offset-md-3 control-label">Correo Electronico</label>
 
                             <div class="col-md-12 col-sm-12">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Correo Electronico" required="required" data-validation-required-message="Ingresa tu Correo Electronico">
+                                <input id="email" type="email" class="form-control" style="border-radius: 5px" name="email" value="{{ old('email') }}" placeholder="Correo Electronico" required="required" data-validation-required-message="Ingresa tu Correo Electronico">
                                 <p class="help-block text-danger"></p>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -48,7 +46,7 @@
                             <label for="password" class="col-md-12 offset-md-3 control-label">Contraseña</label>
 
                             <div class="col-md-12 col-sm-12">
-                                <input id="password" type="password" class="form-control" name="password" placeholder="Contraseña" required="required" data-validation-required-message="Ingresa tu Contraseña">
+                                <input id="password"  style="border-radius: 3px" type="password" class="form-control" name="password" placeholder="Contraseña" required="required" data-validation-required-message="Ingresa tu Contraseña">
                                 <p class="help-block text-danger"></p>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -77,7 +75,7 @@
                                 </button>
 
                                     <p class="col-md-12 offset-md-1">¿No tienes cuenta?  <a  href="/register">
-                                    Registrate aqui.
+                                    Registrate.
                                 </a></p>
                                
                             </div>

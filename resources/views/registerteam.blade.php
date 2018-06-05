@@ -51,15 +51,17 @@
   			/*alumnos = [{value: 'Pepe',data: '1'},
   			{value: 'Raul',data: '2'},
   			{value: 'Juan',data: '3'}];*/
-
+  			var alumnos;
   			$.ajax({
   		url:"/registerteam",
 		type:"post",
 		dataType:"JSON",
-		async:false,
+		//async:false,
 		data:{_token:$("input[name='_token']").val()},
 		success: function($r){
 			console.log("funciona");
+			$alumnos = $r.alumnos;
+			console.log($r.alumnos);
 		}
   			});
 

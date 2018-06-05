@@ -30,7 +30,7 @@ class UserController extends Controller
 
     	foreach ($users as $key) {
     		//$alumnos[] = array("name" =>$key->name,"id" => $key->id);
-    		alumnos = [{"value"=> $key->name,"data"=> $key->id}]; 
+    		$alumnos = ["value"=> $key->name,"data"=> $key->id]; 
     	}
     	return $arreglo=['alumnos'=>$alumnos];
     }

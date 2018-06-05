@@ -31,7 +31,7 @@
                             <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre</label>
 
                             <div class="col-md-12 col-sm-12">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombre" required="required" data-validation-required-message="Ingresa tu Nombre">
+                                <input id="name" style="border-radius: 5px" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombre" required="required" data-validation-required-message="Ingresa tu Nombre">
                                 <p class="help-block text-danger"></p>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -47,7 +47,7 @@
                             <label for="email" class="col-md-12 offset-md-3 control-label">Correo Electronico</label>
 
                             <div class="col-md-12">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Correo Electronico" required="required" data-validation-required-message="Ingresa tu Correo Electronico">
+                                <input id="email" style="border-radius: 5px" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Correo Electronico" required="required" data-validation-required-message="Ingresa tu Correo Electronico">
                                 <p class="help-block text-danger"></p>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -64,7 +64,7 @@
                             <label for="password"  class="col-md-12 offset-md-3 control-label">Contraseña</label>
 
                             <div class="col-md-12">
-                                <input id="password" type="password" class="form-control" name="password" placeholder="Contraseña" required="required" data-validation-required-message="Ingresa una Contraseña">
+                                <input id="password" style="border-radius: 5px" type="password" class="form-control" name="password" placeholder="Contraseña" required="required" data-validation-required-message="Ingresa una Contraseña">
                                 <p class="help-block text-danger"></p>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -80,7 +80,7 @@
                             <label for="password-confirm"  class="col-md-12 offset-md-3 control-label">Confirmar Contraseña</label>
 
                             <div class="col-md-12">
-                                <input  id="password-confirm" type="password" class="form-control col-md-12" name="password_confirmation"  placeholder="Confirmar Contraseña" required="required" data-validation-required-message="Confirma tu Contraseña">
+                                <input  id="password-confirm" style="border-radius: 5px" type="password" class="form-control col-md-12" name="password_confirmation"  placeholder="Confirmar Contraseña" required="required" data-validation-required-message="Confirma tu Contraseña">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>  
@@ -92,6 +92,9 @@
                                 <button type="submit" class="btn btn-primary btn-xl col-md-12 text-uppercase bg-primary text-white rounded btn-outline-light">
                                     Registrate
                                 </button>
+                                <p class="col-md-12 offset-md-1">¿Ya tienes cuenta?  <a  href="/login">
+                                    Inicia Sesion.
+                                </a></p>
                             </div>
                         </div>
                     </form>
