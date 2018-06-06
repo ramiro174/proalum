@@ -22,7 +22,7 @@
   }
     </style>
     @section('styles')
-@show
+    @show
 </head>
 <body id="page-top">
 <!-- Navigation -->
@@ -127,7 +127,13 @@
 <script src="js/contact_me.js"></script>
 <!-- Custom scripts for this template -->
 <script src="js/freelancer.min.js"></script>
+@section('scriptsAdicionales')
+@show
 @section('scripts')
 @show
+
+
+
+
 </body>
 </html>
