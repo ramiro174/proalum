@@ -41,7 +41,6 @@
     </div>
 @endsection
 @section('scriptsAdicionales')
-   
     <script type="text/javascript">
 		$(document).ready(function () {
 			/*alumnos = [{value: 'Pepe',data: '1'},
