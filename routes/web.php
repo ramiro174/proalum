@@ -13,6 +13,7 @@
     
     use App\models\alumno;
     use App\models\Resultado;
+    use App\models\User;
     use Illuminate\Http\Request;
 
 /*=======================PROALUMNO=============================*/
@@ -50,11 +51,15 @@ Route::get('/teamprofile',function(){
     return view("teamprofile");
 });
 
+Route::get("/llenar",function(){
+    return User::all();
+});
+
 });
 
 /*=======================PROALUMNO=============================*/
 
-
+    
 
     Route::get("/alumnos",function(){
        return alumno::all();
