@@ -15,7 +15,7 @@
     use App\models\Resultado;
     use Illuminate\Http\Request;
 
-/*=======================PROALUMNO=============================*/    
+/*=======================PROALUMNO=============================*/
     Route::get('/',  function () {
         return  view('welcome');
      });
@@ -52,18 +52,10 @@ Route::get('/teamprofile',function(){
 
 });
 
-/*=======================PROALUMNO=============================*/    
+/*=======================PROALUMNO=============================*/
 
 
-Route::post('/enviar', function (Request $resq) {
-        $r = new Resultado();
-        $numero = $resq->input("numero");
-        $nombre = $resq->input("nombre");
-        $r->numero = $numero;
-        $r->nombre = $nombre;
-        $r->save();
-        return $r;
-    });
+
     Route::get("/alumnos",function(){
        return alumno::all();
     });
@@ -76,19 +68,7 @@ Route::post('/enviar', function (Request $resq) {
         $r->save();
         return $r;
     });
-    Route::get("/resultadosfinales",function(){
-       
-       return   view("resultadosvista")->with("Resultados",Resultado::all()->sortByDesc("numero"));
-    });
-    
-    
-    Route::get("/borrardatos",function(){
-        
-        Resultado::truncate();
-        return redirect("/resultadosfinales");
-        
-        
-    });
+  
     
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');

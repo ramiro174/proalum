@@ -16,13 +16,13 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
-    <style type="text/css">
-        .navbar-nav .open .dropdown-menu {
-    background-color:#2c3e50;
-  }
-    </style>
+    <link href="css/proyecto.min.css" rel="stylesheet">
+    
+  
+    
+    
     @section('styles')
-@show
+    @show
 </head>
 <body id="page-top">
 <!-- Navigation -->
@@ -127,7 +127,13 @@
 <script src="js/contact_me.js"></script>
 <!-- Custom scripts for this template -->
 <script src="js/freelancer.min.js"></script>
+@section('scriptsAdicionales')
+@show
 @section('scripts')
 @show
+
+
+
+
 </body>
 </html>
