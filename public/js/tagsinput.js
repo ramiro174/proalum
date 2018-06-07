@@ -85,7 +85,8 @@
 
       // Throw an error when trying to add an object while the itemValue option was not set
       if (typeof item === "object" && !self.objectItems)
-        throw("Can't add objects when itemValue option is not set");
+        //throw("Can't add objects when itemValue option is not set");
+      item = $.trim(item.name);
 
       // Ignore strings only containg whitespace
       if (item.toString().match(/^\s*$/))
@@ -359,17 +360,23 @@
         $.fn.typeahead.apply(self.$input, typeaheadjs).on('typeahead:selected', $.proxy(function (obj, datum, name) {
           var index = 0;
           typeaheadjs.some(function(dataset, _index) {
-            if (dataset.name === name) {
+            if (dataset != null) {
+              if (dataset.name === name) {
               index = _index;
               return true;
             }
+            }
+            
             return false;
           });
 
           // @TODO Dep: https://github.com/corejavascript/typeahead.js/issues/89
-          if (typeaheadjs[index].valueKey) {
+          if (typeaheadjs[index] != null) {
+            if (typeaheadjs[index].valueKey) {
             self.add(datum[typeaheadjs[index].valueKey]);
-          } else {
+          } 
+          }
+          else {
             self.add(datum);
           }
 
