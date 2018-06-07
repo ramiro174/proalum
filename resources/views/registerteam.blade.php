@@ -58,24 +58,7 @@
 
     <script type="text/javascript">
 		$(document).ready(function () {
-			/*alumnos = [{value: 'Pepe',data: '1'},
-            {value: 'Raul',data: '2'},
-            {value: 'Juan',data: '3'}];*/
-
-			/*var alumnos = "esperando resultado";
-            function myCallback(resp){
-                $alumnos = resp.alumnos;
-                console.log(alumnos);
-            };
-            
-			$.ajax({
-				url     : "/registerteam",
-				type    : "post",
-				dataType: "JSON",
-				//async:false,
-				data    : {_token: $("input[name='_token']").val()},
-				success : myCallback,
-			});*/
+			
 
             
 			var engine = new Bloodhound({
@@ -83,7 +66,7 @@
             queryTokenizer: Bloodhound.tokenizers.whitespace,
              prefetch: {
                     url: "/llenar",
-                    transform: function(list) {
+                    filter: function(list) {
                     return $.map(list, function(nombre) {                     
                     return { email: nombre.email}; });
                     }
