@@ -18,7 +18,7 @@
           <div class="card-body text-primary">
             <h2 class="text-center text-uppercase text-secondary mb-0">Registra tu Equipo</h2>
               <hr class="star-dark mb-5">
-                <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                <form class="form-horizontal" method="" action="#">
                   {{ csrf_field() }}
                   <div class="control-group"  style="margin-bottom: 5%">
                       <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
@@ -62,13 +62,13 @@
 
             
 			var engine = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('email'),
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
              prefetch: {
-                    url: "/llenar",
+                    url: "/llenartags",
                     filter: function(list) {
-                    return $.map(list, function(nombre) {                     
-                    return { email: nombre.email}; });
+                    return $.map(list, function(name) {                     
+                    return { name: name.email}; });
                     }
                 }
              });
@@ -78,8 +78,8 @@
             $('input#miembros').tagsinput({
               typeaheadjs: {
                 name: 'nombre',
-                displayKey: 'email',
-                valueKey: 'email',
+                displayKey: 'name',
+                valueKey: 'name',
                 source: engine.ttAdapter()
               }
             });

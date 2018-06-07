@@ -38,7 +38,7 @@ Route::get('/registerproject','UserController@registerteamview');
 Route::get('/registerteam',function(){
     return view("registerteam");
 });
-Route::post('/registerteam','UserController@tags');
+Route::get('/llenartags','UserController@tags');
 Route::get('/projectbrowser',function(){
     return view("browseprojects");
 });
@@ -51,9 +51,7 @@ Route::get('/teamprofile',function(){
     return view("teamprofile");
 });
 
-Route::get("/llenar",function(){
-    return User::all();
-});
+
 
 });
 
