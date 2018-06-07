@@ -1,8 +1,8 @@
 @extends('layouts.master')
-
+@section('styles')
+<link rel="stylesheet" type="text/css" href="css/bootstrap-tagsinput.css">
+@endsection
 @section('scripts')
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-tagsinput.css">
-    <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-tagsinput.js"></script>
     <script type="text/javascript" src="js/typeahead.js"></script>
     <style type="text/css">

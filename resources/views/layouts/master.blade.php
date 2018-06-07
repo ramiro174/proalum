@@ -16,14 +16,11 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
-    
-    <link href="css/proyecto.css" rel="stylesheet">
-    
-  
-    
-    
     @section('styles')
+
     @show
+    <link href="css/proyecto.css" rel="stylesheet">
+   
 </head>
 <body id="page-top">
 <!-- Navigation -->
@@ -72,7 +69,7 @@
 @section('content')
 @show
 <footer class="footer text-center">
-    <div class="container">
+    <div class="container letras-blancas">
         <div class="row">
             <div class="col-md-4 mb-5 mb-lg-0">
                 <h4 class="text-uppercase mb-4">Location</h4>
@@ -128,6 +125,8 @@
 <script src="js/contact_me.js"></script>
 <!-- Custom scripts for this template -->
 <script src="js/freelancer.min.js"></script>
+
+    
 @section('scriptsAdicionales')
 @show
 @section('scripts')
