@@ -33,7 +33,9 @@ Route::get('/logout','UserController@getlogout');
 Route::get("/profile",function(){
     return view("profile");
 });
-Route::get('/registerproject','UserController@registerteamview');
+Route::get('/registerproject',function(){
+    return view('registerproject');
+});
 
 Route::get('/registerteam',function(){
     return view("registerteam");

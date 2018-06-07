@@ -16,6 +16,7 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
+    
     <link href="css/proyecto.css" rel="stylesheet">
     
   
@@ -37,30 +38,30 @@
             <ul class="navbar-nav ml-auto">
               
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Acerca de</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Acerca de <i class="fa fa-fw fa-info-circle"></i></a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contactanos</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contactanos <i class="fa fa-fw fa-envelope"></i></a>
                  @if(Auth::check())
                
                 <li class="nav-item dropdown mx-0 mx-lg-1">
         <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{@Auth::user()->name}}
         </a>
-        <div class="dropdown-menu" style="background-color: #2c3e50" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/profile">
-                       Perfil
+                       Perfil <i class="fa fa-pull-right fa-fw fa-user"></i>
                    </a>
-                   <div class="dropdown-divider col-12 offset-md-2" style=""></div>
-          <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="{{url('/logout')}}">Cerrar Sesion</a>
+                   
+          <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="{{url('/logout')}}">Salir    <i class="fa fa-fw fa-pull-right fa-sign-out"></i></a>
         </div>
       </li>
                 @else
                 <li class="nav-item mx-0 mx-lg-1">
-                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/login">Inicia Sesion</a>
+                   <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/login">Inicia Sesion <i class="fa fa-fw fa-sign-in"></i></a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                   <a  class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/register">Registrate</a>
+                   <a  class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/register">Registrate <i class="fa fa-fw fa-user-plus"></i></a>
                 </li>
                 @endif
             </ul>
