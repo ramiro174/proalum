@@ -26,13 +26,15 @@ class UserController extends Controller
     public function tags()
     {
     	$users = User::all();
-    	$alumnos;
+    	$alumnos = [];
 
     	foreach ($users as $key) {
     		//$alumnos[] = array("name" =>$key->name,"id" => $key->id);
-    		$alumnos = ["value"=> $key->name,"data"=> $key->id]; 
+    		$alumnos[] = ["name"=> $key->name,"id"=> $key->id]; 
     	}
-    	return $arreglo=['alumnos'=>$alumnos];
+    	//return $arreglo=['alumnos'=>$alumnos];
+        
+        return ["alumnos"=>$users]; 
     }
 
 }

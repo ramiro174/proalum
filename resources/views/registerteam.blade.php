@@ -1,71 +1,106 @@
 @extends('layouts.master')
 
 @section('scripts')
+    <link rel="stylesheet" type="text/css" href="css/tagsinput.css">
     <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+    <script type="text/javascript" src="js/tagsinput.js"></script>
+    <script type="text/javascript" src="js/typeahead.js"></script>
+    <style type="text/css">
+        body{
+            background-color: #e2e2e2;
+        }
+    </style>
 @endsection
 @section('content')
-    <div class="container" style="margin-top: 15%">
-        {{csrf_field()}}
-        <h2 class="text-center text-uppercase text-secondary mb-0">Registrar Equipo</h2>
-        <hr class="star-dark mb-5">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                    <div class="control-group" style="margin-bottom: 5%">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Nombre del Equipo</label>
-                            <input class="form-control" id="name" type="text" placeholder="Nombre del Equipo" required="required" data-validation-required-message="Ingresa el nombre de tu Equipo">
-                            <p class="help-block text-danger"></p>
+    <div class="container margin-top-15 margin-bot-15 col-md-7 col-sm-12" id="register-cont" >
+    <div class="row">
+      <div class="card  col-md-12">
+          <div class="card-body text-primary">
+            <h2 class="text-center text-uppercase text-secondary mb-0">Registra tu Equipo</h2>
+              <hr class="star-dark mb-5">
+                <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                  {{ csrf_field() }}
+                  <div class="control-group"  style="margin-bottom: 5%">
+                      <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
+                          <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre del Equipo</label>   
+                          <div class="col-md-12 col-sm-12">
+                              <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombre del Equipo" required="required" data-validation-required-message="Completa este Campo">
+                              <p class="help-block text-danger"></p>
+                              @if ($errors->has('name'))
+                                  <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                              @endif
+                          </div>
+                      </div>
+                  </div>
+                  <div class="control-group" >
+                      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
+                          <label for="email" class="col-md-12 offset-md-3 control-label">Miembros del Equipo</label>
+                             <input id="miembros"  type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Miembros del Equipo" required="required" data-validation-required-message="Completa este Campo" data-role="tagsinput">
+                              <p class="help-block text-danger"></p>
+                      </div>
+                  </div>
+                   <div class="control-group margin-top-5" >
+                      <div class="form-group  controls mb-0 pb-2">
+                          <button type="submit" class="btn btn-primary btn-xl col-md-12 text-uppercase bg-primary text-white rounded btn-outline-light">
+                              Registrar
+                          </button>
                         </div>
-                    </div>
-                    <div class="control-group" style="margin-bottom: 5%">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Equipo</label>
-                            <input class="form-control" type="text" id="autocomplete" placeholder="Miembros del Equipo">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <p id="output">Resultado</p>
-                    </div>
-                    <div class="control-group" style="margin-bottom: 5%">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        </div>
-                    </div>
-                    <br>
-                    <div id="success"></div>
-                    <div class="form-group col-md-6">
-                        <button type="submit" class="btn btn-primary btn-xl col-md-12 offset-md-6" id="sendMessageButton">Registrar</button>
-                    </div>
-                </form>
-            </div>
+                  </div>                 
+              </form>
+          </div>
         </div>
     </div>
+</div>
 @endsection
 @section('scriptsAdicionales')
+
     <script type="text/javascript">
 		$(document).ready(function () {
 			/*alumnos = [{value: 'Pepe',data: '1'},
             {value: 'Raul',data: '2'},
             {value: 'Juan',data: '3'}];*/
-			var alumnos;
+
+			/*var alumnos = "esperando resultado";
+            function myCallback(resp){
+                $alumnos = resp.alumnos;
+                console.log(alumnos);
+            };
+            
 			$.ajax({
 				url     : "/registerteam",
 				type    : "post",
 				dataType: "JSON",
 				//async:false,
 				data    : {_token: $("input[name='_token']").val()},
-				success : function ($r) {
-					console.log("funciona");
-					$alumnos = $r.alumnos;
-					console.log($r.alumnos);
-				}
-			});
-			$('#autocomplete').autocomplete({
-				lookup  : alumnos,
-				onSelect: function (suggestion) {
-					var thehtml = '<strong>Alumno: </strong> ' + suggestion.value + ' <strong>Id: </strong> ' + suggestion.data;
-					$('#output').html(thehtml);
-				}
-			});
+				success : myCallback,
+			});*/
+
+            
+			var engine = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('email'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+             prefetch: {
+                    url: "/llenar",
+                    transform: function(list) {
+                    return $.map(list, function(nombre) {                     
+                    return { email: nombre.email}; });
+                    }
+                }
+             });
+            engine.initialize();
+                console.log(engine);
+           
+            $('input#miembros').tagsinput({
+              typeaheadjs: {
+                name: 'nombre',
+                displayKey: 'email',
+                valueKey: 'email',
+                source: engine.ttAdapter()
+              }
+            });
+
 		});
     </script>
 @endsection

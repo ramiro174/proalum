@@ -16,7 +16,7 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
-    <link href="css/proyecto.min.css" rel="stylesheet">
+    <link href="css/proyecto.css" rel="stylesheet">
     
   
     
