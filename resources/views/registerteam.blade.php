@@ -3,7 +3,7 @@
 @section('scripts')
     <link rel="stylesheet" type="text/css" href="css/tagsinput.css">
     <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
-    <script type="text/javascript" src="js/tagsinput.js"></script>
+    <script type="text/javascript" src="js/bootstrap-tagsinput.js"></script>
     <script type="text/javascript" src="js/typeahead.js"></script>
     <style type="text/css">
         body{
