@@ -26,7 +26,12 @@
 Route::get("/login",function(){
        return  view("auth/login");
     });
-
+Route::get('/teamprofile',function(){
+    return view("teamprofile");
+});
+Route::get('/projectbrowser',function(){
+    return view("browseprojects");
+});
 Route::group(['middleware'=>'auth'],function(){
 
 Route::get('/logout','UserController@getlogout');
@@ -41,17 +46,13 @@ Route::get('/registerteam',function(){
     return view("registerteam");
 });
 Route::get('/llenartags','UserController@tags');
-Route::get('/projectbrowser',function(){
-    return view("browseprojects");
-});
+
 
 Route::get('/projectprofile',function(){
     return view("projectprofile");
 });
 
-Route::get('/teamprofile',function(){
-    return view("teamprofile");
-});
+
 
 
 

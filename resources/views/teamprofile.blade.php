@@ -1,11 +1,19 @@
 @extends('layouts.master')
 
 @section('styles')
+<style type="text/css">
+    
 
+     body{
+        background-color: #e2e2e2;
+     }
+
+</style>
 @endsection
 @section('content')
-<div class="container" style="margin-top: 18%">
-
+<div class="container margin-top-15 margin-bot-15" >
+  <div class="card">
+    <div class="card-body ">
       <!-- Introduction Row -->
       <h1 class="my-4">Sobre Nosotros
         <small>Encantados de Conocerte!</small>
@@ -18,55 +26,53 @@
           <h2 class="my-4">Nuestro Equipo</h2>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
           <h3>John Smith
             <small>Titulo</small>
           </h3>
           <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
           <h3>John Smith
             <small>Titulo</small>
           </h3>
           <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
           <h3>John Smith
             <small>Titulo</small>
           </h3>
           <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
           <h3>John Smith
             <small>Titulo</small>
           </h3>
           <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
           <h3>John Smith
             <small>Titulo</small>
           </h3>
           <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
           <h3>John Smith
             <small>Titulo</small>
           </h3>
           <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
         </div>
       </div>
-
+      </div>
+      </div>
     </div>
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-      </div>
+    
 @endsection

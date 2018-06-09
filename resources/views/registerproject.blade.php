@@ -7,7 +7,7 @@
 </style>
 @endsection
 @section('content')
-<div class="container margin-top-15 margin-bot-15 col-md-7 col-sm-12" id="register-cont" >
+<div class="container letras-1-rem margin-top-15 margin-bot-15 col-md-7 col-sm-12">
     <div class="row">
         <div class="card  col-md-12">
             <div class="card-body text-primary">
@@ -15,7 +15,7 @@
                 <hr class="star-dark mb-5">
                 <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}
-                    <div class="control-group"  style="margin-bottom: 5%">
+                    <div class="control-group margin-bot-5">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
                             <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre</label>   
                             <div class="col-md-12 col-sm-12">
@@ -33,7 +33,7 @@
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
                             <label for="name"  class="col-md-6 offset-md-3 control-label">Equipo</label>   
                             <div class="col-md-12 col-sm-12">
-                                <select id="name" type="text" class="form-control" name="equipo" value="{{ old('name') }}" required="required" data-validation-required-message="Ingresa el Nombre de tu Proyecto">
+                                <select id="name" type="text" class="form-control select-estilo" name="equipo" value="{{ old('name') }}" required="required" data-validation-required-message="Ingresa el Nombre de tu Proyecto">
                                 	<option value="" disabled selected>Selecciona tu equipo</option>
                                 	<option>Prueba</option>
                                 	<option>Prueba2</option>

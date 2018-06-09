@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<div class="container margin-top-15 margin-bot-15 col-md-4 col-sm-12" id="login-cont">
+<div class="container letras-1-rem margin-top-15 margin-bot-15 col-md-4 col-sm-12">
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="card">

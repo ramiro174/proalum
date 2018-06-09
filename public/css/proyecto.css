@@ -16,12 +16,23 @@
 	margin-bottom: 1.5rem;
 }
 
-div > .container{
-    font-size: 1.1rem;
+.select-estilo{
+  border: 0px;
+  outline: 0px;
+  font-size: 1.5rem;
+}
+select.select-estilo > option{
+  font-size: 1.5rem;
+}
+.letras-1-rem{
+  font-size: 1.1rem;
     color: #495057;
 }
 .letras-blancas{
     color: #ffff;
+}
+.heredar-color{
+  color: inherit;
 }
 
 

@@ -76,6 +76,7 @@
                 </a>
             </div>
         </div>
+       <a class="heredar-color" href="/projectbrowser"><h2 class="text-center text-uppercase text-secondary mb-0">Todos los Proyectos</h2></a> 
     </div>
 </section>
 <!-- About Section -->
