@@ -57,8 +57,9 @@ Route::get('/projectprofile',function(){
 Route::get('/listaequipos',function(){
     return view('/equipos/listaequipos');
 });
-
-
+Route::get('/editarequipo',function(){
+    return view('/equipos/editarequipo');
+});
 
 
 });

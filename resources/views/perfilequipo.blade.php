@@ -16,7 +16,7 @@
     <div class="card-body no-bordes">
       <!-- Introduction Row -->
       <h1 class="my-4">Sobre Nosotros
-        <small>Encantados de Conocerte! <a class="offset-1 heredar-color btn btn-warning" href="">Editar Pagina <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small>
+        <small>Encantados de Conocerte! <a class="offset-1 heredar-color btn btn-warning" href="/editarequipo">Editar Pagina <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small>
       </h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
 

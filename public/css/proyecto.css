@@ -67,11 +67,34 @@ select.select-estilo > option{
 .bootstrap-tagsinput .tag{
         border-radius: 3px;
          font-size: 1.1rem;
-            background-color:#565a5d;
+            background-color:#dadada;
             margin-right:2px;
             color:white;
             padding-right: 3px;
             border-style: solid;
             border-width: 1px;
-            border-color: #18bc9c;
+            border-color: #28a745;
     }
+ .tt-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+  border-top: none;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
