@@ -1,13 +1,6 @@
 @extends('layouts.master')
 @section('styles')
-<style type="text/css">
-    
-
-     body{
-        background-color: #e2e2e2;
-     }
-
-</style>
+<style type="text/css"> body{ background-color: #e2e2e2;}</style>
 @endsection
 @section('content')
 <div class="container letras-1-rem margin-top-15 margin-bot-15 col-md-7 col-sm-12 " >

@@ -57,11 +57,11 @@
 @section('scriptsAdicionales')
 
     <script type="text/javascript">
-		$(document).ready(function () {
-			
+    $(document).ready(function () {
+      
 
             
-			var engine = new Bloodhound({
+      var engine = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
              prefetch: {
@@ -84,6 +84,6 @@
               }
             });
 
-		});
+    });
     </script>
 @endsection

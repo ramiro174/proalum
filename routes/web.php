@@ -18,19 +18,22 @@
 
 /*=======================PROALUMNO=============================*/
     Route::get('/',  function () {
-        return  view('welcome');
+        return  view('bienvenidos');
      });
         Route::get('/register', function(){
         return  view('auth/register');
     });
+Route::get('/perfilproyecto',function(){
+    return view('perfilproyecto');
+});
 Route::get("/login",function(){
        return  view("auth/login");
     });
 Route::get('/teamprofile',function(){
-    return view("teamprofile");
+    return view("perfilequipo");
 });
 Route::get('/projectbrowser',function(){
-    return view("browseprojects");
+    return view("buscarproyectos");
 });
 Route::group(['middleware'=>'auth'],function(){
 
@@ -39,19 +42,21 @@ Route::get("/profile",function(){
     return view("profile");
 });
 Route::get('/registerproject',function(){
-    return view('registerproject');
+    return view('registrarproyecto');
 });
 
 Route::get('/registerteam',function(){
-    return view("registerteam");
+    return view("registrarequipo");
 });
 Route::get('/llenartags','UserController@tags');
 
 
 Route::get('/projectprofile',function(){
-    return view("projectprofile");
+    return view("perfilequipo");
 });
-
+Route::get('/listaequipos',function(){
+    return view('/equipos/listaequipos');
+});
 
 
 

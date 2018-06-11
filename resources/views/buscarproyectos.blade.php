@@ -2,11 +2,11 @@
 
 @section('styles')
 <style type="text/css">
-	body
-	{
-		background-color: #e2e2e2;
+  body
+  {
+    background-color: #e2e2e2;
 
-	}
+  }
 </style>
 @endsection
 
@@ -55,7 +55,7 @@
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a class="heredar-color" href="#">Proyecto 1</a>
+                    <a class="heredar-color" href="/perfilproyecto">Proyecto 1</a>
                   </h4>
                  <a class="heredar-color" href="/teamprofile"><h5>Equipo 1</h5></a> 
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
@@ -71,7 +71,7 @@
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a class="heredar-color" href="#">Proyecto 2</a>
+                    <a class="heredar-color" href="/perfilproyecto">Proyecto 2</a>
                   </h4>
                 <a class="heredar-color" href="/teamprofile"><h5>Equipo 2</h5></a>  
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
@@ -87,7 +87,7 @@
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a class="heredar-color" href="#">Proyecto 3</a>
+                    <a class="heredar-color" href="/perfilproyecto">Proyecto 3</a>
                   </h4>
                 <a class="heredar-color" href="/teamprofile"><h5>Equipo 3</h5></a>  
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
@@ -103,7 +103,7 @@
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a class="heredar-color" href="#">Proyecto 4</a>
+                    <a class="heredar-color" href="/perfilproyecto">Proyecto 4</a>
                   </h4>
                 <a class="heredar-color" href="/teamprofile"><h5>Equipo 4</h5></a>  
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
@@ -119,7 +119,7 @@
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a class="heredar-color" href="#">Proyecto 5</a>
+                    <a class="heredar-color" href="/perfilproyecto">Proyecto 5</a>
                   </h4>
                  <a class="heredar-color" href="/teamprofile"><h5>Equipo 5</h5></a> 
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
@@ -135,7 +135,7 @@
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a class="heredar-color" href="#">Proyecto 6</a>
+                    <a class="heredar-color" href="/perfilproyecto">Proyecto 6</a>
                   </h4>
                   <a class="heredar-color" href="/teamprofile"><h5>Equipo 6</h5></a>
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
@@ -161,6 +161,9 @@
           </div>
 
         </div>
+      </div>
+      <div class="pagination">
+      	
       </div>
       </div>
       </div>
