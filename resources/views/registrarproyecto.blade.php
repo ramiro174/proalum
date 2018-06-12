@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('styles')
 <style type="text/css">
-  body{
-    background-color: #e2e2e2;
-  }
+body{
+  background-color: #e2e2e2;
+}
 </style>
 @endsection
 @section('content')
@@ -11,26 +11,22 @@
   <div class="row">
     <div class="card  col-md-12">
       <div class="card-body text-primary">
-      <h2 class="text-center text-uppercase text-secondary mb-0">Registra tu Proyecto</h2>
+        <h2 class="text-center text-uppercase text-secondary mb-0">Registra tu Proyecto</h2>
         <hr class="star-dark mb-5">
         <form class="form-horizontal" method="POST" action="{{ route('register') }}">
           {{ csrf_field() }}
           <div class="control-group margin-bot-5">
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre</label>   
               <div class="col-md-12 col-sm-12">
-                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombre del Proyecto" required="required" data-validation-required-message="Ingresa el Nombre de tu Proyecto">
+                <input id="name" type="text" class="form-control" name="name" placeholder="Nombre del Proyecto" required="required" data-validation-required-message="Ingresa el Nombre de tu Proyecto">
                 <p class="help-block text-danger"></p>
-                @if ($errors->has('name'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('name') }}</strong>
-                  </span>
-                @endif
+               
               </div>
             </div>
           </div>
-          <div class="control-group"  style="margin-bottom: 5%">
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
+          <div class="control-group margin-bot-5">
+            <div class="form-group  floating-label-form-group controls mb-0 pb-2">
               <label for="name"  class="col-md-6 offset-md-3 control-label">Equipo</label>   
               <div class="col-md-12 col-sm-12">
                 <select id="name" type="text" class="form-control select-estilo" name="equipo" value="{{ old('name') }}" required="required" data-validation-required-message="Ingresa el Nombre de tu Proyecto">
@@ -39,15 +35,28 @@
                   <option>Prueba2</option>
                 </select>
                 <p class="help-block text-danger"></p>
-                @if ($errors->has('name'))
-                  <span class="help-block">
-                    <strong>{{ $errors->first('name') }}</strong>
-                  </span>
-                @endif
+
               </div>
             </div>
           </div>
-
+          <div class="control-group margin-bot-5">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label for="name"  class="col-md-6 offset-md-3 control-label">Vinculo de Git</label>
+              <div class="col-md-12 col-sm-12">
+                <input id="name" type="text" class="form-control" name="name" placeholder="Vinculo de Proyecto en Git">
+                <p class="help-block text-danger"></p>      
+              </div>
+            </div>
+          </div>
+          <div class="control-group margin-bot-5">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              
+              <div class="col-md-12 col-sm-12">
+                <input id="name" type="file" accept="image/*" class="form-control" name="name" placeholder="Vinculo de Proyecto en Git">
+                <p class="help-block text-danger"></p>      
+              </div>
+            </div>
+          </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Descripcion</label>
@@ -56,10 +65,10 @@
             </div>
           </div>
           
-           <div class="control-group margin-top-5" >
+          <div class="control-group margin-top-5" >
             <div class="form-group  controls mb-0 pb-2">
-             
-              <button type="submit" class="btn btn-primary btn-xl col-md-12 text-uppercase bg-primary text-white rounded btn-outline-light">
+
+              <button type="submit" class="btn btn-primary btn-xl col-md-12 text-uppercase bg-primary text-white rounded btn-outline-light border-0">
                 Registrar
               </button>
             </div>

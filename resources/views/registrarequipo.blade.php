@@ -1,15 +1,16 @@
 @extends('layouts.master')
 @section('styles')
 <link rel="stylesheet" type="text/css" href="css/bootstrap-tagsinput.css">
-@endsection
-@section('scripts')
-    <script type="text/javascript" src="js/bootstrap-tagsinput.js"></script>
-    <script type="text/javascript" src="js/typeahead.js"></script>
-    <style type="text/css">
+<style type="text/css">
         body{
             background-color: #e2e2e2;
         }
     </style>
+@endsection
+@section('scripts')
+    <script type="text/javascript" src="js/bootstrap-tagsinput.js"></script>
+    <script type="text/javascript" src="js/typeahead.js"></script>
+    
 @endsection
 @section('content')
     <div class="container letras-1-rem margin-top-15 margin-bot-15 col-md-7 col-sm-12">
