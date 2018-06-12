@@ -35,7 +35,24 @@ select.select-estilo > option{
 .no-bordes{
 	border: none;
 }
+.cent-icon{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    
+}
+.cent-button {
+    
+    
+    position: relative;
+    margin: auto;
+    text-align: center;
+    height: 21px;
+    width: 20px;
 
+}
 
 .navbar-nav > li > .dropdown-menu {
         background-color: #2c3e50;
