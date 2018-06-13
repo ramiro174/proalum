@@ -22,7 +22,7 @@
     <div class="card  col-md-12">
       <div class="card-body">
       <div class="card">
-  <h5 class="card-header">Equipo 2 <a href="/teamprofile"><i class="btn btn-warning offset-9 fa fa-pencil-square float-right"></i></a></h5>
+  <h5 class="card-header">Equipo 2 <a href="/teamprofile"><i class="btn btn-warning offset-9 fa fa-key float-right"></i></a></h5>
   <div class="card-body">
   <h5 class="card-title">Espacio para texto</h5>
   <a href="#" class="btn btn-primary">Ver Equipo</a>
