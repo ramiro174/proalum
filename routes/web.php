@@ -64,10 +64,6 @@ Route::get('/editarequipo',function(){
 
 });
 
-/*=======================PROALUMNO=============================*/
-
-// raamiro estuvo aqui  y volvio estar prueba
-
 /*=======================PROALUMNO======Comentario de prueba=======================*/
 
     
