@@ -64,7 +64,7 @@ Route::get('/editarequipo',function(){
 
 });
 
-/*=======================PROALUMNO=============================*/
+/*=======================PROALUMNO======Comentario de prueba=======================*/
 
     
 
