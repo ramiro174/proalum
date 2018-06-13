@@ -5,8 +5,10 @@
 @section('content')
 <div class="container margin-top-15 margin-bot-5">
 	<div class="card">
+    <div class="card-header"><a class="heredar-color" href="/profile"><img class="col-1 float-left" src="img/profile.png"><h1>Alumno</h1></a> 
+    </div>
 		<div class="card-body">
-			<h1 class="my-4">Alumno</h1>
+			
       <div class="row">
         <div class="col-md-7">
           <a href="#">
@@ -19,11 +21,7 @@
           <a class="btn btn-primary" href="#">Ver Proyecto</a>
         </div>
       </div>
-     
-
-      <hr>
-
-      
+     <br>
       <div class="row">
         <div class="col-md-7">
           <a href="#">
@@ -31,16 +29,12 @@
           </a>
         </div>
         <div class="col-md-5">
-          <h3>Proyecto 2</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
+          <h3>Proyecto 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
           <a class="btn btn-primary" href="#">Ver Proyecto</a>
         </div>
       </div>
-    
-
-      <hr>
-
-     
+<br>
       <div class="row">
         <div class="col-md-7">
           <a href="#">
