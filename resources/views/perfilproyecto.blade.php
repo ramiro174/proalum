@@ -9,6 +9,7 @@
       <!-- Portfolio Item Heading -->
       <h1 class="my-4">Proyecto 1
         <small><a href="/teamprofile">Equipo 1</a> </small>
+        <a data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-7" href="">Editar<i class="fa fa-fw fa-pencil"></i></a>
       </h1>
 
       <!-- Portfolio Item Row -->
@@ -20,11 +21,11 @@
 
         <div class="col-md-4">
           <h3 class="my-3">Descripcion del Proyecto</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim. <a class="btn btn-sm btn-warning" href=""><i class="fa fa-fw fa-pencil"></i></a></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
           <h3 class="my-3">Detalles del Proyecto</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.  <a class="btn btn-sm btn-warning" href=""><i class="fa fa-fw fa-pencil"></i></a></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
         </div>
-
+        
       </div>
       <!-- /.row -->
 
@@ -32,50 +33,99 @@
       <h3 class="my-4">Mas del Equipo 1</h3>
 
       <div class="row">
-        <div class="card col-md-3 col-sm-6 mb-4 no-bordes">                   
+        <div class="card col-md-3 col-sm-6 mb-4  img-size-small">                   
          
-            <img class="card-img img-fluid" src="http://placehold.it/500x300" alt="">
+            <img class="card-img img-fluid img-size-small" src="img/diagramas.png" alt="">
      
-          <div class="card-img-overlay">
-            <a class="card-title" href=""><h5>Proyecto</h5><br>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
+          <div class="card-img-overlay transparente" >
+            <a class="card-title heredar-color" href=""><h5>Proyecto</h5><br>
+              <p class="card-text ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
 
           </div>         
         </div>
         
-      <div class="card col-md-3 col-sm-6 mb-4 no-bordes">                   
+      <div class="card col-md-3 col-sm-6 mb-4 img-size-small">                   
          
-            <img class="card-img img-fluid" src="http://placehold.it/500x300" alt="">
+            <img class="card-img img-fluid img-size-small" src="img/diagramas.png" alt="">
      
-          <div class="card-img-overlay">
-            <a class="card-title" href=""><h5>Proyecto</h5><br>
+          <div class="card-img-overlay transparente">
+            <a class="card-title heredar-color" href=""><h5>Proyecto</h5><br>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
 
           </div>         
         </div>
-          <div class="card col-md-3 col-sm-6 mb-4 no-bordes">                   
+          <div class="card col-md-3 col-sm-6 mb-4  img-size-small">                   
          
-            <img class="card-img img-fluid" src="http://placehold.it/500x300" alt="">
+            <img class="card-img img-fluid img-size-small" src="img/diagramas.png" alt="">
      
-          <div class="card-img-overlay">
-            <a class="card-title" href=""><h5>Proyecto</h5><br>
+          <div class="card-img-overlay transparente">
+            <a class="card-title heredar-color" href=""><h5>Proyecto</h5><br>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
 
           </div>         
         </div>
-        <div class="card col-md-3 col-sm-6 mb-4 no-bordes">                   
+        <div class="card col-md-3 col-sm-6 mb-4 img-size-small">                   
          
-            <img class="card-img img-fluid" src="http://placehold.it/500x300" alt="">
+            <img class="card-img img-fluid img-size-small img-small" src="img/palmas.jpg" alt="">
      
-          <div class="card-img-overlay">
-            <a class="card-title" href=""><h5>Proyecto</h5><br>
+          <div class="card-img-overlay transparente">
+            <a class="card-title heredar-color" href=""><h5>Proyecto</h5><br>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
 
           </div>         
         </div>
       </div>
-
-      <!-- /.row -->
-
     </div>
+    <!--Modal -->
+    <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="card  col-md-12">
+          <div class="card-body text-primary">
+            
+
+            <form class="form-horizontal" method="POST" action="">
+              {{ csrf_field() }}
+              <div class="control-group">
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
+                  <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre del Proyecto</label>   
+                  <div class="col-md-12 col-sm-12">
+                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nuevo Nombre" >
+                    <p class="help-block text-danger"></p>
+                    @if ($errors->has('name'))
+                    <span class="help-block">
+                      <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                    @endif
+                  </div>
+                </div>
+              </div>
+              
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Descripcion</label>
+                  <textarea class="form-control" id="message" rows="3" placeholder="Descripcion" ></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Detalles</label>
+                  <textarea class="form-control" id="message" rows="3" placeholder="Detalles" ></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer align-content-center">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button class="btn btn-primary btn-ok">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+</div>  
 @endsection

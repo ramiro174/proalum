@@ -29,6 +29,27 @@ select.select-estilo > option{
 .letras-blancas{
 	color: #ffff;
 }
+.letras-negras{
+	color: black;
+}
+.img-size-small{
+	display: block;
+  width: 250px;
+  height: 160px;
+  border-color: white;
+  border-radius: 2px;
+  border-right-width: .5rem;
+  border-left-width: .5rem;
+}
+.img-small{
+	
+  height: 159px;
+}
+.transparente
+{
+	background-color:  rgba(64,64,66,0.5);
+	color: white;
+}
 .heredar-color{
 	color: inherit;
 }

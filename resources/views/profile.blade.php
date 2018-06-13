@@ -26,7 +26,7 @@
                   
 
                   <hr>
-                  <a href="#" class="btn btn-success btn-lg bg-primary text-white rounded btn-outline-light col-md-6 col-sm-12  no-bordes" style="font-size: 100%">Proyectos en los que participo el Alumno</a>
+                  <a href="/listaproyectos" class="btn btn-success btn-lg bg-primary text-white rounded btn-outline-light col-md-6 col-sm-12  no-bordes" style="font-size: 100%">Proyectos en los que participo el Alumno</a>
                   
 
                   <hr>
