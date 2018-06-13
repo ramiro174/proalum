@@ -20,14 +20,9 @@
 
         <div class="col-md-4">
           <h3 class="my-3">Descripcion del Proyecto</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim. <a class="btn btn-sm btn-warning" href=""><i class="fa fa-fw fa-pencil"></i></a></p>
           <h3 class="my-3">Detalles del Proyecto</h3>
-          <ul>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit Amet</li>
-            <li>Consectetur</li>
-            <li>Adipiscing Elit</li>
-          </ul>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.  <a class="btn btn-sm btn-warning" href=""><i class="fa fa-fw fa-pencil"></i></a></p>
         </div>
 
       </div>
