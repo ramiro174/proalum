@@ -68,29 +68,10 @@ Route::get('/editarequipo',function(){
 
     
 
-    Route::get("/alumnos",function(){
-       return alumno::all();
-    });
-    Route::post('/alumnos', function (Request $resq) {
-        $r = new alumno();
-        $nombre = $resq->input("nombre");
-        $telefono = $resq->input("telefono");
-        $r->nombre = $nombre;
-        $r->telefono = $telefono;
-        $r->save();
-        return $r;
-    });
-  
-    
+
+
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/who', function () {
         return exec('whoami');
     });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-
