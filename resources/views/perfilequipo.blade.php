@@ -25,7 +25,7 @@ body{
 			<!-- Team Members Row -->
 			<div class="row">
 				<div class="col-lg-12">
-					<h2 class="my-4">Nuestro Equipo <button data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i></button></h2>
+					<h2 class="my-4">Nuestro Equipo <button data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i></button><button class="btn  btn-primary float-right">Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i></button></h2>
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm float-right" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
