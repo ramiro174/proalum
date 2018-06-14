@@ -27,7 +27,7 @@
     <div class="card  col-md-12 no-bordes">
       <div class="card-body">
       <div class="card">
-  <h5 class="card-header">Equipo 2 <i class="offset-9 fa fa-key float-right"></i></h5>
+  <h5 class="card-header">Equipo 2 <i class="offset-md-3 fa fa-key float-right"></i></h5>
   <div class="card-body">
   <h5 class="card-title">Miembros del Equipo</h5>
   <ul>

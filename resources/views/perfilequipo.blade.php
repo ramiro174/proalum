@@ -25,12 +25,18 @@ body{
 			<!-- Team Members Row -->
 			<div class="row">
 				<div class="col-lg-12">
-					<h2 class="my-4">Nuestro Equipo <button data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i></button><button class="btn  btn-primary float-right">Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i></button></h2>
+					<h2 class="my-4">Nuestro Equipo 
+						<button  data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i>
+						</button>
+						<a href="/listaproyectosequipo" class="btn btn-sm btn-primary offset-sm-0 offset-lg-4 offset-md-0" >Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i>
+						</a>
+						
+					</h2>
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm float-right" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					<img style="border-color: green; border-style: inherit;" class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith
+					<h3>John Smith<br>
 						<small>Desarrollador</small>
 					</h3>
 					<div class="offset-7">
@@ -39,9 +45,9 @@ body{
 					</div>         
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm float-right" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith
+					<h3>John Smith<br>
 						<small>Analista</small>
 					</h3>
 					<div class="offset-7">
@@ -50,9 +56,9 @@ body{
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm float-right" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith
+					<h3>John Smith<br>
 						<small>Titulo</small>
 					</h3>
 					<div class="offset-7">
@@ -61,9 +67,9 @@ body{
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm float-right" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith
+					<h3>John Smith<br>
 						<small>Titulo</small>
 					</h3>
 					<div class="offset-7">
@@ -72,9 +78,9 @@ body{
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm float-right" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith
+					<h3>John Smith<br>
 						<small>Titulo</small>
 					</h3>
 					<div class="offset-7">
@@ -83,9 +89,9 @@ body{
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm float-right" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith
+					<h3>John Smith<br>
 						<small>Titulo</small>
 					</h3>
 					<div class="offset-7">
@@ -94,9 +100,9 @@ body{
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm float-right" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith
+					<h3>John Smith<br>
 						<small>Titulo</small>
 					</h3>
 					<div class="offset-7">
@@ -206,7 +212,7 @@ body{
 			</div>
 			<div class="modal-footer align-content-center">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button class="btn btn-success btn-ok">Agregar</button>
+				<button href="/listaproyectos" class="btn btn-success btn-ok">Agregar</button>
 			</div>
 		</div>
 	</div>

@@ -43,10 +43,10 @@
          @if(Auth::check())
          
         <li class="nav-item dropdown mx-0 mx-lg-1">
-    <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a class="nav-link dropdown-toggle nav-link py-3 px-0 px-lg-2 rounded" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       {{@Auth::user()->name}}
     </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <div class="dropdown-menu dropdown-submenu" aria-labelledby="navbarDropdown">
       <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="/profile">
              Perfil <i class="fa fa-pull-right fa-fw fa-user"></i>
            </a>

@@ -32,6 +32,9 @@ Route::get("/login",function(){
 Route::get('/teamprofile',function(){
     return view("perfilequipo");
 });
+Route::get('/listaproyectosequipo',function(){
+    return view('proyectos/listaproyectosequipo');
+});
 Route::get('/projectbrowser',function(){
     return view("buscarproyectos");
 });
