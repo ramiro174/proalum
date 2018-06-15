@@ -50,7 +50,7 @@ select.select-estilo > option{
 }
 .transparente
 {
-	background-color:  rgba(64,64,66,0.5);
+	background-color:  rgba(64,64,66,0.3);
 	color: white;
 }
 .heredar-color{
@@ -58,6 +58,9 @@ select.select-estilo > option{
 }
 .no-bordes{
 	border: none;
+}
+.margin-bot-1{
+	margin-bottom: 1rem;
 }
 .cent-icon{
 	position: absolute;
@@ -185,6 +188,28 @@ div.fakefile {
     left: 100%;
     margin-top: -1px;
 }
+.estilo-caja-texto{
+	font-size: 0.85em;
+    line-height: 1.764705882em;
+    position: relative;
+    z-index: 0;
+    top: 2em;
+    display: block;
+    margin: 0;
+    -webkit-transition: top 0.3s ease, opacity 0.3s ease;
+    -moz-transition: top 0.3s ease, opacity 0.3s ease;
+    -ms-transition: top 0.3s ease, opacity 0.3s ease;
+    transition: top 0.3s ease, opacity 0.3s ease;
+    vertical-align: middle;
+    vertical-align: baseline;
+    opacity: 0;
+}
+.no-focus{
+	outline: none;
+	
+}
+
+/*=============================TAGS INPUT ESTILO=========================================*/
 .bootstrap-tagsinput{
 	background-color:#fff;
 	border: none; #ccc;
@@ -237,4 +262,8 @@ div.fakefile {
 	font-weight: 700;
 	font-family: 'Montserrat';
 	font-family: 'Lato';
+}
+/*======================================BUSQUEDA ESTILO====================================*/
+.list{
+	list-style-type: none;
 }

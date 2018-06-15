@@ -38,6 +38,9 @@ Route::get('/listaproyectosequipo',function(){
 Route::get('/projectbrowser',function(){
     return view("buscarproyectos");
 });
+Route::get('/buscador',function(){
+    return view('proyectos/buscador');
+});
 Route::group(['middleware'=>'auth'],function(){
 
 Route::get('/logout','UserController@getlogout');

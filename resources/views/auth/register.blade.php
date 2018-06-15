@@ -15,7 +15,7 @@
                       <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
                           <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre</label>
                           <div class="col-md-12 col-sm-12">
-                              <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombre" required="required" data-validation-required-message="Ingresa tu Nombre">
+                              <input id="name" autofocus="" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombre" required="required" data-validation-required-message="Ingresa tu Nombre">
                               <p class="help-block text-danger"></p>
                               @if ($errors->has('name'))
                                   <span class="help-block">

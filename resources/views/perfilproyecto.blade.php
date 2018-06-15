@@ -9,7 +9,7 @@
       <!-- Portfolio Item Heading -->
       <h1 class="my-4">Proyecto 1
         <small><a href="/teamprofile">Equipo 1</a> </small>
-        <a data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-7" href="">Editar<i class="fa fa-fw fa-pencil"></i></a>
+        <a data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-7 no-bordes" href="">Editar<i class="fa fa-fw fa-pencil"></i></a>
       </h1>
 
       <!-- Portfolio Item Row -->
@@ -88,10 +88,10 @@
             <form class="form-horizontal" method="POST" action="">
               {{ csrf_field() }}
               <div class="control-group">
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
-                  <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre del Proyecto</label>   
+                <div class="form-group floating-label-form-group">
+                  <label for="name"  class="control-label">Nombre del Proyecto</label>   
                   <div class="col-md-12 col-sm-12">
-                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nuevo Nombre" >
+                    <input id="name" type="text" class="form-control" name="name"  placeholder="Nuevo Nombre" >
                     <p class="help-block text-danger"></p>
                     @if ($errors->has('name'))
                     <span class="help-block">

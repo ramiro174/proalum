@@ -26,7 +26,7 @@
               <label class="col-md-12 offset-md-3 control-label">Correo Electronico</label>
 
               <div class="col-md-12 col-sm-12">
-                <input id="email" type="email" class="form-control"  name="email" value="{{ old('email') }}" placeholder="Correo Electronico" required="required" data-validation-required-message="Ingresa tu Correo Electronico">
+                <input id="email" autofocus="" type="email" class="form-control"  name="email" value="{{ old('email') }}" placeholder="Correo Electronico" required="required" data-validation-required-message="Ingresa tu Correo Electronico">
                 <p class="help-block text-danger"></p>
                 @if ($errors->has('email'))
                   <span class="help-block">

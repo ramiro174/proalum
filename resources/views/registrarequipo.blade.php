@@ -22,16 +22,12 @@
                 <form class="form-horizontal" method="" action="#">
                   {{ csrf_field() }}
                   <div class="control-group margin-bot-5">
-                      <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
+                      <div class="form-group floating-label-form-group controls mb-0 pb-2">
                           <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre del Equipo</label>   
                           <div class="col-md-12 col-sm-12">
-                              <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nombre del Equipo" required="required" data-validation-required-message="Completa este Campo">
+                              <input id="name" type="text" class="form-control" name="name"  placeholder="Nombre del Equipo" required="required" data-validation-required-message="Completa este Campo">
                               <p class="help-block text-danger"></p>
-                              @if ($errors->has('name'))
-                                  <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                              @endif
+                              
                           </div>
                       </div>
                   </div>

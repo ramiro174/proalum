@@ -154,10 +154,8 @@
         <div class="col-lg-3">
 
           <h1 class="my-4">Proyectos TSU</h1>
-          <div class="list-group">
-            <a href="#" class="list-group-item">Tercer Grado</a>
-            <a href="#" class="list-group-item">Cuarto Grado</a>
-            <a href="#" class="list-group-item">Quinto Grado</a>
+          <div class="">
+            <a href="{{url('/buscador')}}" class="btn btn-primary">Buscar Proyectos<i class="fa fa-lg fa-search offset-1" style="padding-right: .2rem;"></i></a>
           </div>
 
         </div>
