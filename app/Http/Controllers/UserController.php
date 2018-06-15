@@ -37,5 +37,24 @@ class UserController extends Controller
         return User::all(); 
     }
 
+    public function imagenPerfil(Request $request){
+        if ($request->hasFile('imagen')) {
+    $request->file('imagen')->store('public/images');
+    
+    // ensure every image has a different name
+    $file_name = $request->file('imagen')->hashName();
+    
+    // save new image $file_name to database
+    //$model->update(['image' => $file_name]);
+     $alumno = User::findOrFail(Auth::user()->id);
+        $alumno -> imagen = "$file_name";
+        $alumno->save();
+    }
+    else{
+        return "nada";
+     }
+    }
+        
+
 }
 

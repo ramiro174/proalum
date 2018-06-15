@@ -45,15 +45,19 @@
     <div class="modal fade" id="modal-imagen">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-        <div class="modal-body">
-          <div class="modal-body">
-        <input class="btn col-sm-6" accept="image/*" type="file" name="">
+        <form method="POST" action="{{url('subirimagen')}}">
+            {{ csrf_field() }}
+          		<div class="modal-body">
+          	
+        <input class="btn col-sm-6 col-lg-12 col-md-12" accept="image/*" type="file" id="imagen" name="imagen">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary col-6 float-left">Cambiar</button>
+        <button class="btn btn-primary col-6 float-left" type="submit">Cambiar</button>
         <button class="btn btn-danger col-6" data-dismiss="modal">Cancelar</button>
       </div> 
-        </div>
+          	</form>
+          
+        
       </div>
       </div>
     </div>

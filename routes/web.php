@@ -67,6 +67,7 @@ Route::get('/listaequipos',function(){
 Route::get('/listaproyectos',function(){
     return view('/proyectos/listaproyectos');
 });
+Route::post('/subirimagen','UserController@imagenPerfil');
 
 });
 
