@@ -14,7 +14,15 @@
                     <div class="col-lg-12 col-sm-12">
                         <div class="col-md-12 " style="height: 16rem ">
                             <div class="img-contenedor">
+                                @if(@Auth::user()->imagen==null)
                               <img src="img/profile.png" class="rounded-circle img-thumbnail img-estilo-prof ">
+                              @else
+                             <!-- <img src="{{ asset('public/images/' . @Auth::user()->imagen) }}"" class="rounded-circle img-thumbnail img-estilo-prof ">-->
+                              <img src="<?php echo asset("storage/images")?>/{{@Auth::user()->imagen}}" 
+                              class="rounded-circle img-thumbnail img-estilo-prof ">
+
+                              
+                              @endif
                             <div class="rounded-circle img-thumbnail sobrecapa-prof"><div class="boton-trsn align-self-center"><button data-toggle="modal" data-target="#modal-imagen" class="no-bordes btn btn-primary btn-sm align-self-auto" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button></div></div>
                             </div>
                         </div>
@@ -37,6 +45,7 @@
                         <hr>
                         <a href="/listaequipos" class="col-12 btn btn-success btn-lg bg-success no-bordes text-white rounded btn-outline-light" >Mis Equipos</a>
                         <p>Aqui pueden ir opciones a discutir</p>
+                        <h1><?php echo asset("storage/images->")?>{{@Auth::user()->imagen}}</h1>
                     </div>
                 </div>
             </div>
@@ -45,11 +54,13 @@
     <div class="modal fade" id="modal-imagen">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-        <form method="POST" action="{{url('subirimagen')}}">
+
+        <form method="POST" action="{{url('subirimagen')}}" files="true" enctype="multipart/form-data">
             {{ csrf_field() }}
           		<div class="modal-body">
           	
-        <input class="btn col-sm-6 col-lg-12 col-md-12" accept="image/*" type="file" id="imagen" name="imagen">
+        <input required="" class="btn col-sm-6 col-lg-12 col-md-12" accept="image/*" type="file" id="imagen" 
+        name="imagen" >
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary col-6 float-left" type="submit">Cambiar</button>

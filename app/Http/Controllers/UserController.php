@@ -49,6 +49,7 @@ class UserController extends Controller
      $alumno = User::findOrFail(Auth::user()->id);
         $alumno -> imagen = "$file_name";
         $alumno->save();
+        return redirect("/profile");
     }
     else{
         return "nada";
