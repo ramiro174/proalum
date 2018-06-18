@@ -48,6 +48,10 @@ select.select-estilo > option{
 	height: 5rem;
 	width: 3rem;
 }
+.img-bienvenido{
+	height: 20rem;
+	width: 20rem;
+}
 .transparente
 {
 	background-color:  rgba(64,64,66,0.3);

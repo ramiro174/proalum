@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Auth;
 use Session;
 use App\models\User;
+use Image as Image;
+use Illuminate\Support\Facades\Storage;
+
 
 class UserController extends Controller
 {
@@ -39,7 +42,11 @@ class UserController extends Controller
 
     public function imagenPerfil(Request $request){
         if ($request->hasFile('imagen')) {
-    $request->file('imagen')->store('public/images');
+            $img = $request->file('imagen');
+            //Image::make($img)->resize(100,100);
+    //$request->file('imagen')->store('public/images');
+            Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
+            $img->store('public/usuarios/perfil/imagenes');
     
     // ensure every image has a different name
     $file_name = $request->file('imagen')->hashName();
@@ -54,6 +61,10 @@ class UserController extends Controller
     else{
         return "nada";
      }
+    }
+
+    public function registrarEquipo(){
+
     }
         
 

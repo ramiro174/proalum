@@ -67,7 +67,7 @@
 
             <div class="form-group">
               <div class="col-md-12 col-md-offset-4">
-                <button type="submit" class="btn btn-primary btn-xl col-md-12 text-uppercase bg-primary text-white rounded btn-outline-light">
+                <button type="submit" class="btn btn-primary btn-xl col-md-12 text-uppercase bg-primary text-white rounded btn-outline-light no-bordes">
                   Ingresar
                 </button>
 

@@ -18,7 +18,7 @@
                               <img src="img/profile.png" class="rounded-circle img-thumbnail img-estilo-prof ">
                               @else
                              <!-- <img src="{{ asset('public/images/' . @Auth::user()->imagen) }}"" class="rounded-circle img-thumbnail img-estilo-prof ">-->
-                              <img src="<?php echo asset("storage/images")?>/{{@Auth::user()->imagen}}" 
+                              <img src="<?php echo asset("storage/usuarios/perfil/imagenes")?>/{{@Auth::user()->imagen}}" 
                               class="rounded-circle img-thumbnail img-estilo-prof ">
 
                               
@@ -45,7 +45,7 @@
                         <hr>
                         <a href="/listaequipos" class="col-12 btn btn-success btn-lg bg-success no-bordes text-white rounded btn-outline-light" >Mis Equipos</a>
                         <p>Aqui pueden ir opciones a discutir</p>
-                        <h1><?php echo asset("storage/images->")?>{{@Auth::user()->imagen}}</h1>
+                        
                     </div>
                 </div>
             </div>

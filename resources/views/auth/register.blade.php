@@ -60,7 +60,7 @@
                    <div class="control-group margin-top-5" >
                       <div class="form-group  controls mb-0 pb-2">
                          
-                          <button type="submit" class="btn btn-primary btn-xl col-md-12 text-uppercase bg-primary text-white rounded btn-outline-light">
+                          <button type="submit" class="btn btn-primary btn-xl col-md-12 text-uppercase bg-primary text-white rounded btn-outline-light no-bordes">
                               Registrate
                           </button>
                           <p class="col-md-12 col-sm-12 offset-md-4 offset-sm-2">¿Ya tienes cuenta?  <a  href="/login">

@@ -3,7 +3,11 @@
 <!-- Header -->
 <header class="masthead bg-primary text-white text-center">
   <div class="container">
+    @if(@Auth::user()->imagen==null)
     <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
+    @else
+    <img  class="img-bienvenido rounded-circle img-thumbnail img-fluid mb-5 d-block mx-auto" src="<?php echo asset("storage/usuarios/perfil/imagenes")?>/{{@Auth::user()->imagen}}" alt="" >
+    @endif
     <h1 class="text-uppercase mb-0">Encuentra aqui tu proyecto creado por la carrera de TICS</h1>
     <hr class="star-light">
     <h2 class="font-weight-light mb-0">Tenemos diferentes tipos de proyectos</h2>
