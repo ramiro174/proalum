@@ -19,7 +19,7 @@
           <div class="card-body text-primary">
             <h2 class="text-center text-uppercase text-secondary mb-0">Registra tu Equipo</h2>
               <hr class="star-dark mb-5">
-                <form class="form-horizontal" method="" action="#">
+                <form class="form-horizontal" method="POST" action="{{url('/registrarequipo')}}">
                   {{ csrf_field() }}
                   <div class="control-group margin-bot-5">
                       <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -32,9 +32,9 @@
                       </div>
                   </div>
                   <div class="control-group" >
-                      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
+                      <div class="form-group floating-label-form-group controls mb-0 pb-2">
                           <label for="email" class="col-md-12 offset-md-3 control-label">Miembros del Equipo</label>
-                             <input id="miembros"  type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Miembros del Equipo" required="required" data-validation-required-message="Completa este Campo" data-role="tagsinput">
+                             <input id="miembros"  type="text" class="form-control" name="miembros"  placeholder="Miembros del Equipo" required="required" data-validation-required-message="Completa este Campo" data-role="tagsinput">
                               <p class="help-block text-danger"></p>
                       </div>
                   </div>
@@ -75,6 +75,7 @@
             $('input#miembros').tagsinput({
               typeaheadjs: {
                 name: 'nombre',
+                itemValue: 'id',
                 displayKey: 'name',
                 valueKey: 'name',
                 source: engine.ttAdapter()

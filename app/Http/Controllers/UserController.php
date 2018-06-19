@@ -47,10 +47,13 @@ class UserController extends Controller
     //$request->file('imagen')->store('public/images');
             Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
             $img->store('public/usuarios/perfil/imagenes');
-    
     // ensure every image has a different name
-    $file_name = $request->file('imagen')->hashName();
-    
+   // $file_name = $request->file('imagen')->hashName();
+    //$file_name = $request->file('imagen')->rename($img, "img_perfil_".Auth::user()->email);
+    Storage::move('/public/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
+      '/public/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
+    $file_name = "img_perfil_".Auth::user()->name;
+
     // save new image $file_name to database
     //$model->update(['image' => $file_name]);
      $alumno = User::findOrFail(Auth::user()->id);
@@ -63,8 +66,10 @@ class UserController extends Controller
      }
     }
 
-    public function registrarEquipo(){
-
+    public function registrarEquipo(Request $r){
+        $arreglo = [];
+        $arreglo = $r->input('miembros');
+        dd($arreglo);
     }
         
 

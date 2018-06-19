@@ -43,6 +43,8 @@ Route::get('/buscador',function(){
 });
 Route::group(['middleware'=>'auth'],function(){
 
+Route::post('/registrarequipo','UserController@registrarEquipo');
+
 Route::get('/logout','UserController@getlogout');
 Route::get("/profile",function(){
     return view("profile");
