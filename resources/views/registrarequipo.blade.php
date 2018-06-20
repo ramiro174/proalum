@@ -71,12 +71,12 @@
              });
             engine.initialize();
                 
-          console.log(engine);
+          console.log(engine.index.datums);
             $('input#miembros').tagsinput({
               typeaheadjs: {
                 name: 'nombre',
-                itemValue: 'id',
-                itemText: 'name.name',
+                itemValue: 'datums.id',
+                itemText: 'datums.name',
                 source: engine.ttAdapter()
               }
             });
