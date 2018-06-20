@@ -64,7 +64,7 @@
              prefetch: {
                     url: "/llenartags",
                     filter: function(list) {
-                    return $.map(list, function(name,id) {                     
+                    return $.map(list, function(name) {                     
                     return { name: name.name,id: name.id }; });
                     }
                 }
@@ -75,8 +75,9 @@
             $('input#miembros').tagsinput({
               typeaheadjs: {
                 name: 'nombre',
-                itemValue: 'datums.id',
-                itemText: 'datums.name',
+                itemValue: 'id',
+                itemText: 'name',
+
                 source: engine.ttAdapter()
               }
             });
