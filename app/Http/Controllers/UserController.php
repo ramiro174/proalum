@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Auth;
 use Session;
 use App\models\User;
+use App\models\Equipos;
 use Image as Image;
 use Illuminate\Support\Facades\Storage;
+
 
 
 class UserController extends Controller
@@ -69,7 +71,16 @@ class UserController extends Controller
     public function registrarEquipo(Request $r){
         $arreglo = [];
         $arreglo = $r->input('miembros');
-        dd($arreglo);
+       
+       $var = preg_split("','", $arreglo);
+       $var2 = collect($var);
+       $resultado = $var2->map(function($item,$key){
+            return $item*1;
+       });
+       $equipo = new Equipos();
+       $equipo->nombreequipo = $r->input('name');
+       $equipo->userLider()->attach(Auth::user()->id);
+       
     }
         
 
