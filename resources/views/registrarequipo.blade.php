@@ -64,20 +64,19 @@
              prefetch: {
                     url: "/llenartags",
                     filter: function(list) {
-                    return $.map(list, function(name) {                     
-                    return { name: name.email}; });
+                    return $.map(list, function(name,id) {                     
+                    return { name: name.name,id: name.id }; });
                     }
                 }
              });
             engine.initialize();
-                console.log(engine);
-           
+                
+          console.log(engine);
             $('input#miembros').tagsinput({
               typeaheadjs: {
                 name: 'nombre',
                 itemValue: 'id',
-                displayKey: 'name',
-                valueKey: 'name',
+                itemText: 'name.name',
                 source: engine.ttAdapter()
               }
             });
