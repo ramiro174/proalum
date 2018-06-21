@@ -13,7 +13,7 @@ body{
       <div class="card-body text-primary">
         <h2 class="text-center text-uppercase text-secondary mb-0">Registra tu Proyecto</h2>
         <hr class="star-dark mb-5">
-        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+        <form class="form-horizontal" method="POST" action="registrarproyecto">
           {{ csrf_field() }}
           <div class="control-group margin-bot-5">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -29,10 +29,11 @@ body{
             <div class="form-group  floating-label-form-group controls mb-0 pb-2">
               <label for="name"  class="col-md-6 offset-md-3 control-label">Equipo</label>   
               <div class="col-md-12 col-sm-12">
-                <select id="name" type="text" class="form-control select-estilo" name="equipo" value="{{ old('name') }}" required="required" data-validation-required-message="Ingresa el Nombre de tu Proyecto">
+                <select id="equipo" type="text" class="form-control select-estilo" name="equipo"  required="required" data-validation-required-message="Elige un equipo">
                   <option value="" disabled selected>Selecciona tu equipo</option>
-                  <option>Prueba</option>
-                  <option>Prueba2</option>
+                  @foreach($equipos as $key)
+                  <option value="{{$key->id}}" >{{$key->nombreequipo}}</option>
+                  @endforeach
                 </select>
                 <p class="help-block text-danger"></p>
 
@@ -41,26 +42,20 @@ body{
           </div>
           <div class="control-group margin-bot-5">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label for="name"  class="col-md-6 offset-md-3 control-label">Vinculo de Git</label>
+              <label for="vinculo"  class="col-md-6 offset-md-3 control-label">Vinculo de Git</label>
               <div class="col-md-12 col-sm-12">
-                <input id="name" type="text" class="form-control" name="name" placeholder="Vinculo de Proyecto en Git">
+                <input id="vinculo" type="text" class="form-control" name="vinculo" placeholder="Vinculo de Proyecto en Git">
                 <p class="help-block text-danger"></p>      
               </div>
             </div>
           </div>
           <div class="control-group margin-bot-5">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              
-              <div class="col-md-12 col-sm-12">
-                <input id="name" type="file" accept="image/*" class="form-control" name="name" placeholder="Vinculo de Proyecto en Git">
-                <p class="help-block text-danger"></p>      
-              </div>
-            </div>
+            
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls mb-0 pb-2">
               <label>Descripcion</label>
-              <textarea class="form-control" id="message" rows="3" placeholder="Descripcion" required="required" data-validation-required-message="Completa este campo."></textarea>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Descripcion" required="required" data-validation-required-message="Completa este campo."></textarea>
               <p class="help-block text-danger"></p>
             </div>
           </div>

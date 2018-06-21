@@ -49,9 +49,8 @@ Route::get('/logout','UserController@getlogout');
 Route::get("/profile",function(){
     return view("profile");
 });
-Route::get('/registerproject',function(){
-    return view('registrarproyecto');
-});
+Route::get('/registerproject','ProyectoController@obtenerEquipos');
+Route::post('/registrarproyecto','ProyectoController@registrarProyecto');
 
 Route::get('/registerteam',function(){
     return view("registrarequipo");

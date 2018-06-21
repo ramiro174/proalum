@@ -81,11 +81,11 @@ class UserController extends Controller
         $equipo->save();
         $idequipo = Equipos::where('nombreequipo', $r->input('name'))->first();
         //dd($idequipo->id);
-        $var3 = $idequipo->id;
-       // dd($var3);
-        $equipo->userLider()->attach([$var3,Auth::user()->id]);
+        
+        $equipo->userLider()->attach([$idequipo->id,Auth::user()->id]);
     }
 
+    
 
 }
 
