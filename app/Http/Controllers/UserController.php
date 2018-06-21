@@ -17,7 +17,7 @@ class UserController extends Controller
     public function getlogout()
     {
     	Auth::logout();
-    return	redirect("/");
+        return	redirect("/");
     }
 
     public function metodo1()
@@ -52,37 +52,40 @@ class UserController extends Controller
     // ensure every image has a different name
    // $file_name = $request->file('imagen')->hashName();
     //$file_name = $request->file('imagen')->rename($img, "img_perfil_".Auth::user()->email);
-    Storage::move('/public/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
-      '/public/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
-    $file_name = "img_perfil_".Auth::user()->name;
+            Storage::move('/public/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
+              '/public/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
+            $file_name = "img_perfil_".Auth::user()->name;
 
     // save new image $file_name to database
     //$model->update(['image' => $file_name]);
-     $alumno = User::findOrFail(Auth::user()->id);
-        $alumno -> imagen = "$file_name";
-        $alumno->save();
-        return redirect("/profile");
-    }
-    else{
-        return "nada";
-     }
+            $alumno = User::findOrFail(Auth::user()->id);
+            $alumno -> imagen = "$file_name";
+            $alumno->save();
+            return redirect("/profile");
+        }
+        else{
+            return "nada";
+        }
     }
 
     public function registrarEquipo(Request $r){
         $arreglo = [];
         $arreglo = $r->input('miembros');
-       
-       $var = preg_split("','", $arreglo);
-       $var2 = collect($var);
-       $resultado = $var2->map(function($item,$key){
+        $var = preg_split("','", $arreglo);
+        $var2 = collect($var);
+        $resultado = $var2->map(function($item,$key){
             return $item*1;
-       });
-       $equipo = new Equipos();
-       $equipo->nombreequipo = $r->input('name');
-       $equipo->userLider()->attach(Auth::user()->id);
-       
+        });
+        $equipo = new Equipos();
+        $equipo->nombreequipo = $r->input('name');
+        $equipo->save();
+        $idequipo = Equipos::where('nombreequipo', $r->input('name'))->first();
+        //dd($idequipo->id);
+        $var3 = $idequipo->id;
+       // dd($var3);
+        $equipo->userLider()->attach([$var3,Auth::user()->id]);
     }
-        
+
 
 }
 
