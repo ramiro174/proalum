@@ -35,9 +35,7 @@ Route::get('/teamprofile',function(){
 Route::get('/listaproyectosequipo',function(){
     return view('proyectos/listaproyectosequipo');
 });
-Route::get('/projectbrowser',function(){
-    return view("buscarproyectos");
-});
+Route::get('/projectbrowser','ProyectoController@obtenerProyectos');
 Route::get('/buscador',function(){
     return view('proyectos/buscador');
 });
