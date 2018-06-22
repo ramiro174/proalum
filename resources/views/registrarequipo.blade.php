@@ -75,11 +75,11 @@
             
           console.log(engine.index.datums);
             $('input#miembros').tagsinput({
-              typeaheadjs: {
-                name: 'nombre',
                 itemValue: 'id',
                 itemText: 'name',
-
+              typeaheadjs: {
+                name: 'nombre',
+                displayKey:'name',
                 source: engine.ttAdapter()
               }
             });
