@@ -23,7 +23,7 @@
                   {{ csrf_field() }}
                   <div class="control-group margin-bot-5">
                       <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                          <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre del Equipo</label>   
+                          <label for="name"  class="col-md-6 offset-md-3 control-label">Nombre del Equipo</label>
                           <div class="col-md-12 col-sm-12">
                               <input id="name" type="text" class="form-control" name="name"  placeholder="Nombre del Equipo" required="required" data-validation-required-message="Completa este Campo">
                               <p class="help-block text-danger"></p>
@@ -44,7 +44,7 @@
                               Registrar
                           </button>
                         </div>
-                  </div>                 
+                  </div>
               </form>
           </div>
         </div>
@@ -57,20 +57,22 @@
     $(document).ready(function () {
       
 
-            
+      
       var engine = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
              prefetch: {
                     url: "/llenartags",
                     filter: function(list) {
-                    return $.map(list, function(name) {                     
-                    return { name: name.name,id: name.id }; });
+                    return $.map(list, function(name) {
+                            return { name: name.name,id: name.id };
+                    
+                    });
                     }
                 }
              });
             engine.initialize();
-                
+            
           console.log(engine.index.datums);
             $('input#miembros').tagsinput({
               typeaheadjs: {
