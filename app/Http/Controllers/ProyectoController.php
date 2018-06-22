@@ -18,12 +18,19 @@ class ProyectoController extends Controller
 
 	public function obtenerProyectos()
 	{
-		$obj = Proyectos::all();
+		$obj = Proyectos::with('equipos')->get();
+	
 
-		foreach ($obj as $key) {
-			$key->put('nombreequipo',Equipos::where('id', $key->equipos_id)->first());  
-		}
-		dd($obj->nombreequipo);
+	return view('buscarproyectos')->with(compact('obj'));
+		
+	}
+	public function obtenerProyectosBuscador()
+	{
+		$obj = Proyectos::with('equipos')->get();
+	
+
+	return view('proyectos/buscador')->with(compact('obj'));
+		
 	}
 
     public function registrarProyecto(Request $r)

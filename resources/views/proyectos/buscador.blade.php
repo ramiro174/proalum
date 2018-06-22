@@ -19,7 +19,18 @@
 								<hr>
 				</div>
 				<ul class="list">
+					@foreach($obj as $key)
+					<li class="margin-bot-5 margin-top-5">
+						<div class="card">
+							<h4 class="card-header name">{{$key->nombre_proyecto}}</h5>
+							<div class="card-body">
+								<h5>{{$key->equipos->nombreequipo}}</h5>
+								<a href="/perfilproyecto" class="btn btn-primary ">Ver Proyecto</a>
+							</div>
+						</div>
+					</li>
 
+					@endforeach
 					<li class="margin-bot-5 margin-top-5">
 						<div class="card">
 							<h5 class="card-header name">C Proyecto 1</h5>

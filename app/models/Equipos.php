@@ -19,4 +19,10 @@ class Equipos extends Model
     	return $this->belongsToMany('App\models\User',"usuario_equipo")
     	->withPivot('user_id_miembro');
     }
+    public function proyecto()
+    {
+        return $this->hasMany('App\models\Proyectos','equipos_id');
+    }
+
+
 }

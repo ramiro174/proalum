@@ -36,9 +36,7 @@ Route::get('/listaproyectosequipo',function(){
     return view('proyectos/listaproyectosequipo');
 });
 Route::get('/projectbrowser','ProyectoController@obtenerProyectos');
-Route::get('/buscador',function(){
-    return view('proyectos/buscador');
-});
+Route::get('/buscador','ProyectoController@obtenerProyectosBuscador');
 Route::group(['middleware'=>'auth'],function(){
 
 Route::post('/registrarequipo','UserController@registrarEquipo');
