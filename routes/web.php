@@ -57,9 +57,7 @@ Route::get('/llenartags','UserController@tags');
 Route::get('/projectprofile',function(){
     return view("perfilequipo");
 });
-Route::get('/listaequipos',function(){
-    return view('/equipos/listaequipos');
-});
+Route::get('/listaequipos','EquipoController@misEquipos');
 
 Route::get('/listaproyectos',function(){
     return view('/proyectos/listaproyectos');
