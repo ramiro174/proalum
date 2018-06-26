@@ -18,7 +18,7 @@ class EquipoController extends Controller
         $var = preg_split("','", $arreglo);
         //Convierte el arreglo en una coleccion
         $var2 = collect($var);
-
+        //Simplifica la coleccion
         $resultado = $var2->map(function($item,$key){
             return $item*1;
         });
@@ -41,17 +41,16 @@ class EquipoController extends Controller
 
     public function misEquipos()
     {
-        //$var = Equipos::with('userMiembro');
-       $usuario = Auth::user()->id;
-       //$var2 = collect($var);
+        $usuario = Auth::user()->id;
         $equipos = Equipos::whereHas('userMiembro', function($q) use ($usuario){
             $q->where('user_id',$usuario);
         })->get();
-    
-        /*$resultado = $equipos->map(function($item,$key){
-            return $item*1;
-        });*/
-        dd($equipos);
-        return view('equipos/listaequipos');
+        $miembros="hola";
+        collect($miembros);
+        return $miembros;
+       foreach ($equipos as $key) {
+           
+       }
+        return view('equipos/listaequipos')->with(compact('equipos'));
     }
 }

@@ -3,7 +3,7 @@
 namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Auth;
 class Equipos extends Model
 {
     protected $table='equipos';
@@ -23,6 +23,16 @@ class Equipos extends Model
     {
         return $this->hasMany('App\models\Proyectos','equipos_id');
     }
+
+    public function scopeMisequipos()
+    {
+        $usuario = Auth::user()->id;
+        $equipos = Equipos::whereHas('userMiembro', function($q) use ($usuario){
+            $q->where('user_id',$usuario);
+        })->get();
+        return $equipos;
+    }
+
 
 
 }
