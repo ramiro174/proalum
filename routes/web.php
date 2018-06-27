@@ -36,6 +36,8 @@ Route::get('/listaproyectosequipo',function(){
     return view('proyectos/listaproyectosequipo');
 });
 Route::get('/projectbrowser','ProyectoController@obtenerProyectos');
+
+
 Route::get('/buscador',function(){
     return view('proyectos/buscador');
 });

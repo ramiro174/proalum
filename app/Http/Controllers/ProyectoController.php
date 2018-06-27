@@ -7,7 +7,7 @@ use App\models\Equipos;
 use App\models\Proyectos;
 
 class ProyectoController extends Controller
-{	
+{
 
 	public function obtenerEquipos()
 	{
@@ -19,11 +19,9 @@ class ProyectoController extends Controller
 	public function obtenerProyectos()
 	{
 		$obj = Proyectos::all();
-
-		foreach ($obj as $key) {
-			$key->put('nombreequipo',Equipos::where('id', $key->equipos_id)->first());  
-		}
-		dd($obj->nombreequipo);
+	
+		
+		
 	}
 
     public function registrarProyecto(Request $r)
