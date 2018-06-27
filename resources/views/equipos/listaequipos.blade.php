@@ -8,22 +8,25 @@
   <div class="row">
   	<div class="card col-12">
   		<div class="card-body">
+        @foreach($equipos as $key)
   			<div class="card  col-md-12 no-bordes">
       <div class="card-body">
-      <div class="card">
-  <h5 class="card-header">Equipo 1</h5>
+     <div class="card">
+  <h5 class="card-header">{{$key->nombreequipo}}</h5>
   <div class="card-body">
   <h5 class="card-title">Miembros del Equipo</h5>
   <ul>
-    <li>Alumno</li>
-    <li>Alumno</li>
-    <li>Alumno</li>
+    @foreach($key->userMiembro as $key2)
+    <li>{{$key2->name}}</li>
+    
+    @endforeach
   </ul>
   <a href="/teamprofile" class="btn btn-primary float-right">Ver Equipo</a>
   </div>
 </div>
       </div>
     </div>
+     @endforeach
     <div class="card  col-md-12 no-bordes">
       <div class="card-body">
       <div class="card">
