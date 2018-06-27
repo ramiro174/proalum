@@ -30,7 +30,7 @@ class Equipos extends Model
         $usuario = Auth::user()->id;
         return $query->whereHas('userMiembro', function($q) use ($usuario){
             $q->where('user_id',$usuario);
-        })->get();
+        })->get()->load("userMiembro");
         
         
 //        $usuario = Auth::user()->id;
