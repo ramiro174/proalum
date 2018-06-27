@@ -7,7 +7,7 @@ use App\models\Equipos;
 use App\models\Proyectos;
 
 class ProyectoController extends Controller
-{
+{	
 
 	public function obtenerEquipos()
 	{
@@ -18,9 +18,18 @@ class ProyectoController extends Controller
 
 	public function obtenerProyectos()
 	{
-		$obj = Proyectos::all();
+		$obj = Proyectos::with('equipos')->get();
 	
+
+	return view('buscarproyectos')->with(compact('obj'));
 		
+	}
+	public function obtenerProyectosBuscador()
+	{
+		$obj = Proyectos::with('equipos')->get();
+	
+
+	return view('proyectos/buscador')->with(compact('obj'));
 		
 	}
 

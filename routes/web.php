@@ -36,14 +36,10 @@ Route::get('/listaproyectosequipo',function(){
     return view('proyectos/listaproyectosequipo');
 });
 Route::get('/projectbrowser','ProyectoController@obtenerProyectos');
-
-
-Route::get('/buscador',function(){
-    return view('proyectos/buscador');
-});
+Route::get('/buscador','ProyectoController@obtenerProyectosBuscador');
 Route::group(['middleware'=>'auth'],function(){
 
-Route::post('/registrarequipo','UserController@registrarEquipo');
+Route::post('/registrarequipo','EquipoController@registrarEquipo');
 
 Route::get('/logout','UserController@getlogout');
 Route::get("/profile",function(){
@@ -61,9 +57,7 @@ Route::get('/llenartags','UserController@tags');
 Route::get('/projectprofile',function(){
     return view("perfilequipo");
 });
-Route::get('/listaequipos',function(){
-    return view('/equipos/listaequipos');
-});
+Route::get('/listaequipos','EquipoController@misEquipos');
 
 Route::get('/listaproyectos',function(){
     return view('/proyectos/listaproyectos');

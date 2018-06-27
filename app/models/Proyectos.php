@@ -11,6 +11,6 @@ class Proyectos extends Model
     protected $fillable=["nombre_proyecto","equipos_id","vinculo,","descripcion","imagen"];
 
     public function equipos(){
-    	return $this.belongsTo('App\models\Equipos','equipos_id');
+    	return $this->belongsTo('App\models\Equipos');
     }
 }
