@@ -24,13 +24,20 @@ class Equipos extends Model
         return $this->hasMany('App\models\Proyectos','equipos_id');
     }
 
-    public static function scopeMisequipos()
+    public  function scopeMisequipos($query)
     {
+    
         $usuario = Auth::user()->id;
-        $equipos = Equipos::whereHas('userMiembro', function($q) use ($usuario){
+        return $query->whereHas('userMiembro', function($q) use ($usuario){
             $q->where('user_id',$usuario);
         })->get();
-        return $equipos;
+        
+        
+//        $usuario = Auth::user()->id;
+//        $equipos = Equipos::whereHas('userMiembro', function($q) use ($usuario){
+//            $q->where('user_id',$usuario);
+//        })->get();
+//        return $equipos;
     }
 
 

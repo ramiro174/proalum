@@ -38,34 +38,26 @@ Route::get('/listaproyectosequipo',function(){
 Route::get('/projectbrowser','ProyectoController@obtenerProyectos');
 Route::get('/buscador','ProyectoController@obtenerProyectosBuscador');
 Route::group(['middleware'=>'auth'],function(){
-
 Route::post('/registrarequipo','EquipoController@registrarEquipo');
-
 Route::get('/logout','UserController@getlogout');
 Route::get("/profile",function(){
     return view("profile");
 });
 Route::get('/registerproject','ProyectoController@obtenerEquipos');
 Route::post('/registrarproyecto','ProyectoController@registrarProyecto');
-
 Route::get('/registerteam',function(){
     return view("registrarequipo");
 });
 Route::get('/llenartags','UserController@tags');
-
-
 Route::get('/projectprofile',function(){
     return view("perfilequipo");
 });
 Route::get('/listaequipos','EquipoController@misEquipos');
-
 Route::get('/listaproyectos',function(){
     return view('/proyectos/listaproyectos');
 });
 Route::post('/subirimagen','UserController@imagenPerfil');
-
 });
-
 /*=======================PROALUMNO======Comentario de prueba=======================*/
 
     
