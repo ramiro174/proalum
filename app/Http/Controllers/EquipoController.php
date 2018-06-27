@@ -42,15 +42,17 @@ class EquipoController extends Controller
     public function misEquipos()
     {
         $usuario = Auth::user()->id;
-        $equipos = Equipos::whereHas('userMiembro', function($q) use ($usuario){
+       /* $equipos = Equipos::whereHas('userMiembro', function($q) use ($usuario){
             $q->where('user_id',$usuario);
-        })->get();
-        $miembros="hola";
+        })->get();*/
+        $equipos = Equipos::scopeMisEquipos();
+        return $equipos;
+        $miembros=null;
         collect($miembros);
         return $miembros;
-       foreach ($equipos as $key) {
-           
-       }
+       /*foreach ($equipos as $key) {
+           $miembros += 
+       }*/
         return view('equipos/listaequipos')->with(compact('equipos'));
     }
 }

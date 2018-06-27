@@ -24,7 +24,7 @@ class Equipos extends Model
         return $this->hasMany('App\models\Proyectos','equipos_id');
     }
 
-    public function scopeMisequipos()
+    public static function scopeMisequipos()
     {
         $usuario = Auth::user()->id;
         $equipos = Equipos::whereHas('userMiembro', function($q) use ($usuario){
