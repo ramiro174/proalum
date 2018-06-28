@@ -11,7 +11,7 @@ class ProyectoController extends Controller
 
 	public function obtenerEquipos()
 	{
-		$equipos = Equipos::all();
+		$equipos = Equipos::misequipos();
 		
 		return view('registrarproyecto')->with(compact('equipos'));
 	}
@@ -44,5 +44,11 @@ class ProyectoController extends Controller
     	$obj->save();
 
     	return redirect('/profile');
+    }
+
+    public function proyectosAlumno(){
+    	$proyectos = Proyectos::misproyectos();
+    
+    	return view('proyectos/listaproyectos')->with(compact('proyectos'));
     }
 }
