@@ -22,7 +22,7 @@ class UserController extends Controller
 
     public function metodo1()
     {
-    	
+    
     }
     public function registerteamview()
     {
@@ -35,25 +35,42 @@ class UserController extends Controller
 
     	foreach ($users as $key) {
     		$alumnos[] = array("name" =>$key->name,"id" => $key->id);
-    		$alumnos[] = ["name"=> $key->name,"id"=> $key->id]; 
+    		$alumnos[] = ["name"=> $key->name,"id"=> $key->id];
     	}
     	return $arreglo=['alumnos'=>$alumnos];
         */
-        return User::all(); 
+        return User::all();
     }
 
     public function imagenPerfil(Request $request){
         if ($request->hasFile('imagen')) {
-            $img = $request->file('imagen');
-            Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
-            $img->store('public/usuarios/perfil/imagenes');
-            Storage::move('/public/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
-              '/public/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
-            $file_name = "img_perfil_".Auth::user()->name;
-            $alumno = User::findOrFail(Auth::user()->id);
-            $alumno -> imagen = "$file_name";
-            $alumno->save();
-            return redirect("/profile");
+            try
+            {
+                $img = $request->file('imagen');
+                
+                Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
+                
+                $img->store('public/usuarios/perfil/imagenes');
+                
+                
+                
+//                Storage::move('/public/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
+//                    '/public/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
+    
+                $file_name = "img_perfil_".Auth::user()->name;
+                $alumno = User::findOrFail(Auth::user()->id);
+                $alumno -> imagen = "$file_name";
+                $alumno->save();
+                return redirect("/profile");
+                
+                
+            } catch (Exception $ex){
+            
+            return $ex;
+            
+            }
+            
+            
         }
         else{
             return "nada";
