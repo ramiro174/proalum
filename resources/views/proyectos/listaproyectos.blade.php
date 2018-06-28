@@ -9,9 +9,7 @@
     </div>
 		<div class="card-body">
 			@foreach($proyectos as $key)
-
-      @endforeach
-      <div class="row">
+    <div class="row">
         <div class="col-md-7">
           <a href="#">
             <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
@@ -23,6 +21,8 @@
           <a class="btn btn-primary" href="#">Ver Proyecto</a>
         </div>
       </div>
+      @endforeach
+      
      <br>
       <div class="row">
         <div class="col-md-7">

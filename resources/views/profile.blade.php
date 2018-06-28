@@ -10,7 +10,7 @@
                 <div class="row">
                   @if(Session::has('mensaje'))
 <p class="col-12 alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('mensaje') }}<button type="button" class="close" data-dismiss="alert">×</button> </p>
-
+            {{Session::forget('mensaje')}}
 @endif
                     <div class="col-lg-12 col-sm-12  profile-header">
                       
