@@ -60,7 +60,7 @@ class UserController extends Controller
             return redirect("/profile");
         }
         else{
-            return "nada";
+            return "nada ";
         }
     }
 
