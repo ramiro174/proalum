@@ -72,7 +72,7 @@ class UserController extends Controller
             
         }
         else{
-            return "nada";
+            return "nada ";
         }
     }
 
