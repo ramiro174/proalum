@@ -39,7 +39,13 @@ class UserController extends Controller
     	}
     	return $arreglo=['alumnos'=>$alumnos];
         */
-        return User::all();
+
+        $user = User::all();
+        $user = $user->keyBy('id');
+        $user->forget(Auth::user()->id);
+    
+        return $user;
+
     }
 
     public function imagenPerfil(Request $request){

@@ -53,9 +53,7 @@ Route::get('/projectprofile',function(){
     return view("perfilequipo");
 });
 Route::get('/listaequipos','EquipoController@misEquipos');
-Route::get('/listaproyectos',function(){
-    return view('/proyectos/listaproyectos');
-});
+Route::get('/listaproyectos','ProyectoController@proyectosAlumno');
 Route::post('/subirimagen','UserController@imagenPerfil');
 });
 /*=======================PROALUMNO======Comentario de prueba=======================*/

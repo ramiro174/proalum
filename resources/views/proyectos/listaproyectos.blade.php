@@ -5,10 +5,12 @@
 @section('content')
 <div class="container margin-top-15 margin-bot-5">
 	<div class="card">
-    <div class="card-header"><a class="heredar-color" href="/profile"><img class="col-1 float-left" src="img/profile.png"><h1>Alumno</h1></a> 
+    <div class="card-header"><a class="heredar-color" href="/profile"><img class="col-1 float-left" src="img/profile.png"><h1>{{Auth::user()->name}}</h1></a> 
     </div>
 		<div class="card-body">
-			
+			@foreach($proyectos as $key)
+
+      @endforeach
       <div class="row">
         <div class="col-md-7">
           <a href="#">
@@ -16,8 +18,8 @@
           </a>
         </div>
         <div class="col-md-5">
-          <h3>Proyecto 1</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+          <h3>{{$key->nombre_proyecto}}</h3>
+          <p>{{$key->descripcion}}</p>
           <a class="btn btn-primary" href="#">Ver Proyecto</a>
         </div>
       </div>

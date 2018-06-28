@@ -63,6 +63,7 @@
             queryTokenizer: Bloodhound.tokenizers.whitespace,
              prefetch: {
                     url: "/llenartags",
+                    cache: false,
                     filter: function(list) {
                     return $.map(list, function(name) {
                             return { name: name.name,id: name.id };
