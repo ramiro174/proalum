@@ -11,6 +11,8 @@ use App\models\Equipos;
 class EquipoController extends Controller
 {
      public function registrarEquipo(Request $r){
+        $r->session()->flash('mensaje','Equipo registrado');
+      
         //Obtiene los id de los integrantes del equipo y los guarda en un arreglo
         $arreglo = [];
         $arreglo = $r->input('miembros');
