@@ -53,7 +53,6 @@ class UserController extends Controller
             try
             {
                 $img = $request->file('imagen');
-                
                 Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
                 $img->store('public/usuarios/perfil/imagenes');
                 $file_name = "img_perfil_".Auth::user()->name;
@@ -61,8 +60,6 @@ class UserController extends Controller
                 $alumno -> imagen = "$file_name";
                 $alumno->save();
                 return redirect("/profile");
-                
-                
             } catch (Exception $ex){
             
             return $ex;
