@@ -8,10 +8,17 @@
         <div class="row">
             <div class="offset-lg-2 col-lg-8 col-sm-8 main-section  offset-sm-2  text-center">
                 <div class="row">
-                  @if(Session::has('mensaje'))
+                 <!-- @if(Session::has('mensaje'))
 <p class="col-12 alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('mensaje') }}<button type="button" class="close" data-dismiss="alert">×</button> </p>
             {{Session::forget('mensaje')}}
-@endif
+@endif--> 
+         
+            
+            @include('mensajesflash')
+
+        @section('contentflash')
+        @endsection
+          
                     <div class="col-lg-12 col-sm-12  profile-header">
                       
                     </div>
@@ -33,7 +40,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <h5>
+                            <h5 class="text-uppercase">
                                 {{@Auth::user()->name}}
                             </h5>
                             <hr>

@@ -68,6 +68,13 @@
   </div>
 </nav>
 
+
+@extends('mensajesflash')
+@section('contentflash')
+
+@endsection
+
+
 @section('content')
 @show
 <footer class="footer text-center">
