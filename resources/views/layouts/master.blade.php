@@ -67,12 +67,15 @@
     </div>
   </div>
 </nav>
+  
 
-
-@extends('mensajesflash')
-@section('contentflash')
-
-@endsection
+@if (Session::has('mensaje'))
+<div class="alert alert-success alert-block margin-top-15">
+  <button type="button" class="close" data-dismiss="alert">×</button> 
+        <strong>{{ Session::get('mensaje')}}</strong>
+        {{Session::forget('mensaje')}}
+</div>
+@endif
 
 
 @section('content')

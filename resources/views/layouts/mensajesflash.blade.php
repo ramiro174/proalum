@@ -1,14 +1,19 @@
 @section('contentflash')
-
 <div class="margin-top-15">
-	@if (Auth::user()->name == 'raul')
-<div class="alert alert-success alert-block">
+	<h1>PRUEBA</h1>
+</div>
+<div class="margin-top-15">
+	@if (Session::has('mensaje'))
+<div class="alert alert-success alert-block margin-top-15">
 	<button type="button" class="close" data-dismiss="alert">×</button>	
-        <strong>{{ $mensaje }}</strong>
+        <strong>{{ Session::get('mensaje')}}</strong>
         {{Session::forget('mensaje')}}
 </div>
 @endif
-
+ @if(Session::has('mensaje'))
+<p class="col-12 alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('mensaje') }}<button type="button" class="close" data-dismiss="alert">×</button> </p>
+            {{Session::forget('mensaje')}}
+@endif
 @if ($mensaje = Session::get('error'))
 <div class="alert alert-danger alert-block">
 	<button type="button" class="close" data-dismiss="alert">×</button>	
@@ -43,4 +48,4 @@
 </div>
 
 
-@endsection
+@show
