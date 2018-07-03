@@ -69,12 +69,9 @@
 </nav>
   
 
-@if (Session::has('mensaje'))
-<div class="alert alert-success alert-block margin-top-15">
-  <button type="button" class="close" data-dismiss="alert">×</button> 
-        <strong>{{ Session::get('mensaje')}}</strong>
-        {{Session::forget('mensaje')}}
-</div>
+@if(Session::has('mensaje'))
+<p class="margin-top-15 col-12 alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('mensaje') }}<button type="button" class="close" data-dismiss="alert">×</button> </p>
+            {{Session::forget('mensaje')}}
 @endif
 
 

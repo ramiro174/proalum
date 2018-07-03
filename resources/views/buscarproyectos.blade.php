@@ -49,7 +49,7 @@
           </div>
 
           <div class="row">
-
+            <input type="hidden" name="data-click" >
             @foreach($obj as $key)
            
             <div class="col-lg-4 col-md-6 mb-4">
@@ -59,7 +59,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">{{$key->nombre_proyecto}}</a>
                   </h4>
-                 <a class="heredar-color" href="/teamprofile"><h5>{{$key->equipos->nombreequipo}}</h5></a> 
+                 <a class="heredar-color" href="/teamprofile/{{$key->equipos}}"><button  name="equipo" id="equipo" class="btn-invisible"><h5>{{$key->equipos->nombreequipo}}</h5></button></a> 
                   <p class="card-text">{{$key->descripcion}}</p>
                 </div>
                 <div class="card-footer">
@@ -77,7 +77,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 1</a>
                   </h4>
-                 <a class="heredar-color" href="/teamprofile"><h5>Equipo 1</h5></a> 
+                 <a class="heredar-color" href="#"><h5>Equipo 1</h5></a> 
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                 </div>
                 <div class="card-footer">
@@ -93,7 +93,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 2</a>
                   </h4>
-                <a class="heredar-color" href="/teamprofile"><h5>Equipo 2</h5></a>  
+                <a class="heredar-color" href="#"><h5>Equipo 2</h5></a>  
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div class="card-footer">
@@ -109,7 +109,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 3</a>
                   </h4>
-                <a class="heredar-color" href="/teamprofile"><h5>Equipo 3</h5></a>  
+                <a class="heredar-color" href="#"><h5>Equipo 3</h5></a>  
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                 </div>
                 <div class="card-footer">
@@ -125,7 +125,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 4</a>
                   </h4>
-                <a class="heredar-color" href="/teamprofile"><h5>Equipo 4</h5></a>  
+                <a class="heredar-color" href="#"><h5>Equipo 4</h5></a>  
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                 </div>
                 <div class="card-footer">
@@ -141,7 +141,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 5</a>
                   </h4>
-                 <a class="heredar-color" href="/teamprofile"><h5>Equipo 5</h5></a> 
+                 <a class="heredar-color" href="#"><h5>Equipo 5</h5></a> 
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div class="card-footer">
@@ -157,7 +157,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 6</a>
                   </h4>
-                  <a class="heredar-color" href="/teamprofile"><h5>Equipo 6</h5></a>
+                  <a class="heredar-color" href="#"><h5>Equipo 6</h5></a>
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                 </div>
                 <div class="card-footer">
@@ -187,4 +187,13 @@
       </div>
     </div>
 
+@endsection
+@section('scriptsAdicionales')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('button #equipo').click(function(){
+
+      });
+    });
+  </script>
 @endsection

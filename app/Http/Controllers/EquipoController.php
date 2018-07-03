@@ -48,4 +48,12 @@ class EquipoController extends Controller
 
         return view('equipos/listaequipos')->with(compact('equipos'));
     }
+
+    public function buscarequipo($obj)
+    {
+        $equipo = $obj;
+    
+        return view('perfilequipo')->with(compact('equipo'));
+        //return redirect('/teamprofilevista')->with(compact($equipo));
+    }
 }

@@ -8,18 +8,19 @@
         <div class="row">
             <div class="offset-lg-2 col-lg-8 col-sm-8 main-section  offset-sm-2  text-center">
                 <div class="row">
-                 <!-- @if(Session::has('mensaje'))
+        <!--          @if(Session::has('mensaje'))
 <p class="col-12 alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('mensaje') }}<button type="button" class="close" data-dismiss="alert">×</button> </p>
             {{Session::forget('mensaje')}}
-@endif--> 
+@endif
          
             @if (Session::has('mensaje'))
 <div class="alert alert-success alert-block margin-top-15">
   <button type="button" class="close" data-dismiss="alert">×</button> 
         <strong>{{ Session::get('mensaje')}}</strong>
         {{Session::forget('mensaje')}}
+        <h1>Prueba</h1>
 </div>
-@endif
+@endif-->
             
           
                     <div class="col-lg-12 col-sm-12  profile-header">

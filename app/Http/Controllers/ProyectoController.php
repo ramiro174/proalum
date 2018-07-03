@@ -20,7 +20,7 @@ class ProyectoController extends Controller
 	{
 		$obj = Proyectos::with('equipos')->get();
 	
-
+		
 	return view('buscarproyectos')->with(compact('obj'));
 		
 	}
@@ -42,7 +42,7 @@ class ProyectoController extends Controller
     	$obj->vinculo = $r->input('vinculo');
     	$obj->descripcion = $r->input('descripcion');
     	$obj->save();
-
+    	$r->session()->flash('mensaje','Equipo registrado exitosamente!');
     	return redirect('/profile');
     }
 

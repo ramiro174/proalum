@@ -17,9 +17,12 @@ body{
 	<div class="card">
 		<div class="card-body no-bordes">
 			<!-- Introduction Row -->
+			
 			<h1 class="my-4">Nombre del Equipo 
 				<small>Mensaje del Equipo<a data-toggle="modal" data-target="#editar" class="offset-1 heredar-color btn btn-warning" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small>
 			</h1>
+			
+			
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
 
 			<!-- Team Members Row -->

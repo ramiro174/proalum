@@ -18,6 +18,18 @@
 	outline: 0px;
 	font-size: 1.5rem;
 }
+.btn-invisible
+{
+	background: transparent;
+    border: none !important;
+}
+.btn-invisible:hover
+{
+	background: transparent;
+    border: none !important;
+    color: #18bc9c;
+    text-decoration: underline;
+}
 select.select-estilo > option{
 	font-size: 1.5rem;
 }

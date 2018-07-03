@@ -29,9 +29,15 @@ Route::get('/perfilproyecto',function(){
 Route::get("/login",function(){
        return  view("auth/login");
     });
-Route::get('/teamprofile',function(){
-    return view("perfilequipo");
-});
+
+Route::get('/teamprofile/{id?}',[
+    'as' => 'obj',
+    'uses'=>'EquipoController@buscarequipo']);
+
+/*Route::get('/teamprofilevista',function(){
+    return view('perfilequipo');
+});*/
+
 Route::get('/listaproyectosequipo',function(){
     return view('proyectos/listaproyectosequipo');
 });
