@@ -69,7 +69,7 @@
 </nav>
 
 
-@extends('mensajesflash')
+@includes('mensajesflash')
 @section('contentflash')
 
 @endsection
