@@ -13,11 +13,14 @@
             {{Session::forget('mensaje')}}
 @endif--> 
          
+            @if (Session::has('mensaje'))
+<div class="alert alert-success alert-block margin-top-15">
+  <button type="button" class="close" data-dismiss="alert">×</button> 
+        <strong>{{ Session::get('mensaje')}}</strong>
+        {{Session::forget('mensaje')}}
+</div>
+@endif
             
-            @include('mensajesflash')
-
-        @section('contentflash')
-        @endsection
           
                     <div class="col-lg-12 col-sm-12  profile-header">
                       
