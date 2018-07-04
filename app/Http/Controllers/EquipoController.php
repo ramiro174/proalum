@@ -9,7 +9,9 @@ use App\models\User;
 use App\models\Equipos;
 
 class EquipoController extends Controller
-{
+{       
+
+    
      public function registrarEquipo(Request $r){
         
       
@@ -51,9 +53,13 @@ class EquipoController extends Controller
 
     public function buscarequipo($obj)
     {
-        $equipo = $obj;
-    
-        return view('perfilequipo')->with(compact('equipo'));
-        //return redirect('/teamprofilevista')->with(compact($equipo));
+        $equipos = Equipos::equiposusuarios($obj);
+         return   $equipos;
+      return redirect('/teamprofilevista')->with(compact('equipo'));
+    }
+    public function vistaPerfilequipo()
+    {       
+        
+        return view('perfilequipo');
     }
 }

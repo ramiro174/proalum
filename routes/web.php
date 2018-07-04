@@ -34,9 +34,9 @@ Route::get('/teamprofile/{id?}',[
     'as' => 'obj',
     'uses'=>'EquipoController@buscarequipo']);
 
-/*Route::get('/teamprofilevista',function(){
+Route::get('/teamprofilevista/{id?}',function($id){
     return view('perfilequipo');
-});*/
+});
 
 Route::get('/listaproyectosequipo',function(){
     return view('proyectos/listaproyectosequipo');
@@ -62,7 +62,7 @@ Route::get('/listaequipos','EquipoController@misEquipos');
 Route::get('/listaproyectos','ProyectoController@proyectosAlumno');
 Route::post('/subirimagen','UserController@imagenPerfil');
 });
-/*=======================PROALUMNO======Comentario de prueba=======================*/
+/*=======================PROALUMNO=============================*/
 
     
 

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="css/bootstrap-tagsinput.css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-tagsinput.css">
 <style type="text/css">
 body{
 	background-color: #e2e2e2;
@@ -9,8 +9,8 @@ body{
 </style>
 @endsection
 @section('scripts')
-<script type="text/javascript" src="js/bootstrap-tagsinput.js"></script>
-<script type="text/javascript" src="js/typeahead.js"></script>   
+<script type="text/javascript" src="/js/bootstrap-tagsinput.js"></script>
+<script type="text/javascript" src="/js/typeahead.js"></script>   
 @endsection
 @section('content')
 <div class="container margin-top-15 margin-bot-15" >
@@ -38,7 +38,7 @@ body{
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img style="border-color: green; border-style: inherit;" class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
+					<img style="border-color: green; border-style: inherit;" class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
 					<h3>John Smith<br>
 						<small>Desarrollador</small>
 					</h3>
@@ -49,7 +49,7 @@ body{
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
+					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
 					<h3>John Smith<br>
 						<small>Analista</small>
 					</h3>
@@ -60,7 +60,7 @@ body{
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
+					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
 					<h3>John Smith<br>
 						<small>Titulo</small>
 					</h3>
@@ -71,7 +71,7 @@ body{
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
+					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
 					<h3>John Smith<br>
 						<small>Titulo</small>
 					</h3>
@@ -82,7 +82,7 @@ body{
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
+					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
 					<h3>John Smith<br>
 						<small>Titulo</small>
 					</h3>
@@ -93,7 +93,7 @@ body{
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
+					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
 					<h3>John Smith<br>
 						<small>Titulo</small>
 					</h3>
@@ -104,7 +104,7 @@ body{
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
+					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
 					<h3>John Smith<br>
 						<small>Titulo</small>
 					</h3>
