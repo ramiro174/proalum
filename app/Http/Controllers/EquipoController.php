@@ -53,9 +53,12 @@ class EquipoController extends Controller
 
     public function buscarequipo($obj)
     {
-        $equipos = Equipos::equiposusuarios($obj);
-         return   $equipos;
-      return redirect('/teamprofilevista')->with(compact('equipo'));
+        $miembros = Equipos::equiposusuarios($obj);
+        
+        collect($miembros);
+        $equipo = Equipos::where('id',$obj)->first();
+        
+      return view('perfilequipo')->with(compact('equipo','miembros'));
     }
     public function vistaPerfilequipo()
     {       
