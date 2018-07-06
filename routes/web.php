@@ -23,9 +23,10 @@
         Route::get('/register', function(){
         return  view('auth/register');
     });
-Route::get('/perfilproyecto',function(){
-    return view('perfilproyecto');
-});
+Route::get('/perfilproyecto/{id?}',[
+    'as' => 'obj',
+    'uses' => 'ProyectoController@buscarProyecto'
+]);
 Route::get("/login",function(){
        return  view("auth/login");
     });
@@ -43,6 +44,7 @@ Route::get('/listaproyectosequipo',function(){
 });
 Route::get('/projectbrowser','ProyectoController@obtenerProyectos');
 Route::get('/buscador','ProyectoController@obtenerProyectosBuscador');
+
 Route::group(['middleware'=>'auth'],function(){
 Route::post('/registrarequipo','EquipoController@registrarEquipo');
 Route::get('/logout','UserController@getlogout');

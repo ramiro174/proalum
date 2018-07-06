@@ -21,7 +21,7 @@
     
     @endforeach
   </ul>
-  <a href="/teamprofile" class="btn btn-primary float-right">Ver Equipo</a>
+  <a href="/teamprofile/{{$key->id}}" class="btn btn-primary float-right">Ver Equipo</a>
   </div>
 </div>
       </div>

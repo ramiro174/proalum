@@ -6,8 +6,8 @@
 	<div class="card">
     <div class="card-header"><a class="heredar-color" href="/profile"><img class="col-1 float-left" src="img/profile.png"><h1>Equipo</h1></a> 
     </div>
-		<div class="card-body">
-			
+    <div class="card-body">
+     
       <div class="row">
         <div class="col-md-7">
           <a href="#">
@@ -20,7 +20,7 @@
           <a class="btn btn-primary" href="#">Ver Proyecto</a>
         </div>
       </div>
-     <br>
+      <br>
       <div class="row">
         <div class="col-md-7">
           <a href="#">
@@ -33,7 +33,7 @@
           <a class="btn btn-primary" href="#">Ver Proyecto</a>
         </div>
       </div>
-<br>
+      <br>
       <div class="row">
         <div class="col-md-7">
           <a href="#">
@@ -46,9 +46,9 @@
           <a class="btn btn-primary" href="#">Ver Proyecto</a>
         </div>
       </div>
-		</div>
-	</div>
- </div>
+    </div>
+  </div>
+</div>
 @endsection
 @section('scriptsAdicionales')
 @endsection

@@ -11,58 +11,60 @@ use App\models\Equipos;
 class EquipoController extends Controller
 {       
 
-    
-     public function registrarEquipo(Request $r){
-        
-      
+
+   public function registrarEquipo(Request $r){
+
+
         //Obtiene los id de los integrantes del equipo y los guarda en un arreglo
-        $arreglo = [];
-        $arreglo = $r->input('miembros');
+    $arreglo = [];
+    $arreglo = $r->input('miembros');
         //Separa los id
-        $var = preg_split("','", $arreglo);
+    $var = preg_split("','", $arreglo);
         //Convierte el arreglo en una coleccion
-        $var2 = collect($var);
+    $var2 = collect($var);
         //Simplifica la coleccion
-        $resultado = $var2->map(function($item,$key){
-            return $item*1;
-        });
+    $resultado = $var2->map(function($item,$key){
+        return $item*1;
+    });
         //Sube el equipo a la base de datos
-        $equipo = new Equipos();
-        $equipo->nombreequipo = $r->input('name');
-        $equipo->save();
+    $equipo = new Equipos();
+    $equipo->nombreequipo = $r->input('name');
+    $equipo->save();
         //Obtiene ID del equipo recien registrado atravez del nombre
-        $idequipo = Equipos::where('nombreequipo', $r->input('name'))->first();
+    $idequipo = Equipos::where('nombreequipo', $r->input('name'))->first();
         //Registra al lider del equipo en la tabla pivote
-        $equipo->userLider()->attach($idequipo->id,["user_lider_id"=>Auth::user()->id,"user_id"=>Auth::user()->id]);
+    $equipo->userLider()->attach($idequipo->id,["user_lider_id"=>Auth::user()->id,"user_id"=>Auth::user()->id]);
         //Registra a los integrantes del equipo
-        foreach ($resultado as $key) {
-            $equipo->userMiembro()->attach($idequipo->id,["user_id"=>$key,"user_lider_id"=>Auth::user()->id]);
-        }
-        $r->session()->flash('mensaje','Equipo registrado exitosamente!');
-        return view('profile');
-
+    foreach ($resultado as $key) {
+        $equipo->userMiembro()->attach($idequipo->id,["user_id"=>$key,"user_lider_id"=>Auth::user()->id]);
     }
+    $r->session()->flash('mensaje','Equipo registrado exitosamente!');
+    return view('profile');
 
-    public function misEquipos()
-    {
+}
 
-        $equipos = Equipos::misequipos();
+public function misEquipos()
+{
 
-        return view('equipos/listaequipos')->with(compact('equipos'));
-    }
+    $equipos = Equipos::misequipos();
 
-    public function buscarequipo($obj)
-    {
-        $miembros = Equipos::equiposusuarios($obj);
-        
-        collect($miembros);
-        $equipo = Equipos::where('id',$obj)->first();
-        
-      return view('perfilequipo')->with(compact('equipo','miembros'));
-    }
-    public function vistaPerfilequipo()
-    {       
-        
-        return view('perfilequipo');
-    }
+    return view('equipos/listaequipos')->with(compact('equipos'));
+}
+
+public function buscarequipo($obj)
+{
+    $miembros = Equipos::with('userMiembro')->where('id',$obj)->first();
+
+
+        $miembros = $miembros->userMiembro;
+       // return $miembros[0]->name;
+    $equipo = Equipos::where('id',$obj)->first();
+
+    return view('perfilequipo')->with(compact('equipo','miembros'));
+}
+public function vistaPerfilequipo()
+{       
+
+    return view('perfilequipo');
+}
 }

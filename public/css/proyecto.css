@@ -1,6 +1,9 @@
 .navbar-nav .open .dropdown-menu {
 	background-color:#2c3e50;
 }
+.upp-case{
+	text-transform: uppercase;
+}
 .margin-top-5{
 	margin-top: 1.5rem;
 }

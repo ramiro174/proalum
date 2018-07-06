@@ -57,9 +57,9 @@
                 <img class="card-img-top" src="http://placehold.it/700x400" alt="">
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a class="heredar-color" href="/perfilproyecto">{{$key->nombre_proyecto}}</a>
+                    <a class="heredar-color" href="/perfilproyecto/{{$key->id}}">{{$key->nombre_proyecto}}</a>
                   </h4>
-                 <a class="heredar-color" href="/teamprofile/{{$key->equipos->id}}"><button  name="equipo" id="equipo" class="btn-invisible"><h5>{{$key->equipos->nombreequipo}}</h5></button></a> 
+                  <a class="heredar-color" href="/teamprofile/{{$key->equipos->id}}"><button  name="equipo" id="equipo" class="btn-invisible"><h5>{{$key->equipos->nombreequipo}}</h5></button></a> 
                   <p class="card-text">{{$key->descripcion}}</p>
                 </div>
                 <div class="card-footer">

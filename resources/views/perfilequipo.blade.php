@@ -20,7 +20,7 @@ body{
 			
 			<h1 class="my-4">{{$equipo->nombreequipo}}
 				@if(Auth::check())<small><a data-toggle="modal" data-target="#editar" class="float-right heredar-color btn btn-warning" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small> @endif
-			
+
 			</h1>
 			
 			
@@ -37,10 +37,11 @@ body{
 						
 					</h2>
 				</div>
+				@foreach($miembros as $key)
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					<img style="border-color: green; border-style: inherit;" class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
-					<h3>John Smith<br>
+					<h3 class="text-uppercase">{{$key->name}}<br>
 						<small>Desarrollador</small>
 					</h3>@if(Auth::check())
 					<div class="offset-7">
@@ -48,15 +49,16 @@ body{
 						<button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
 					</div>  
 					@endif
-					       
+
 				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
+				@endforeach
+				<div class="col-lg-4 col-md-6 col-sm-6 text-center mb-4 borde-usuarios">
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
 					<h3>John Smith<br>
 						<small>Analista</small>
 					</h3>@if(Auth::check())
-					 <div class="offset-7">
+					<div class="offset-7">
 						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
 						<button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
 					</div>
