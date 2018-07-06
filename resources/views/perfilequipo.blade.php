@@ -18,19 +18,20 @@ body{
 		<div class="card-body no-bordes">
 			<!-- Introduction Row -->
 			
-			<h1 class="my-4">Nombre del Equipo 
-				<small>Mensaje del Equipo<a data-toggle="modal" data-target="#editar" class="offset-1 heredar-color btn btn-warning" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small>
+			<h1 class="my-4">{{$equipo->nombreequipo}}
+				@if(Auth::check())<small><a data-toggle="modal" data-target="#editar" class="float-right heredar-color btn btn-warning" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small> @endif
+			
 			</h1>
 			
 			
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
+			<p>{{$equipo->mensaje}}</p>
 
 			<!-- Team Members Row -->
 			<div class="row">
 				<div class="col-lg-12">
 					<h2 class="my-4">Nuestro Equipo 
-						<button  data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i>
-						</button>
+						@if(Auth::check())<button  data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i>
+						</button>@endif
 						<a href="/listaproyectosequipo" class="btn btn-sm btn-primary offset-sm-0 offset-lg-4 offset-md-0" >Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i>
 						</a>
 						
@@ -41,22 +42,26 @@ body{
 					<img style="border-color: green; border-style: inherit;" class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
 					<h3>John Smith<br>
 						<small>Desarrollador</small>
-					</h3>
+					</h3>@if(Auth::check())
 					<div class="offset-7">
 						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
 						<button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>         
+					</div>  
+					@endif
+					       
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
 					<h3>John Smith<br>
 						<small>Analista</small>
-					</h3>
-					<div class="offset-7">
+					</h3>@if(Auth::check())
+					 <div class="offset-7">
 						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
 						<button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
 					</div>
+					@endif
+					
 				</div>
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
