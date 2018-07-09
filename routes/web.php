@@ -63,6 +63,7 @@ Route::get('/projectprofile',function(){
 Route::get('/listaequipos','EquipoController@misEquipos');
 Route::get('/listaproyectos','ProyectoController@proyectosAlumno');
 Route::post('/subirimagen','UserController@imagenPerfil');
+Route::post('/modalagrega','EquipoController@modalagregar');
 });
 /*=======================PROALUMNO=============================*/
 

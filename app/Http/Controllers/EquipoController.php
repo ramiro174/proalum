@@ -43,6 +43,31 @@ class EquipoController extends Controller
 
 }
 
+public function modalagregar(Request $r)
+{
+       //Obtiene los id de los integrantes del equipo y los guarda en un arreglo
+    $arreglo = [];
+    $arreglo = $r->input('miembros');
+        //Separa los id
+    $var = preg_split("','", $arreglo);
+        //Convierte el arreglo en una coleccion
+    $var2 = collect($var);
+        //Simplifica la coleccion
+    $resultado = $var2->map(function($item,$key){
+        return $item*1;
+    });
+        $equipo = new Equipos();
+        $idequipo = $r->input('idequipo');
+        
+        //Registra a los integrantes del equipo
+    foreach ($resultado as $key) {
+        $equipo->userMiembro()->attach($idequipo,["user_id"=>$key,
+            "user_lider_id"=>$r->input('lider')]);
+    }
+    $r->session()->flash('mensaje','Equipo registrado exitosamente!');
+    return "registro exitoso";
+}
+
 public function misEquipos()
 {
 
@@ -54,13 +79,19 @@ public function misEquipos()
 public function buscarequipo($obj)
 {
     $miembros = Equipos::with('userMiembro')->where('id',$obj)->first();
+    $lider = Equipos::with('userLider')->where('id',$obj)->first();
 
-
+    $lider = $lider->userLider[0]->pivot->user_lider_id;
+  
         $miembros = $miembros->userMiembro;
+
+        
        // return $miembros[0]->name;
     $equipo = Equipos::where('id',$obj)->first();
+    $idequipo = $equipo->id;
 
-    return view('perfilequipo')->with(compact('equipo','miembros'));
+
+    return view('perfilequipo')->with(compact('equipo','miembros','lider','idequipo'));
 }
 public function vistaPerfilequipo()
 {       

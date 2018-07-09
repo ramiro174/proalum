@@ -17,7 +17,8 @@ body{
 	<div class="card">
 		<div class="card-body no-bordes">
 			<!-- Introduction Row -->
-			
+			<input type="hidden" name="idequipo" id="idequipo" value="{{$idequipo}}">
+			<input type="hidden" name="idlider" id="idlider" value="{{$lider}}">
 			<h1 class="my-4">{{$equipo->nombreequipo}}
 				@if(Auth::check())<small><a data-toggle="modal" data-target="#editar" class="float-right heredar-color btn btn-warning" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small> @endif
 
@@ -30,8 +31,11 @@ body{
 			<div class="row">
 				<div class="col-lg-12">
 					<h2 class="my-4">Nuestro Equipo 
-						@if(Auth::check())<button  data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i>
-						</button>@endif
+						@if(Auth::check())
+						@if(Auth::user()->id == $lider)<button  data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i>
+						</button>
+						@endif
+						@endif
 						<a href="/listaproyectosequipo" class="btn btn-sm btn-primary offset-sm-0 offset-lg-4 offset-md-0" >Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i>
 						</a>
 						
@@ -40,87 +44,26 @@ body{
 				@foreach($miembros as $key)
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img style="border-color: green; border-style: inherit;" class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
+					@if($key->id == $lider)
+					<img  style="border-color: green; border-style: inherit;" class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
+					@else
+					<img  class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
+					@endif
+					
 					<h3 class="text-uppercase">{{$key->name}}<br>
 						<small>Desarrollador</small>
 					</h3>@if(Auth::check())
+					@if(Auth::user()->id == $lider)
 					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>  
+						<button id="editar" name="editar"  data-toggle="modal" value="{{$key->id}}" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
+						<button id="eliminar" name="eliminar" data-toggle="modal" value="{{$key->id}}" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
+					</div> 
+					@endif 
 					@endif
 
 				</div>
 				@endforeach
-				<div class="col-lg-4 col-md-6 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Analista</small>
-					</h3>@if(Auth::check())
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-					@endif
-					
-				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Titulo</small>
-					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Titulo</small>
-					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete"  type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Titulo</small>
-					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete"  type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Titulo</small>
-					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete"  type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Titulo</small>
-					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete"  type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-				</div>
-			</div>
+				
 		</div>
 	</div>
 </div>
@@ -133,10 +76,11 @@ body{
 			</div>
 			<div class="modal-body fuente">
 				Eliminar a (nombre de usuario)
+				<input type="hidden" name="borraralumno" id="borraralumno">
 			</div>
 			<div class="modal-footer align-content-center">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button class="btn btn-danger btn-ok">Borrar</button>
+				<button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button id="modeliminar" name="modeliminar" class="btn btn-danger btn-ok">Borrar</button>
 			</div>
 		</div>
 	</div>
@@ -222,7 +166,7 @@ body{
 			</div>
 			<div class="modal-footer align-content-center">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button href="/listaproyectos" class="btn btn-success btn-ok">Agregar</button>
+				<button id="agregar" name="agregar" class="btn btn-success btn-ok">Agregar</button>
 			</div>
 		</div>
 	</div>
@@ -247,29 +191,58 @@ body{
 	$(document).ready(function () {
 
 
-
+		//Autocompletado para el buscador de alumnos
 		var engine = new Bloodhound({
-			datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-			queryTokenizer: Bloodhound.tokenizers.whitespace,
-			prefetch: {
-				url: "/llenartags",
-				filter: function(list) {
-					return $.map(list, function(name) {                     
-						return { name: name.email}; });
-				}
-			}
-		});
-		engine.initialize();
-		console.log(engine);
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      prefetch: {
+        url: "/llenartags",
+        cache: false,
+        filter: function(list) {
+          return $.map(list, function(name) {
+            return { name: name.name,id: name.id };
+            
+          });
+        }
+      }
+    });
+    engine.initialize();
 
 		$('input#miembros').tagsinput({
-			typeaheadjs: {
-				name: 'nombre',
-				displayKey: 'name',
-				valueKey: 'name',
-				source: engine.ttAdapter()
-			}
-		});
+      itemValue: 'id',
+      itemText: 'name',
+      typeaheadjs: {
+        name: 'nombre',
+        displayKey:'name',
+        source: engine.ttAdapter()
+      }
+    });
+	//JQuery de modals
+	$('#eliminar').click(function(){
+		$alumno = $('#eliminar').val();
+		$('#borraralumno').val($alumno);
+		console.log($('#borraralumno').val());
+	});		
+	$('#agregar').click(function(){
+		console.log("click");
+		$data ={
+			"miembros":$('#miembros').val(),
+			"_token":$("input[name*='_token']").val(),
+			"idequipo":$("#idequipo").val(),
+			"lider":$("#idlider").val(),};
+		console.log($data);
+		$.ajax({
+				url     : "/modalagrega",
+				type    : "post",
+				dataType: "JSON",
+				data    : $data,
+				success : function($r){console.log($r);}
+			});
+		$('#agregarusuario').modal('toggle');
+		$('miembros').val(null);
+		console.log($('miembros').val());
+	});
+			
 
 	});
 </script>

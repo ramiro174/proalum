@@ -15,7 +15,7 @@ class Equipos extends Model
 	public function userLider()
 	{
 		return $this->belongsToMany('App\models\User', "equipo_user", "equipo_id", "user_lider_id")
-		->withPivot('user_id_lider')->withTimestamps();
+		->withPivot('user_lider_id')->withTimestamps();
 	}
 	public function userMiembro()
 	{
@@ -41,6 +41,7 @@ class Equipos extends Model
 			$q->where('equipo_id', $id);
 		})->get()->load("userMiembro");
 	}
+	
 
 
 
