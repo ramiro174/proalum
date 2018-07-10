@@ -24,5 +24,14 @@ class Proyectos extends Model
 		})->get();
 
 	}
+	public function scopeProyectosAlumno($query,$id)
+	{
+		$usuario = $id;
+            //return $query->with('equipos.userMiembro')->get();
+
+		return $query->whereHas('equipos.userMiembro', function ($q) use ($usuario) {
+			$q->where('user_id', $usuario);
+		})->get();
+	}
 	
 }

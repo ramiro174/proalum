@@ -33,6 +33,13 @@ class Equipos extends Model
 			$q->where('user_id', $usuario);
 		})->get()->load("userMiembro");
 	}
+	public function scopeMisequiposid($query,$id)
+	{
+		$usuario = $id;
+		return $query->whereHas('userMiembro', function ($q) use ($usuario) {
+			$q->where('user_id', $usuario);
+		})->get()->load("userMiembro");
+	}
 
 	
 	public function scopeEquiposusuarios($query,$id)

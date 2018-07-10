@@ -5,7 +5,8 @@
 @section('content')
 <div class="container margin-top-15 margin-bot-5">
 	<div class="card">
-    <div class="card-header"><a class="heredar-color" href="/profile"><img class="col-1 float-left" src="img/profile.png"><h1 class="text-uppercase">{{Auth::user()->name}}</h1></a> 
+    <div class="card-header"><a class="heredar-color" href="/profile"><img class="col-1 float-left" 
+      src="/img/profile.png"><h1 class="text-uppercase">{{Auth::user()->name}}</h1></a> 
     </div>
     <div class="card-body">
      @foreach($proyectos as $key)

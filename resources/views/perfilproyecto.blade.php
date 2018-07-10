@@ -8,7 +8,7 @@
 
   <!-- Portfolio Item Heading -->
   <h1 class="my-4">{{$proyecto->nombre_proyecto}}
-    <small><a href="/teamprofile">{{$equipo->nombreequipo}}</a> </small>
+    <small><a href="/teamprofile/{{$equipo->id}}">{{$equipo->nombreequipo}}</a> </small>
     <a data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-7 no-bordes" href="">Editar<i class="fa fa-fw fa-pencil"></i></a>
   </h1>
 

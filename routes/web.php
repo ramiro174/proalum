@@ -38,6 +38,14 @@ Route::get('/teamprofile/{id?}',[
 Route::get('/teamprofilevista/{id?}',function($id){
     return view('perfilequipo');
 });
+Route::get('/listaproyectosid/{id?}',[
+'as' => 'obj',
+'uses' => 'ProyectoController@proyectosAlumnoid'
+]);
+Route::get('/listaequiposid/{id?}',[
+'as' => 'obj',
+'uses' => 'EquipoController@misEquiposid'
+]);
 
 Route::get('/listaproyectosequipo',function(){
     return view('proyectos/listaproyectosequipo');
@@ -51,12 +59,18 @@ Route::get('/logout','UserController@getlogout');
 Route::get("/profile",function(){
     return view("profile");
 });
+Route::get("/perfilalumno/{id?}",[
+'as' =>'obj',
+'uses' => 'UserController@perfilId']);
 Route::get('/registerproject','ProyectoController@obtenerEquipos');
 Route::post('/registrarproyecto','ProyectoController@registrarProyecto');
 Route::get('/registerteam',function(){
     return view("registrarequipo");
 });
 Route::get('/llenartags','UserController@tags');
+Route::get('/extratags/{id?}',[
+'as' => 'obj',
+'uses' => 'UserController@agregarAlumnos']);
 Route::get('/projectprofile',function(){
     return view("perfilequipo");
 });

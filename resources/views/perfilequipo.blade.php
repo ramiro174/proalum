@@ -45,9 +45,9 @@ body{
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					@if($key->id == $lider)
-					<img  style="border-color: green; border-style: inherit;" class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
+					<a href="/perfilalumno/{{$key->id}}" class="rounded-circle borde-lider"><img class="rounded-circle img-fluid d-block mx-auto borde-lider" src="/img/profile.png" alt=""></a>
 					@else
-					<img  class="rounded-circle img-fluid d-block mx-auto" src="/img/profile.png" alt="">
+					<a href="/perfilalumno/{{$key->id}}" class="rounded-circle img-alumno"><img  class="rounded-circle img-fluid d-block mx-auto img-alumno" src="/img/profile.png" alt=""></a>
 					@endif
 					
 					<h3 class="text-uppercase">{{$key->name}}<br>
@@ -190,13 +190,13 @@ body{
 <script type="text/javascript">
 	$(document).ready(function () {
 
-
+	
 		//Autocompletado para el buscador de alumnos
 		var engine = new Bloodhound({
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       prefetch: {
-        url: "/llenartags",
+        url: "/extratags/"+$("#idequipo").val(),
         cache: false,
         filter: function(list) {
           return $.map(list, function(name) {
@@ -207,7 +207,7 @@ body{
       }
     });
     engine.initialize();
-
+    
 		$('input#miembros').tagsinput({
       itemValue: 'id',
       itemText: 'name',

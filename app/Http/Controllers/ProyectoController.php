@@ -58,4 +58,9 @@ class ProyectoController extends Controller
 		
 		return view('proyectos/listaproyectos')->with(compact('proyectos'));
 	}
+	public function proyectosAlumnoid($obj){
+		$proyectos = Proyectos::proyectosalumno($obj);
+		
+		return view('proyectos/listaproyectos')->with(compact('proyectos'));
+	}
 }
