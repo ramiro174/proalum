@@ -42,7 +42,7 @@ class EquipoController extends Controller
     return view('profile');
 
 }
-
+/*-----------CONTROLADORES DE MODALS EN VISTA PERFILEQUIPO----------------------*/
 public function modalagregar(Request $r)
 {
        //Obtiene los id de los integrantes del equipo y los guarda en un arreglo
@@ -67,6 +67,25 @@ public function modalagregar(Request $r)
     }
     $r->session()->flash('mensaje','Equipo registrado exitosamente!');
     return "registro exitoso";
+}
+
+public function modaleditar(Request $r){
+	$equipo = Equipos::where('id',$r->input('idequipo'))->first();
+	if ($r->input('nombre') != null) {
+		$equipo->nombreequipo = $r->input('nombre');
+	}
+	if ($r->input('mensaje') != null) {
+		$equipo->mensaje = $r->input('mensaje');
+	}
+	$equipo->save();
+	$r->session()->flash('mensaje','¡Cambios registrados exitosamente!');
+	$mensaje = "¡Cambios registrados exitosamente!";
+	return $mensaje;
+}
+public function modalborrar(Request $r)
+{
+	$alumno = Equipos::findOrFail($r->input('idalumno'));
+	$alumno->userMiembro()->deattach();
 }
 
 public function misEquipos()

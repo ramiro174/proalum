@@ -77,6 +77,9 @@ Route::get('/listaequipos','EquipoController@misEquipos');
 Route::get('/listaproyectos','ProyectoController@proyectosAlumno');
 Route::post('/subirimagen','UserController@imagenPerfil');
 Route::post('/modalagrega','EquipoController@modalagregar');
+Route::post('/modaleditar','EquipoController@modaleditar');
+Route::post('/modalborrar','EquipoController@modalborrar');
+
 });
 /*=======================PROALUMNO=============================*/
 

@@ -19,13 +19,14 @@ body{
 			<!-- Introduction Row -->
 			<input type="hidden" name="idequipo" id="idequipo" value="{{$idequipo}}">
 			<input type="hidden" name="idlider" id="idlider" value="{{$lider}}">
-			<h1 class="my-4">{{$equipo->nombreequipo}}
-				@if(Auth::check())<small><a data-toggle="modal" data-target="#editar" class="float-right heredar-color btn btn-warning" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small> @endif
+			<h1 class="my-4" id="tituloequipo">{{$equipo->nombreequipo}}</h1>
+			<h1 class="my-4">
+				@if(Auth::check())<small><a data-toggle="modal" data-target="#editarmodal" class="float-right heredar-color btn btn-warning" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small> @endif
 
 			</h1>
 			
 			
-			<p>{{$equipo->mensaje}}</p>
+			<p id="mensajeequipo">{{$equipo->mensaje}}</p>
 
 			<!-- Team Members Row -->
 			<div class="row">
@@ -55,8 +56,8 @@ body{
 					</h3>@if(Auth::check())
 					@if(Auth::user()->id == $lider)
 					<div class="offset-7">
-						<button id="editar" name="editar"  data-toggle="modal" value="{{$key->id}}" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button id="eliminar" name="eliminar" data-toggle="modal" value="{{$key->id}}" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
+						<button id="editar" name="editar"  data-toggle="modal" value="{{$key->id}}" data-target="#editartitulo" type="button" class="editarbtn btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
+						<button id="eliminar" accesskey="{{$key->id}}" name="eliminar" data-toggle="modal" value="{{$key->id}}" data-target="#confirm-delete" type="button" class="eliminarbtn btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
 					</div> 
 					@endif 
 					@endif
@@ -102,34 +103,29 @@ body{
 		</div>
 	</div>
 </div>
-<div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="editarmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" >
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="card  col-md-12">
 					<div class="card-body text-primary">
 						<h2 class="text-center text-uppercase text-secondary mb-0">Informacion del Equipo</h2>
-
 						<form class="form-horizontal" method="POST" action="">
 							{{ csrf_field() }}
 							<div class="control-group">
 								<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
 									<label for="name"  class="col-md-6 offset-md-3 control-label">Nombre del equipo</label>   
 									<div class="col-md-12 col-sm-12">
-										<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nuevo Nombre" required="required" data-validation-required-message="Ingresa tu Nombre">
+										<input id="editnombre" type="text" class="form-control" name="editnombre" placeholder="Nuevo Nombre" required="required" data-validation-required-message="Ingresa tu Nombre">
 										<p class="help-block text-danger"></p>
-										@if ($errors->has('name'))
-										<span class="help-block">
-											<strong>{{ $errors->first('name') }}</strong>
-										</span>
-										@endif
+										
 									</div>
 								</div>
 							</div>
 							<div class="control-group" >
 								<div class="form-group floating-label-form-group controls mb-0 pb-2">
-									<label for="email" class="col-md-12 offset-md-3 control-label">Correo Electronico</label>
-									<input id="email"  type="email" class="form-control" name="email"  placeholder="Mensaje del equipo" required="required" data-validation-required-message="Ingresa el mensaje del equipo">
+									<label for="editmensaje" class="col-md-12 offset-md-3 control-label">Mensaje</label>
+									<input id="editmensaje" maxlength="190"  type="text" class="form-control" name="editmensaje"  placeholder="Mensaje del equipo" required="required" data-validation-required-message="Ingresa el mensaje del equipo">
 									<p class="help-block text-danger"></p>
 
 								</div>
@@ -137,22 +133,20 @@ body{
 							<div class="control-group">
 								<div class="form-group floating-label-form-group controls mb-0 pb-2">
 									<label>Descripcion</label>
-									<textarea class="form-control" id="message" rows="3" placeholder="Descripcion" required="required" data-validation-required-message="Completa este campo."></textarea>
+									<textarea class="form-control" name="editdesc" id="editdesc" rows="3" placeholder="Descripcion" required="required" data-validation-required-message="Completa este campo."></textarea>
 									<p class="help-block text-danger"></p>
 								</div>
 							</div>
-
 						</form>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer align-content-center">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button class="btn btn-primary btn-ok">Aceptar</button>
+				<button class="btn btn-primary btn-ok" id="editmodalbutton">Aceptar</button>
 			</div>
 		</div>
 	</div>
-
 </div>    
 <div class="modal fade" id="agregarusuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
@@ -217,12 +211,13 @@ body{
         source: engine.ttAdapter()
       }
     });
-	//JQuery de modals
-	$('#eliminar').click(function(){
-		$alumno = $('#eliminar').val();
+	//Script de modals
+	$('.eliminarbtn').click(function(){
+		$alumno = $(this).val();
 		$('#borraralumno').val($alumno);
 		console.log($('#borraralumno').val());
-	});		
+	});
+
 	$('#agregar').click(function(){
 		console.log("click");
 		$data ={
@@ -242,7 +237,59 @@ body{
 		$('miembros').val(null);
 		console.log($('miembros').val());
 	});
+	$('#editmodalbutton').click(function(){
+		console.log("click");
+		if ($('#editnombre').val() != null && $('#editmensaje').val() != null && $('#editdesc').val() != null){ 
+		$data ={
 			
+			
+			"_token":$("input[name*='_token']").val(),
+			"idequipo":$("#idequipo").val(),
+			"lider":$("#idlider").val(),};
+			if ($('#editnombre').val() != null) {
+				//$data.add("nombre",$('#editnombre').val());
+				$data.nombre = $('#editnombre').val();
+			}
+			if ($('#editmensaje').val() != null) {
+				//$data.add("mensaje",$('#editmensaje').val());
+				$data.mensaje = $('#editmensaje').val();
+			}
+			if ($('#editdesc').val() != null) {
+				//$data.add("desc",$('#editdesc').val());
+				$data.desc = $('#editdesc').val();
+			}
+		console.log($data);
+		$.ajax({
+				url     : "/modaleditar",
+				type    : "post",
+				dataType: "JSON",
+				data    : $data,
+				success : function($r){console.log($r.mensaje);}
+			});
+		
+		
+		};
+		if ($('#editnombre').val() !=null) {
+			$('#tituloequipo').val('Nuevo Titulo');
+		}
+		if ($('#editmensaje').val() != null) {
+			$('mensajeequipo').val($('#editmensaje').val());
+		}
+		$('#editarmodal').modal('toggle');
+	});
+	$('modeliminar').click(function(){
+		$data = { 
+			'idalumno':$('#borraralumno').val(),
+			"_token":$("input[name*='_token']").val(),
+		}
+		$.ajax({
+				url     : "/modalborrar",
+				type    : "post",
+				dataType: "JSON",
+				data    : $data,
+				success : function($r){console.log($r.mensaje);}
+			});
+	});
 
 	});
 </script>
