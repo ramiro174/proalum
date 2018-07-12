@@ -16,8 +16,8 @@ class UserController extends Controller
 {
     public function getlogout()
     {
-    	Auth::logout();
-        return	redirect("/");
+        Auth::logout();
+        return  redirect("/");
     }
 
     public function metodo1()
@@ -26,18 +26,18 @@ class UserController extends Controller
     }
     public function registerteamview()
     {
-    	return view("registerteam");
+        return view("registerteam");
     }
     public function tags()
     {
-    	//$users = User::all();
-    	/*$alumnos = [];
+        //$users = User::all();
+        /*$alumnos = [];
 
-    	foreach ($users as $key) {
-    		$alumnos[] = array("name" =>$key->name,"id" => $key->id);
-    		$alumnos[] = ["name"=> $key->name,"id"=> $key->id];
-    	}
-    	return $arreglo=['alumnos'=>$alumnos];
+        foreach ($users as $key) {
+            $alumnos[] = array("name" =>$key->name,"id" => $key->id);
+            $alumnos[] = ["name"=> $key->name,"id"=> $key->id];
+        }
+        return $arreglo=['alumnos'=>$alumnos];
         */
 
         $user = User::all();

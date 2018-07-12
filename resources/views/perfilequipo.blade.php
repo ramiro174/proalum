@@ -45,9 +45,9 @@ body{
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					@if($key->id == $lider)
-					<a href="/perfilalumno/{{$key->id}}" class="rounded-circle borde-lider"><img class="rounded-circle img-fluid d-block mx-auto borde-lider" src="/img/profile.png" alt=""></a>
+					<a href="/perfilalumno/{{$key->id}}"  class="rounded-circle  d-block"><img class="rounded-circle img-fluid d-block mx-auto borde-lider" src="/img/profile.png" alt=""></a>
 					@else
-					<a href="/perfilalumno/{{$key->id}}" class="rounded-circle img-alumno"><img  class="rounded-circle img-fluid d-block mx-auto img-alumno" src="/img/profile.png" alt=""></a>
+					<a href="/perfilalumno/{{$key->id}}" class="rounded-circle  d-block"><img  class="rounded-circle img-fluid d-block mx-auto img-alumno" src="/img/profile.png" alt=""></a>
 					@endif
 					
 					<h3 class="text-uppercase">{{$key->name}}<br>
@@ -103,7 +103,7 @@ body{
 	</div>
 </div>
 <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
+	<div class="modal-dialog modal-dialog-centered" >
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="card  col-md-12">

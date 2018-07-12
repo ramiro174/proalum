@@ -52,16 +52,15 @@ Route::get('/listaproyectosequipo',function(){
 });
 Route::get('/projectbrowser','ProyectoController@obtenerProyectos');
 Route::get('/buscador','ProyectoController@obtenerProyectosBuscador');
-
+Route::get("/perfilalumno/{id?}",[
+'as' =>'obj',
+'uses' => 'UserController@perfilId']);
 Route::group(['middleware'=>'auth'],function(){
 Route::post('/registrarequipo','EquipoController@registrarEquipo');
 Route::get('/logout','UserController@getlogout');
 Route::get("/profile",function(){
     return view("profile");
 });
-Route::get("/perfilalumno/{id?}",[
-'as' =>'obj',
-'uses' => 'UserController@perfilId']);
 Route::get('/registerproject','ProyectoController@obtenerEquipos');
 Route::post('/registrarproyecto','ProyectoController@registrarProyecto');
 Route::get('/registerteam',function(){

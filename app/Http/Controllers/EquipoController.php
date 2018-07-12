@@ -60,9 +60,10 @@ public function modalagregar(Request $r)
         $idequipo = $r->input('idequipo');
         
         //Registra a los integrantes del equipo
+
     foreach ($resultado as $key) {
-        $equipo->userMiembro()->attach($idequipo,["user_id"=>$key,
-            "user_lider_id"=>$r->input('lider')]);
+        $equipo->userMiembro()->attach([["equipo_id"=>$idequipo,"user_id"=>$key,
+            "user_lider_id"=>$r->input('lider')]]);
     }
     $r->session()->flash('mensaje','Equipo registrado exitosamente!');
     return "registro exitoso";
