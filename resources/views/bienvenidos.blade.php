@@ -10,7 +10,7 @@
     @endif
     <h1 class="text-uppercase mb-0">Encuentra aqui tu proyecto creado por la carrera de TICS</h1>
     <hr class="star-light">
-    <h2 class="font-weight-light mb-0">Tenemos diferentes tipos de proyectos</h2>
+    <a class="heredar-color" href="/projectbrowser"><h2 class="letras-blancas text-center text-uppercase  mb-0">Todos los Proyectos</h2></a> 
   </div>
 </header>
 <!-- Portfolio Grid Section -->

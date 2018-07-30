@@ -13,7 +13,7 @@ body{
 <script type="text/javascript" src="/js/typeahead.js"></script>   
 @endsection
 @section('content')
-<div class="container margin-top-15 margin-bot-15" >
+<div class="container margin-top-15 margin-bot-15 col-md-10" >
 	<div class="card">
 		<div class="card-body no-bordes">
 			<!-- Introduction Row -->
@@ -25,19 +25,21 @@ body{
 
 			</h1>
 			
-			
+			@if($equipo->mensaje == null)
+			Bienvenido a la pagina de perfil de los integrantes del equipo {{$equipo->nombreequipo}}
+			@else
 			<p id="mensajeequipo">{{$equipo->mensaje}}</p>
-
+			@endif
 			<!-- Team Members Row -->
 			<div class="row">
 				<div class="col-lg-12">
-					<h2 class="my-4">Nuestro Equipo 
+					<h2 class="my-4">Nuestro Equipo <br>
 						@if(Auth::check())
-						@if(Auth::user()->id == $lider)<button  data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i>
+						@if(Auth::user()->id == $lider)<button  data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success col-sm-6 col-md-4 col-lg-3" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i>
 						</button>
 						@endif
 						@endif
-						<a href="/listaproyectosequipo" class="btn btn-sm btn-primary offset-sm-0 offset-lg-4 offset-md-0" >Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i>
+						<a href="/listaproyectosequipo/{{$equipo->id}}" class="btn btn-sm btn-primary offset-sm-0 offset-lg-4 offset-md-0 col-sm-6 col-md-4 col-lg-3 float-right" >Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i>
 						</a>
 						
 					</h2>
@@ -58,9 +60,15 @@ body{
 						<small>Lider</small>
 					</h3>
 					@else
+					@if($key->pivot->titulo != null)
 					<h3 class="text-uppercase">{{$key->name}}<br>
 						<small>{{$key->pivot->titulo}}</small>
 					</h3>
+					@else
+					<h3 class="text-uppercase">{{$key->name}}<br>
+						<small>Miembro</small>
+					</h3>
+					@endif
 					<div class="offset-7">
 						<button id="editar" name="editar"  data-toggle="modal" value="{{$key->id}}" accesskey="{{$key->pivot->titulo}}" data-target="#editartitulo" type="button" class="editarbtn btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
 						<button id="eliminar" accesskey="{{$key->id}}" name="eliminar" data-toggle="modal" value="{{$key->id}}" data-target="#confirm-delete" type="button" class="eliminarbtn btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
@@ -139,13 +147,7 @@ body{
 
 								</div>
 							</div>
-							<div class="control-group">
-								<div class="form-group floating-label-form-group controls mb-0 pb-2">
-									<label>Descripcion</label>
-									<textarea class="form-control" name="editdesc" id="editdesc" rows="3" placeholder="Descripcion" required="required" data-validation-required-message="Completa este campo."></textarea>
-									<p class="help-block text-danger"></p>
-								</div>
-							</div>
+							
 						</form>
 					</div>
 				</div>
@@ -256,7 +258,14 @@ body{
 	});
 	$('#editmodalbutton').click(function(){
 		console.log("click");
-		if ($('#editnombre').val() != null && $('#editmensaje').val() != null && $('#editdesc').val() != null){ 
+		if ($('#editnombre').val() != null && $('#editmensaje').val() != null){ 
+			if ($('#editnombre').val() !=null) {
+			$var = 'nuevo titulo';
+			$('h1#tituloequipo').attr('value',$var);
+		}
+		if ($('#editmensaje').val() != null) {
+			$('mensajeequipo').val("funciona");
+		}
 		$data ={
 			
 			
@@ -271,10 +280,7 @@ body{
 				//$data.add("mensaje",$('#editmensaje').val());
 				$data.mensaje = $('#editmensaje').val();
 			}
-			if ($('#editdesc').val() != null) {
-				//$data.add("desc",$('#editdesc').val());
-				$data.desc = $('#editdesc').val();
-			}
+			
 		console.log($data);
 		$.ajax({
 				url     : "/modaleditar",
@@ -286,14 +292,10 @@ body{
 		
 		
 		};
-		if ($('#editnombre').val() !=null) {
-			$('#tituloequipo').val('Nuevo Titulo');
-		}
-		if ($('#editmensaje').val() != null) {
-			$('mensajeequipo').val($('#editmensaje').val());
-		}
+		
 		$('#editarmodal').modal('toggle');
 	});
+
 	$('#modeliminar').click(function(){
 		console.log($('#borraralumno').val());
 		$data = { 
@@ -312,7 +314,8 @@ body{
 	});
 	$('#modeditar').click(function(){
 		console.log($('#editarmiembro').val());
-		$data = { 
+		if ($("#titulomodal").val() != null) {
+			$data = { 
 			'idalumno':$('#editarmiembro').val(),
 			"idequipo":$("#idequipo").val(),
 			"lider":$("#idlider").val(),
@@ -327,6 +330,9 @@ body{
 				data    : $data,
 				success : function($r){}
 			});
+		}
+		else {console.log('vacio');}
+		
 	});
 
 	});

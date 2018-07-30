@@ -47,9 +47,10 @@ Route::get('/listaequiposid/{id?}',[
 'uses' => 'EquipoController@misEquiposid'
 ]);
 
-Route::get('/listaproyectosequipo',function(){
-    return view('proyectos/listaproyectosequipo');
-});
+Route::get('/listaproyectosequipo/{id?}',[
+    'as' => 'obj',
+    'uses' => 'ProyectoController@listaProyectosEquipo'
+]);
 Route::get('/projectbrowser','ProyectoController@obtenerProyectos');
 Route::get('/buscador','ProyectoController@obtenerProyectosBuscador');
 Route::get("/perfilalumno/{id?}",[
@@ -80,6 +81,7 @@ Route::post('/modalagrega','EquipoController@modalagregar');
 Route::post('/modaleditar','EquipoController@modaleditar');
 Route::post('/modalborrar','EquipoController@modalborrar');
 Route::post('/modaleditartitulo','EquipoController@modaleditartitulo');
+Route::post('/modaleditarproyecto','ProyectoController@modalEditarProyecto');
 
 });
 /*=======================PROALUMNO=============================*/

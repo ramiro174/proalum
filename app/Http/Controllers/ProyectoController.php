@@ -20,8 +20,10 @@ class ProyectoController extends Controller
         $proyecto = Proyectos::where('id',$obj)->first();
         
         $equipo = Equipos::where('id',$proyecto->equipos_id)->first();
-        
-        return view('perfilproyecto')->with(compact('proyecto','equipo'));
+        $proyectos = Proyectos::where('equipos_id',$proyecto->equipos_id)->get();
+        $proyectos = $proyectos->keyBy('id');
+        $proyectos->forget($proyecto->id);
+        return view('perfilproyecto')->with(compact('proyecto','equipo','proyectos'));
     }
     public function obtenerProyectos()
     {
@@ -62,5 +64,24 @@ class ProyectoController extends Controller
         $proyectos = Proyectos::proyectosalumno($obj);
         
         return view('proyectos/listaproyectos')->with(compact('proyectos'));
+    }
+    public function listaProyectosEquipo($obj)
+    {
+        $proyectos = Proyectos::where('equipos_id',$obj)->get();
+        $equipo = Equipos::where('id',$obj)->first();
+        
+        return view('proyectos/listaproyectosequipo')->with(compact('proyectos','equipo'));
+    }
+    public function modalEditarProyecto(Request $r)
+    {
+        $proyecto = Proyectos::where('id',$r->input('idproyecto'))->first();
+        if ($r->input('nombre') != null) {
+            $proyecto->nombre_proyecto = $r->input('nombre');
+        }
+        if ($r->input('descripcion') != null) {
+            $proyecto->descripcion = $r->input('descripcion');
+        }
+        $proyecto->save();
+        return "Cambios Registrados";
     }
 }

@@ -38,8 +38,12 @@
           <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Acerca de <i class="fa fa-fw fa-info-circle"></i></a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contactanos <i class="fa fa-fw fa-envelope"></i></a>
-
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contactanos <i class="fa fa-fw fa-envelope"></i></a></li>
+          @if(Auth::check())
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="{{url('/projectbrowser')}}">Proyectos    <i class="fa fa-fw fa-pull-right fa-laptop"></i></a>
+          </li>
+          @endif
          @if(Auth::check())
          
         <li class="nav-item dropdown mx-0 mx-lg-1">
@@ -52,7 +56,7 @@
            </a>
            
       <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="{{url('/logout')}}">Salir    <i class="fa fa-fw fa-pull-right fa-sign-out"></i></a>
-      <a class="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" href="{{url('/projectbrowser')}}">Proyectos    <i class="fa fa-fw fa-pull-right fa-laptop"></i></a>
+      
     </div>
     </li>
         @else
