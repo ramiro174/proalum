@@ -79,6 +79,7 @@ Route::post('/subirimagen','UserController@imagenPerfil');
 Route::post('/modalagrega','EquipoController@modalagregar');
 Route::post('/modaleditar','EquipoController@modaleditar');
 Route::post('/modalborrar','EquipoController@modalborrar');
+Route::post('/modaleditartitulo','EquipoController@modaleditartitulo');
 
 });
 /*=======================PROALUMNO=============================*/
