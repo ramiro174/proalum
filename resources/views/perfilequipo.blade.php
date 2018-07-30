@@ -51,14 +51,22 @@ body{
 					<a href="/perfilalumno/{{$key->id}}" class="rounded-circle  d-block"><img  class="rounded-circle img-fluid d-block mx-auto img-alumno" src="/img/profile.png" alt=""></a>
 					@endif
 					
-					<h3 class="text-uppercase">{{$key->name}}<br>
-						<small>Desarrollador</small>
-					</h3>@if(Auth::check())
+					@if(Auth::check())
 					@if(Auth::user()->id == $lider)
+					@if($key->id == $lider)
+					<h3 class="text-uppercase">{{$key->name}}<br>
+						<small>Lider</small>
+					</h3>
+					@else
+					<h3 class="text-uppercase">{{$key->name}}<br>
+						<small>{{$key->pivot->titulo}}</small>
+					</h3>
 					<div class="offset-7">
-						<button id="editar" name="editar"  data-toggle="modal" value="{{$key->id}}" data-target="#editartitulo" type="button" class="editarbtn btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
+						<button id="editar" name="editar"  data-toggle="modal" value="{{$key->id}}" accesskey="{{$key->pivot->titulo}}" data-target="#editartitulo" type="button" class="editarbtn btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
 						<button id="eliminar" accesskey="{{$key->id}}" name="eliminar" data-toggle="modal" value="{{$key->id}}" data-target="#confirm-delete" type="button" class="eliminarbtn btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
 					</div> 
+					@endif
+
 					@endif 
 					@endif
 
@@ -81,7 +89,7 @@ body{
 			</div>
 			<div class="modal-footer align-content-center">
 				<button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button id="modeliminar" name="modeliminar" class="btn btn-danger btn-ok">Borrar</button>
+				<button id="modeliminar" name="modeliminar" data-dismiss="modal" class="btn btn-danger btn-ok">Borrar</button>
 			</div>
 		</div>
 	</div>
@@ -91,14 +99,15 @@ body{
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="form-group floating-label-form-group controls mb-0 pb-2">
+					<input type="hidden" name="editarmiembro" id="editarmiembro">
 					<label for="titulo" class="col-md-12 offset-md-3 control-label">Titulo</label>
-					<input id="titulo"  type="text" class="form-control no-bordes" name="titulomodal"  placeholder="Nuevo Titulo" required="required" data-validation-required-message="Ingresa titulo">
+					<input id="titulomodal"  type="text" class="form-control no-bordes" name="titulomodal"  placeholder="Nuevo Titulo" required="required" data-validation-required-message="Ingresa titulo">
 				</div>
 
 			</div>
 			<div class="modal-footer align-content-center">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button class="btn btn-primary btn-ok">Confirmar</button>
+				<button id="modeditar" name="modeditar" data-dismiss='modal' class="btn btn-primary btn-ok">Confirmar</button>
 			</div>
 		</div>
 	</div>
@@ -217,6 +226,14 @@ body{
 		$('#borraralumno').val($alumno);
 		console.log($('#borraralumno').val());
 	});
+	$('.editarbtn').click(function(){
+		$id = $(this).val();
+		$titulo = $(this).attr("accesskey");
+		$('#editarmiembro').val($id);
+		$('#editarmiembro').attr('accesskey',$titulo);
+		console.log($('#editarmiembro').val());
+		console.log($('#editarmiembro').attr("accesskey"));
+	});
 
 	$('#agregar').click(function(){
 		console.log("click");
@@ -277,17 +294,38 @@ body{
 		}
 		$('#editarmodal').modal('toggle');
 	});
-	$('modeliminar').click(function(){
+	$('#modeliminar').click(function(){
+		console.log($('#borraralumno').val());
 		$data = { 
 			'idalumno':$('#borraralumno').val(),
+			"idequipo":$("#idequipo").val(),
 			"_token":$("input[name*='_token']").val(),
 		}
+
 		$.ajax({
 				url     : "/modalborrar",
 				type    : "post",
 				dataType: "JSON",
 				data    : $data,
 				success : function($r){console.log($r.mensaje);}
+			});
+	});
+	$('#modeditar').click(function(){
+		console.log($('#editarmiembro').val());
+		$data = { 
+			'idalumno':$('#editarmiembro').val(),
+			"idequipo":$("#idequipo").val(),
+			"lider":$("#idlider").val(),
+			"titulo":$("#titulomodal").val(),
+			"_token":$("input[name*='_token']").val(),
+		}
+
+		$.ajax({
+				url     : "/modaleditartitulo",
+				type    : "post",
+				dataType: "JSON",
+				data    : $data,
+				success : function($r){}
 			});
 	});
 

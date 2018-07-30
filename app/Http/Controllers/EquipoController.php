@@ -84,8 +84,25 @@ public function modaleditar(Request $r){
 }
 public function modalborrar(Request $r)
 {
-	$alumno = Equipos::findOrFail($r->input('idalumno'));
-	$alumno->userMiembro()->deattach();
+	//$alumno = Equipos::with('userMiembro')->where('user_id',$r->input('idalumno'))->where('equipo_id',$r->input('idequipo'));
+    
+	//$alumno->userMiembro()->detach($r->input('idalumno'));
+    $alumno = User::find($r->input('idalumno'));
+    $alumno->equipoMiembro()->detach($r->input('idequipo'));
+    $mensaje = "¡Cambios registrados exitosamente!";
+
+    return $mensaje;
+}
+public function modaleditartitulo(Request $r)
+{
+   //$alumno = Equipos::with('userMiembro')->where('id',$r->input('idequipo'))->first();
+    $alumno = User::find($r->input('idalumno'));
+    $arreglo = ['equipo_id' => $r->input('idequipo'),'user_lider_id' => $r->input('lider'), 'user_id' => $r->input('idalumno'), 'titulo' => $r->input('titulo') ];
+
+    $alumno->equipoMiembro()->updateExistingPivot($r->input('idequipo'),$arreglo);
+    return "Titulo editado.";
+    
+    
 }
 
 public function misEquipos()
@@ -112,7 +129,7 @@ public function buscarequipo($obj)
   
         $miembros = $miembros->userMiembro;
 
-        
+      
        // return $miembros[0]->name;
     $equipo = Equipos::where('id',$obj)->first();
     $idequipo = $equipo->id;

@@ -20,7 +20,7 @@ class Equipos extends Model
 	public function userMiembro()
 	{
 		return $this->belongsToMany('App\models\User', "equipo_user", "equipo_id", "user_id")
-		->withPivot('user_id')->withTimestamps();
+		->withPivot('user_id','titulo')->withTimestamps();
 	}
 	public function proyecto()
 	{

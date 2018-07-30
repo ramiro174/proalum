@@ -50,7 +50,7 @@
       <hr>
       <a href="/listaproyectos" class="btn btn-success btn-lg bg-primary text-white rounded btn-outline-light col-md-12 col-lg-6 col-sm-12  no-bordes" style="font-size: 100%">Proyectos en los que participo el Alumno</a>
       <hr>
-      <span>Biografia del alumno </span>
+      
     </div>
   </div>
 </div>
@@ -61,7 +61,7 @@
     <a href="/registerteam" class="col-12 col-sm-12 col-lg-12 btn btn-success btn-lg bg-primary no-bordes text-white rounded btn-outline-light" >Registrar un Equipo</a>
     <hr>
     <a href="/listaequipos" class="col-12 btn btn-success btn-lg bg-success no-bordes text-white rounded btn-outline-light" >Mis Equipos</a>
-    <p>Aqui pueden ir opciones a discutir</p>
+    
     
   </div>
 </div>
