@@ -19,11 +19,12 @@ class ProyectoController extends Controller
     {   
         $proyecto = Proyectos::where('id',$obj)->first();
         
-        $equipo = Equipos::where('id',$proyecto->equipos_id)->first();
+        $equipo = Equipos::with('userLider')->where('id',$proyecto->equipos_id)->first();
+        $lider = $equipo->userLider[0]->pivot->user_lider_id;
         $proyectos = Proyectos::where('equipos_id',$proyecto->equipos_id)->get();
         $proyectos = $proyectos->keyBy('id');
         $proyectos->forget($proyecto->id);
-        return view('perfilproyecto')->with(compact('proyecto','equipo','proyectos'));
+        return view('perfilproyecto')->with(compact('proyecto','equipo','proyectos','lider'));
     }
     public function obtenerProyectos()
     {

@@ -5,6 +5,19 @@
 	border:transparent solid 0.3rem !important;
 	
 }
+.esconder-texto{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 16.5rem;
+	white-space: normal;
+}
+.esconder-texto-lista{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 6rem;
+	white-space: normal;
+}
+
 .img-alumno:hover{
 	border:#e8ea37 solid 0.3rem !important;
 	
@@ -112,6 +125,13 @@ select.select-estilo > option{
 	text-align: center;
 	height: 21px;
 	width: 20px;
+}
+.boton-detalles{
+	
+	margin: auto;
+	text-align: center;
+	
+	
 }
 .navbar-nav > li > .dropdown-menu {
 	background-color: #2c3e50;

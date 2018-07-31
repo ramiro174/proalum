@@ -21,14 +21,18 @@ body{
 			<input type="hidden" name="idlider" id="idlider" value="{{$lider}}">
 			<h1 class="my-4" id="tituloequipo">{{$equipo->nombreequipo}}</h1>
 			<h1 class="my-4">
-				@if(Auth::check())<small><a data-toggle="modal" data-target="#editarmodal" class="float-right heredar-color btn btn-warning" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small> @endif
+				@if(Auth::check())
+				@if(Auth::user()->id == $lider)
+				<small><a data-toggle="modal" data-target="#editarmodal" class="float-right heredar-color btn btn-warning col-sm-12 col-md-4" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small>
+				@endif
+				@endif
 
 			</h1>
-			
+			<br>
 			@if($equipo->mensaje == null)
 			Bienvenido a la pagina de perfil de los integrantes del equipo {{$equipo->nombreequipo}}
 			@else
-			<p id="mensajeequipo">{{$equipo->mensaje}}</p>
+			<h5 class="col-sm-10" id="mensajeequipo">{{$equipo->mensaje}}</h5>
 			@endif
 			<!-- Team Members Row -->
 			<div class="row">
@@ -39,22 +43,24 @@ body{
 						</button>
 						@endif
 						@endif
-						<a href="/listaproyectosequipo/{{$equipo->id}}" class="btn btn-sm btn-primary offset-sm-0 offset-lg-4 offset-md-0 col-sm-6 col-md-4 col-lg-3 float-right" >Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i>
+						<a href="/listaproyectosequipo/{{$equipo->id}}" class="btn btn-sm btn-primary offset-sm-0 offset-lg-4 offset-md-0 col-sm-6 col-md-4 col-lg-3" >Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i>
 						</a>
 						
 					</h2>
 				</div>
 				@foreach($miembros as $key)
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
+					@if(Auth::check())
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					@endif
 					@if($key->id == $lider)
 					<a href="/perfilalumno/{{$key->id}}"  class="rounded-circle  d-block"><img class="rounded-circle img-fluid d-block mx-auto borde-lider" src="/img/profile.png" alt=""></a>
 					@else
 					<a href="/perfilalumno/{{$key->id}}" class="rounded-circle  d-block"><img  class="rounded-circle img-fluid d-block mx-auto img-alumno" src="/img/profile.png" alt=""></a>
 					@endif
 					
-					@if(Auth::check())
-					@if(Auth::user()->id == $lider)
+					
+					
 					@if($key->id == $lider)
 					<h3 class="text-uppercase">{{$key->name}}<br>
 						<small>Lider</small>
@@ -66,17 +72,19 @@ body{
 					</h3>
 					@else
 					<h3 class="text-uppercase">{{$key->name}}<br>
-						<small>Miembro</small>
+						<small>MIEMBRO</small>
 					</h3>
 					@endif
+					@if(Auth::check())
+					@if(Auth::user()->id == $lider)
 					<div class="offset-7">
 						<button id="editar" name="editar"  data-toggle="modal" value="{{$key->id}}" accesskey="{{$key->pivot->titulo}}" data-target="#editartitulo" type="button" class="editarbtn btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
 						<button id="eliminar" accesskey="{{$key->id}}" name="eliminar" data-toggle="modal" value="{{$key->id}}" data-target="#confirm-delete" type="button" class="eliminarbtn btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
 					</div> 
 					@endif
-
-					@endif 
 					@endif
+					@endif 
+					
 
 				</div>
 				@endforeach
@@ -236,7 +244,7 @@ body{
 		console.log($('#editarmiembro').val());
 		console.log($('#editarmiembro').attr("accesskey"));
 	});
-
+		//Esto es la funcionabilidad del boton para agregar usuarios al equipo
 	$('#agregar').click(function(){
 		console.log("click");
 		$data ={
@@ -255,17 +263,12 @@ body{
 		$('#agregarusuario').modal('toggle');
 		$('miembros').val(null);
 		console.log($('miembros').val());
+		setTimeout(location.reload.bind(location), 200);
 	});
 	$('#editmodalbutton').click(function(){
 		console.log("click");
 		if ($('#editnombre').val() != null && $('#editmensaje').val() != null){ 
-			if ($('#editnombre').val() !=null) {
-			$var = 'nuevo titulo';
-			$('h1#tituloequipo').attr('value',$var);
-		}
-		if ($('#editmensaje').val() != null) {
-			$('mensajeequipo').val("funciona");
-		}
+		
 		$data ={
 			
 			
@@ -294,6 +297,7 @@ body{
 		};
 		
 		$('#editarmodal').modal('toggle');
+		setTimeout(location.reload.bind(location), 200);
 	});
 
 	$('#modeliminar').click(function(){
@@ -309,8 +313,9 @@ body{
 				type    : "post",
 				dataType: "JSON",
 				data    : $data,
-				success : function($r){console.log($r.mensaje);}
+				success : function($r){location.reload();}
 			});
+		setTimeout(location.reload.bind(location), 200);
 	});
 	$('#modeditar').click(function(){
 		console.log($('#editarmiembro').val());
@@ -332,7 +337,7 @@ body{
 			});
 		}
 		else {console.log('vacio');}
-		
+		setTimeout(location.reload.bind(location), 200);
 	});
 
 	});

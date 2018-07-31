@@ -18,7 +18,10 @@
       </div>
       <div class="col-md-5">
         <h3>{{$key->nombre_proyecto}}</h3>
-        <p>{{$key->descripcion}}</p>
+        <div class="esconder-texto-lista">
+          <p>{{$key->descripcion}}</p>
+        </div>
+        
         <a class="btn btn-primary" href="/perfilproyecto/{{$key->id}}">Ver Proyecto</a>
       </div>
     </div>

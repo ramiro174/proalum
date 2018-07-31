@@ -59,8 +59,11 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto/{{$key->id}}">{{$key->nombre_proyecto}}</a>
                   </h4>
-                  <a class="heredar-color" href="/teamprofile/{{$key->equipos->id}}"><button  name="equipo" id="equipo" class="btn-invisible"><h5>{{$key->equipos->nombreequipo}}</h5></button></a> 
-                  <p class="card-text">{{$key->descripcion}}</p>
+                  <a class="heredar-color" href="/teamprofile/{{$key->equipos->id}}"><button  name="equipo" id="equipo" class="btn-invisible"><h5>{{$key->equipos->nombreequipo}}</h5></button></a>
+                  <div class="esconder-texto-lista">
+                     <p class="card-text">{{$key->descripcion}}</p>
+                  </div> 
+                 
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

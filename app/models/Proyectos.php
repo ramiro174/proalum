@@ -14,6 +14,10 @@ class Proyectos extends Model
 	public function equipos(){
 		return $this->belongsTo('App\models\Equipos');
 	}
+	public function detalles()
+	{
+		return $this->hasMany('App\models\Detalles', 'proyectos_id');
+	}
 	public function scopeMisproyectos($query)
 	{
 		$usuario = Auth::user()->id;
