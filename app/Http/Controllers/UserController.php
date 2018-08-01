@@ -76,12 +76,12 @@ class UserController extends Controller
 //                $alumno = User::findOrFail(Auth::user()->id);
 //                $alumno -> imagen = "$file_name";
 //                $alumno->save();
-    
                 $img = $request->file('imagen');
-                Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
-                $img->store('public/usuarios/perfil/imagenes');
-                Storage::move('/public/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
-                    '/public/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
+//               verificar null imagen
+                Storage::delete('/usuarios/perfil/imagenes/' . Auth::user()->imagen);
+                $img->store('/usuarios/perfil/imagenes');
+                Storage::move('/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
+                              '/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
                 $file_name = "img_perfil_".Auth::user()->name;
                 $alumno = User::findOrFail(Auth::user()->id);
                 $alumno -> imagen = "$file_name";
