@@ -63,7 +63,8 @@ class UserController extends Controller
         return $user;
     }
     public function imagenPerfil(Request $request){
-       
+       error_reporting(E_ALL);
+        ini_set('display_errors', '1');
    
         if ($request->hasFile('imagen')) {
             try
@@ -75,8 +76,6 @@ class UserController extends Controller
                 $alumno = User::findOrFail(Auth::user()->id);
                 $alumno -> imagen = "$file_name";
                 $alumno->save();
-                
-                
                 
             } catch (Exception $ex){
 
