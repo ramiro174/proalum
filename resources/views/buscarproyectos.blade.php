@@ -49,18 +49,21 @@
           </div>
 
           <div class="row">
-
+            <input type="hidden" name="data-click" >
             @foreach($obj as $key)
            
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <img class="card-img-top" src="http://placehold.it/700x400" alt="">
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a class="heredar-color" href="/perfilproyecto">{{$key->nombre_proyecto}}</a>
+                    <a class="heredar-color" href="/perfilproyecto/{{$key->id}}">{{$key->nombre_proyecto}}</a>
                   </h4>
-                 <a class="heredar-color" href="/teamprofile"><h5>{{$key->equipos->nombreequipo}}</h5></a> 
-                  <p class="card-text">{{$key->descripcion}}</p>
+                  <a class="heredar-color" href="/teamprofile/{{$key->equipos->id}}"><button  name="equipo" id="equipo" class="btn-invisible"><h5>{{$key->equipos->nombreequipo}}</h5></button></a>
+                  <div class="esconder-texto-lista">
+                     <p class="card-text">{{$key->descripcion}}</p>
+                  </div> 
+                 
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
@@ -77,7 +80,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 1</a>
                   </h4>
-                 <a class="heredar-color" href="/teamprofile"><h5>Equipo 1</h5></a> 
+                 <a class="heredar-color" href="#"><h5>Equipo 1</h5></a> 
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                 </div>
                 <div class="card-footer">
@@ -93,7 +96,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 2</a>
                   </h4>
-                <a class="heredar-color" href="/teamprofile"><h5>Equipo 2</h5></a>  
+                <a class="heredar-color" href="#"><h5>Equipo 2</h5></a>  
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div class="card-footer">
@@ -109,7 +112,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 3</a>
                   </h4>
-                <a class="heredar-color" href="/teamprofile"><h5>Equipo 3</h5></a>  
+                <a class="heredar-color" href="#"><h5>Equipo 3</h5></a>  
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                 </div>
                 <div class="card-footer">
@@ -125,7 +128,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 4</a>
                   </h4>
-                <a class="heredar-color" href="/teamprofile"><h5>Equipo 4</h5></a>  
+                <a class="heredar-color" href="#"><h5>Equipo 4</h5></a>  
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                 </div>
                 <div class="card-footer">
@@ -141,7 +144,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 5</a>
                   </h4>
-                 <a class="heredar-color" href="/teamprofile"><h5>Equipo 5</h5></a> 
+                 <a class="heredar-color" href="#"><h5>Equipo 5</h5></a> 
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div class="card-footer">
@@ -157,7 +160,7 @@
                   <h4 class="card-title">
                     <a class="heredar-color" href="/perfilproyecto">Proyecto 6</a>
                   </h4>
-                  <a class="heredar-color" href="/teamprofile"><h5>Equipo 6</h5></a>
+                  <a class="heredar-color" href="#"><h5>Equipo 6</h5></a>
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
                 </div>
                 <div class="card-footer">
@@ -187,4 +190,13 @@
       </div>
     </div>
 
+@endsection
+@section('scriptsAdicionales')
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('button #equipo').click(function(){
+
+      });
+    });
+  </script>
 @endsection

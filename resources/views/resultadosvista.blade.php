@@ -18,37 +18,37 @@
     <link href="css/freelancer.min.css" rel="stylesheet">
 </head>
 <body id="page-top">
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Proyectos Tics</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfoliosss</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Acerca de</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contactanos</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div style="margin-top:120px" class="container">
-    <div class="row">
-        <div class="col-4 offset-md-3">
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="/borrardatos" class="btn  btn-outline-danger btn-lg active" role="button" aria-pressed="true">Eliminar</a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Proyectos Tics</a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfoliosss</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Acerca de</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contactanos</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
+    <div style="margin-top:120px" class="container">
+        <div class="row">
+            <div class="col-4 offset-md-3">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="/borrardatos" class="btn  btn-outline-danger btn-lg active" role="button" aria-pressed="true">Eliminar</a>
+                </div>
+            </div>
+        </div>
     </br>
     <div class="row">
         <div class="col-sm-5  col-md-6 offset-md-3">
@@ -57,33 +57,33 @@
                 <div class="card-body text-success">
                     <table class="table table-hover">
                         <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Resultado</th>
-                            <th>Fecha de Registros</th>
-                        </tr>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Resultado</th>
+                                <th>Fecha de Registros</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        @foreach($Resultados as  $resultado)
+                            @foreach($Resultados as  $resultado)
                             
                             @if( $resultado->numero>21)
-                                <tr class="text-danger">
-                                    <td>{{$resultado->nombre}}</td>
-                                    <td>
-                                        {{$resultado->numero}}
-                                    </td>
-                                    <td>{{  $resultado->created_at}}</td>
-                                </tr>
+                            <tr class="text-danger">
+                                <td>{{$resultado->nombre}}</td>
+                                <td>
+                                    {{$resultado->numero}}
+                                </td>
+                                <td>{{  $resultado->created_at}}</td>
+                            </tr>
                             @else
-                                <tr>
-                                    <td>{{$resultado->nombre}}</td>
-                                    <td>
-                                        {{$resultado->numero}}
-                                    </td>
-                                    <td>{{  $resultado->created_at}}</td>
-                                </tr>
+                            <tr>
+                                <td>{{$resultado->nombre}}</td>
+                                <td>
+                                    {{$resultado->numero}}
+                                </td>
+                                <td>{{  $resultado->created_at}}</td>
+                            </tr>
                             @endif
-                        @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

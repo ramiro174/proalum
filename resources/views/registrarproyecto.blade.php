@@ -21,7 +21,7 @@ body{
               <div class="col-md-12 col-sm-12">
                 <input id="name" type="text" class="form-control" name="name" placeholder="Nombre del Proyecto" required="required" data-validation-required-message="Ingresa el Nombre de tu Proyecto">
                 <p class="help-block text-danger"></p>
-               
+                
               </div>
             </div>
           </div>

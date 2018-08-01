@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="css/bootstrap-tagsinput.css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-tagsinput.css">
 <style type="text/css">
 body{
 	background-color: #e2e2e2;
@@ -9,108 +9,86 @@ body{
 </style>
 @endsection
 @section('scripts')
-<script type="text/javascript" src="js/bootstrap-tagsinput.js"></script>
-<script type="text/javascript" src="js/typeahead.js"></script>   
+<script type="text/javascript" src="/js/bootstrap-tagsinput.js"></script>
+<script type="text/javascript" src="/js/typeahead.js"></script>   
 @endsection
 @section('content')
-<div class="container margin-top-15 margin-bot-15" >
+<div class="container margin-top-15 margin-bot-15 col-md-10" >
 	<div class="card">
 		<div class="card-body no-bordes">
 			<!-- Introduction Row -->
-			<h1 class="my-4">Nombre del Equipo 
-				<small>Mensaje del Equipo<a data-toggle="modal" data-target="#editar" class="offset-1 heredar-color btn btn-warning" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small>
-			</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
+			<input type="hidden" name="idequipo" id="idequipo" value="{{$idequipo}}">
+			<input type="hidden" name="idlider" id="idlider" value="{{$lider}}">
+			<h1 class="my-4" id="tituloequipo">{{$equipo->nombreequipo}}</h1>
+			<h1 class="my-4">
+				@if(Auth::check())
+				@if(Auth::user()->id == $lider)
+				<small><a data-toggle="modal" data-target="#editarmodal" class="float-right heredar-color btn btn-warning col-sm-12 col-md-4" >Editar Informacion <i class="fa fa-lg fa-fw fa-pencil-square"></i></a></small>
+				@endif
+				@endif
 
+			</h1>
+			<br>
+			@if($equipo->mensaje == null)
+			Bienvenido a la pagina de perfil de los integrantes del equipo {{$equipo->nombreequipo}}
+			@else
+			<h5 class="col-sm-10" id="mensajeequipo">{{$equipo->mensaje}}</h5>
+			@endif
 			<!-- Team Members Row -->
 			<div class="row">
 				<div class="col-lg-12">
-					<h2 class="my-4">Nuestro Equipo 
-						<button  data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i>
+					<h2 class="my-4">Nuestro Equipo <br>
+						@if(Auth::check())
+						@if(Auth::user()->id == $lider)<button  data-toggle="modal" data-target="#agregarusuario" class="btn btn-sm btn-success col-sm-6 col-md-4 col-lg-3" >Agregar Miembro <i class="fa fa-lg fa-user-plus"></i>
 						</button>
-						<a href="/listaproyectosequipo" class="btn btn-sm btn-primary offset-sm-0 offset-lg-4 offset-md-0" >Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i>
+						@endif
+						@endif
+						<a href="/listaproyectosequipo/{{$equipo->id}}" class="btn btn-sm btn-primary offset-sm-0 offset-lg-4 offset-md-0 col-sm-6 col-md-4 col-lg-3" >Proyectos del Equipo<i class="fa fa-lg fa-laptop"></i>
 						</a>
 						
 					</h2>
 				</div>
+				@foreach($miembros as $key)
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
+					@if(Auth::check())
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img style="border-color: green; border-style: inherit;" class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Desarrollador</small>
+					@endif
+					@if($key->id == $lider)
+					<a href="/perfilalumno/{{$key->id}}"  class="rounded-circle  d-block"><img class="rounded-circle img-fluid d-block mx-auto borde-lider" src="/img/profile.png" alt=""></a>
+					@else
+					<a href="/perfilalumno/{{$key->id}}" class="rounded-circle  d-block"><img  class="rounded-circle img-fluid d-block mx-auto img-alumno" src="/img/profile.png" alt=""></a>
+					@endif
+					
+					
+					
+					@if($key->id == $lider)
+					<h3 class="text-uppercase">{{$key->name}}<br>
+						<small>Lider</small>
 					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>         
-				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Analista</small>
+					@else
+					@if($key->pivot->titulo != null)
+					<h3 class="text-uppercase">{{$key->name}}<br>
+						<small>{{$key->pivot->titulo}}</small>
 					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Titulo</small>
+					@else
+					<h3 class="text-uppercase">{{$key->name}}<br>
+						<small>MIEMBRO</small>
 					</h3>
+					@endif
+					@if(Auth::check())
+					@if(Auth::user()->id == $lider)
 					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete" type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
+						<button id="editar" name="editar"  data-toggle="modal" value="{{$key->id}}" accesskey="{{$key->pivot->titulo}}" data-target="#editartitulo" type="button" class="editarbtn btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
+						<button id="eliminar" accesskey="{{$key->id}}" name="eliminar" data-toggle="modal" value="{{$key->id}}" data-target="#confirm-delete" type="button" class="eliminarbtn btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
+					</div> 
+					@endif
+					@endif
+					@endif 
+					
+
 				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Titulo</small>
-					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete"  type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Titulo</small>
-					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete"  type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Titulo</small>
-					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete"  type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios">
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
-					<img class="rounded-circle img-fluid d-block mx-auto" src="img/profile.png" alt="">
-					<h3>John Smith<br>
-						<small>Titulo</small>
-					</h3>
-					<div class="offset-7">
-						<button data-toggle="modal" data-target="#editartitulo" type="button" class="btn btn-warning btn-sm col-1 letras-blancas cent-button"><i class="fa fa-lg fa-pencil cent-icon"></i></button>
-						<button data-toggle="modal" data-target="#confirm-delete"  type="button" class="btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-ban cent-icon"></i></button>
-					</div>
-				</div>
-			</div>
+				@endforeach
+				
 		</div>
 	</div>
 </div>
@@ -123,10 +101,11 @@ body{
 			</div>
 			<div class="modal-body fuente">
 				Eliminar a (nombre de usuario)
+				<input type="hidden" name="borraralumno" id="borraralumno">
 			</div>
 			<div class="modal-footer align-content-center">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button class="btn btn-danger btn-ok">Borrar</button>
+				<button type="button"  class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<button id="modeliminar" name="modeliminar" data-dismiss="modal" class="btn btn-danger btn-ok">Borrar</button>
 			</div>
 		</div>
 	</div>
@@ -136,69 +115,57 @@ body{
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="form-group floating-label-form-group controls mb-0 pb-2">
+					<input type="hidden" name="editarmiembro" id="editarmiembro">
 					<label for="titulo" class="col-md-12 offset-md-3 control-label">Titulo</label>
-					<input id="titulo"  type="text" class="form-control no-bordes" name="titulomodal"  placeholder="Nuevo Titulo" required="required" data-validation-required-message="Ingresa titulo">
+					<input id="titulomodal"  type="text" class="form-control no-bordes" name="titulomodal"  placeholder="Nuevo Titulo" required="required" data-validation-required-message="Ingresa titulo">
 				</div>
 
 			</div>
 			<div class="modal-footer align-content-center">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button class="btn btn-primary btn-ok">Confirmar</button>
+				<button id="modeditar" name="modeditar" data-dismiss='modal' class="btn btn-primary btn-ok">Confirmar</button>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
+<div class="modal fade" id="editarmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" >
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="card  col-md-12">
 					<div class="card-body text-primary">
 						<h2 class="text-center text-uppercase text-secondary mb-0">Informacion del Equipo</h2>
-
 						<form class="form-horizontal" method="POST" action="">
 							{{ csrf_field() }}
 							<div class="control-group">
 								<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} floating-label-form-group controls mb-0 pb-2">
 									<label for="name"  class="col-md-6 offset-md-3 control-label">Nombre del equipo</label>   
 									<div class="col-md-12 col-sm-12">
-										<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nuevo Nombre" required="required" data-validation-required-message="Ingresa tu Nombre">
+										<input id="editnombre" type="text" class="form-control" name="editnombre" placeholder="Nuevo Nombre" required="required" data-validation-required-message="Ingresa tu Nombre">
 										<p class="help-block text-danger"></p>
-										@if ($errors->has('name'))
-										<span class="help-block">
-											<strong>{{ $errors->first('name') }}</strong>
-										</span>
-										@endif
+										
 									</div>
 								</div>
 							</div>
 							<div class="control-group" >
 								<div class="form-group floating-label-form-group controls mb-0 pb-2">
-									<label for="email" class="col-md-12 offset-md-3 control-label">Correo Electronico</label>
-									<input id="email"  type="email" class="form-control" name="email"  placeholder="Mensaje del equipo" required="required" data-validation-required-message="Ingresa el mensaje del equipo">
+									<label for="editmensaje" class="col-md-12 offset-md-3 control-label">Mensaje</label>
+									<input id="editmensaje" maxlength="190"  type="text" class="form-control" name="editmensaje"  placeholder="Mensaje del equipo" required="required" data-validation-required-message="Ingresa el mensaje del equipo">
 									<p class="help-block text-danger"></p>
 
 								</div>
 							</div>
-							<div class="control-group">
-								<div class="form-group floating-label-form-group controls mb-0 pb-2">
-									<label>Descripcion</label>
-									<textarea class="form-control" id="message" rows="3" placeholder="Descripcion" required="required" data-validation-required-message="Completa este campo."></textarea>
-									<p class="help-block text-danger"></p>
-								</div>
-							</div>
-
+							
 						</form>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer align-content-center">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button class="btn btn-primary btn-ok">Aceptar</button>
+				<button class="btn btn-primary btn-ok" id="editmodalbutton">Aceptar</button>
 			</div>
 		</div>
 	</div>
-
 </div>    
 <div class="modal fade" id="agregarusuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
@@ -212,7 +179,7 @@ body{
 			</div>
 			<div class="modal-footer align-content-center">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<button href="/listaproyectos" class="btn btn-success btn-ok">Agregar</button>
+				<button id="agregar" name="agregar" class="btn btn-success btn-ok">Agregar</button>
 			</div>
 		</div>
 	</div>
@@ -236,30 +203,142 @@ body{
 <script type="text/javascript">
 	$(document).ready(function () {
 
-
-
+	
+		//Autocompletado para el buscador de alumnos
 		var engine = new Bloodhound({
-			datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-			queryTokenizer: Bloodhound.tokenizers.whitespace,
-			prefetch: {
-				url: "/llenartags",
-				filter: function(list) {
-					return $.map(list, function(name) {                     
-						return { name: name.email}; });
-				}
-			}
-		});
-		engine.initialize();
-		console.log(engine);
-
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      prefetch: {
+        url: "/extratags/"+$("#idequipo").val(),
+        cache: false,
+        filter: function(list) {
+          return $.map(list, function(name) {
+            return { name: name.name,id: name.id };
+            
+          });
+        }
+      }
+    });
+    engine.initialize();
+    
 		$('input#miembros').tagsinput({
-			typeaheadjs: {
-				name: 'nombre',
-				displayKey: 'name',
-				valueKey: 'name',
-				source: engine.ttAdapter()
+      itemValue: 'id',
+      itemText: 'name',
+      typeaheadjs: {
+        name: 'nombre',
+        displayKey:'name',
+        source: engine.ttAdapter()
+      }
+    });
+	//Script de modals
+	$('.eliminarbtn').click(function(){
+		$alumno = $(this).val();
+		$('#borraralumno').val($alumno);
+		console.log($('#borraralumno').val());
+	});
+	$('.editarbtn').click(function(){
+		$id = $(this).val();
+		$titulo = $(this).attr("accesskey");
+		$('#editarmiembro').val($id);
+		$('#editarmiembro').attr('accesskey',$titulo);
+		console.log($('#editarmiembro').val());
+		console.log($('#editarmiembro').attr("accesskey"));
+	});
+		//Esto es la funcionabilidad del boton para agregar usuarios al equipo
+	$('#agregar').click(function(){
+		console.log("click");
+		$data ={
+			"miembros":$('#miembros').val(),
+			"_token":$("input[name*='_token']").val(),
+			"idequipo":$("#idequipo").val(),
+			"lider":$("#idlider").val(),};
+		console.log($data);
+		$.ajax({
+				url     : "/modalagrega",
+				type    : "post",
+				dataType: "JSON",
+				data    : $data,
+				success : function($r){console.log($r);}
+			});
+		$('#agregarusuario').modal('toggle');
+		$('miembros').val(null);
+		console.log($('miembros').val());
+		setTimeout(location.reload.bind(location), 200);
+	});
+	$('#editmodalbutton').click(function(){
+		console.log("click");
+		if ($('#editnombre').val() != null && $('#editmensaje').val() != null){ 
+		
+		$data ={
+			
+			
+			"_token":$("input[name*='_token']").val(),
+			"idequipo":$("#idequipo").val(),
+			"lider":$("#idlider").val(),};
+			if ($('#editnombre').val() != null) {
+				//$data.add("nombre",$('#editnombre').val());
+				$data.nombre = $('#editnombre').val();
 			}
-		});
+			if ($('#editmensaje').val() != null) {
+				//$data.add("mensaje",$('#editmensaje').val());
+				$data.mensaje = $('#editmensaje').val();
+			}
+			
+		console.log($data);
+		$.ajax({
+				url     : "/modaleditar",
+				type    : "post",
+				dataType: "JSON",
+				data    : $data,
+				success : function($r){console.log($r.mensaje);}
+			});
+		
+		
+		};
+		
+		$('#editarmodal').modal('toggle');
+		setTimeout(location.reload.bind(location), 200);
+	});
+
+	$('#modeliminar').click(function(){
+		console.log($('#borraralumno').val());
+		$data = { 
+			'idalumno':$('#borraralumno').val(),
+			"idequipo":$("#idequipo").val(),
+			"_token":$("input[name*='_token']").val(),
+		}
+
+		$.ajax({
+				url     : "/modalborrar",
+				type    : "post",
+				dataType: "JSON",
+				data    : $data,
+				success : function($r){location.reload();}
+			});
+		setTimeout(location.reload.bind(location), 200);
+	});
+	$('#modeditar').click(function(){
+		console.log($('#editarmiembro').val());
+		if ($("#titulomodal").val() != null) {
+			$data = { 
+			'idalumno':$('#editarmiembro').val(),
+			"idequipo":$("#idequipo").val(),
+			"lider":$("#idlider").val(),
+			"titulo":$("#titulomodal").val(),
+			"_token":$("input[name*='_token']").val(),
+		}
+
+		$.ajax({
+				url     : "/modaleditartitulo",
+				type    : "post",
+				dataType: "JSON",
+				data    : $data,
+				success : function($r){}
+			});
+		}
+		else {console.log('vacio');}
+		setTimeout(location.reload.bind(location), 200);
+	});
 
 	});
 </script>

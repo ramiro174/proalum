@@ -1,6 +1,39 @@
 .navbar-nav .open .dropdown-menu {
 	background-color:#2c3e50;
 }
+.img-alumno{
+	border:transparent solid 0.3rem !important;
+	
+}
+.esconder-texto{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 16.5rem;
+	white-space: normal;
+}
+.esconder-texto-lista{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 6rem;
+	white-space: normal;
+}
+
+.img-alumno:hover{
+	border:#e8ea37 solid 0.3rem !important;
+	
+}
+.borde-lider{
+	border:green solid 0.3rem !important;
+	
+	
+}
+.borde-lider:hover{
+	
+	border:#e8ea37 solid 0.3rem !important;
+}
+.upp-case{
+	text-transform: uppercase;
+}
 .margin-top-5{
 	margin-top: 1.5rem;
 }
@@ -17,6 +50,18 @@
 	border: 0px;
 	outline: 0px;
 	font-size: 1.5rem;
+}
+.btn-invisible
+{
+	background: transparent;
+    border: none !important;
+}
+.btn-invisible:hover
+{
+	background: transparent;
+    border: none !important;
+    color: #18bc9c;
+    text-decoration: underline;
 }
 select.select-estilo > option{
 	font-size: 1.5rem;
@@ -80,6 +125,13 @@ select.select-estilo > option{
 	text-align: center;
 	height: 21px;
 	width: 20px;
+}
+.boton-detalles{
+	
+	margin: auto;
+	text-align: center;
+	
+	
 }
 .navbar-nav > li > .dropdown-menu {
 	background-color: #2c3e50;
