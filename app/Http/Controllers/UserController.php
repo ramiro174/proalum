@@ -68,7 +68,7 @@ class UserController extends Controller
         if ($request->hasFile('imagen')) {
             try
             {
-             return    $img = $request->file('imagen');
+                $img = $request->file('imagen');
                 Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
                 $img->store('public/usuarios/perfil/imagenes');
                 $file_name = "img_perfil_".Auth::user()->name;
