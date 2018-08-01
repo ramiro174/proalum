@@ -71,7 +71,7 @@ class UserController extends Controller
             {
                 $img = $request->file('imagen');
                 Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
-                $img->store('public/usuarios/perfil/imagenes');
+                return $img->store('public/usuarios/perfil/imagenes');
                 $file_name = "img_perfil_".Auth::user()->name;
                 $alumno = User::findOrFail(Auth::user()->id);
                 $alumno -> imagen = "$file_name";
