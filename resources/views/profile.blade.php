@@ -15,7 +15,7 @@
          
             @if (Session::has('mensaje'))
 <div class="alert alert-success alert-block margin-top-15">
-  <button type="button" class="close" data-dismiss="alert">×</button> 
+  <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>{{ Session::get('mensaje')}}</strong>
         {{Session::forget('mensaje')}}
         <h1>Prueba</h1>
@@ -24,7 +24,7 @@
 
 
 <div class="col-lg-12 col-sm-12  profile-header">
-  
+
 </div>
 </div>
 <div class="row user-detail">
@@ -35,7 +35,7 @@
         <img src="img/profile.png" class="rounded-circle img-thumbnail img-estilo-prof ">
         @else
         <!-- <img src="{{ asset('public/images/' . @Auth::user()->imagen) }}"" class="rounded-circle img-thumbnail img-estilo-prof ">-->
-        <img src="<?php echo asset("storage/usuarios/perfil/imagenes")?>/{{@Auth::user()->imagen}}" 
+        <img src="<?php echo asset("storage/usuarios/perfil/imagenes")?>/{{@Auth::user()->imagen}}"
         class="rounded-circle img-thumbnail img-estilo-prof ">
 
         
@@ -76,16 +76,14 @@
         {{ csrf_field() }}
         <div class="modal-body">
          
-          <input required="" class="btn col-sm-6 col-lg-12 col-md-12" accept="image/*" type="file" id="imagen" 
+          <input required="" class="btn col-sm-6 col-lg-12 col-md-12" accept="image/*" type="file" id="imagen"
           name="imagen" >
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary col-6 float-left" type="submit">Cambiar</button>
+          <button class="btn btn-primary col-6 float-left" type="submit">s</button>
           <button class="btn btn-danger col-6" data-dismiss="modal">Cancelar</button>
-        </div> 
+        </div>
       </form>
-      
-      
     </div>
   </div>
 </div>

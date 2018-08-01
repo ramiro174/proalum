@@ -19,7 +19,6 @@ class UserController extends Controller
         Auth::logout();
         return  redirect("/");
     }
-
     public function metodo1()
     {
 
@@ -63,8 +62,9 @@ class UserController extends Controller
         
         return $user;
     }
-
     public function imagenPerfil(Request $request){
+       return "sss";
+   
         if ($request->hasFile('imagen')) {
             try
             {
