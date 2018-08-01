@@ -12,7 +12,10 @@
   			<div class="card  col-md-12 no-bordes">
       <div class="card-body">
      <div class="card">
-  <h5 class="card-header">{{$key->nombreequipo}}</h5>
+  <h5 class="card-header">{{$key->nombreequipo}} 
+    @if(Auth::user()->id == $lider)
+    <i class="offset-md-3 fa fa-key float-right"></i>
+    @endif</h5>
   <div class="card-body">
   <h5 class="card-title">Miembros del Equipo</h5>
   <ul>

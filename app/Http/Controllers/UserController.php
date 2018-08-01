@@ -76,16 +76,21 @@ class UserController extends Controller
 //                $alumno = User::findOrFail(Auth::user()->id);
 //                $alumno -> imagen = "$file_name";
 //                $alumno->save();
+    
                 $img = $request->file('imagen');
-//               verificar null imagen
-                Storage::delete('/usuarios/perfil/imagenes/' . Auth::user()->imagen);
+                //Verificar si el campo imagen de Usuario es nulo
+                if (Auth::user()->imagen != null) {
+                    Storage::delete('/usuarios/perfil/imagenes/' . Auth::user()->imagen);
+                }
+                
                 $img->store('/usuarios/perfil/imagenes');
                 Storage::move('/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
-                              '/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
+                    '/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
                 $file_name = "img_perfil_".Auth::user()->name;
                 $alumno = User::findOrFail(Auth::user()->id);
                 $alumno -> imagen = "$file_name";
                 $alumno->save();
+                return view('profile');
                 
             } catch (Exception $ex){
 

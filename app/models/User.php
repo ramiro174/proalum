@@ -8,7 +8,7 @@ class User extends Model
 {
     protected $table='users';
     protected $primaryKey='id';
-    protected $fillable=["name","email","password",];
+    protected $fillable=["name","email","password","imagen"];
 
     public function equipoMiembro()
     {
