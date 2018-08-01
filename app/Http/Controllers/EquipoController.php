@@ -121,7 +121,7 @@ public function misEquipos()
     {
         $lider = 0;
     }
-    
+
     return view('equipos/listaequipos')->with(compact('equipos','lider'));
 }
 public function misEquiposid($obj)
@@ -145,7 +145,7 @@ public function buscarequipo($obj)
        // return $miembros[0]->name;
     $equipo = Equipos::where('id',$obj)->first();
     $idequipo = $equipo->id;
-
+    
 
     return view('perfilequipo')->with(compact('equipo','miembros','lider','idequipo'));
 }
