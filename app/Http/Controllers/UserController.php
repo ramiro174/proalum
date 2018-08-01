@@ -78,7 +78,11 @@ class UserController extends Controller
 //                $alumno->save();
     
                 $img = $request->file('imagen');
-                Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
+                //Verificar si el campo imagen de Usuario es nulo
+                if (Auth::user()->imagen != null) {
+                    Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
+                }
+                
                 $img->store('public/usuarios/perfil/imagenes');
                 Storage::move('/public/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
                     '/public/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
