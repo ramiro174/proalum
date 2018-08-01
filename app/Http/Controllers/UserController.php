@@ -19,7 +19,6 @@ class UserController extends Controller
         Auth::logout();
         return  redirect("/");
     }
-
     public function metodo1()
     {
 
@@ -63,19 +62,31 @@ class UserController extends Controller
         
         return $user;
     }
-
     public function imagenPerfil(Request $request){
+       error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+   
         if ($request->hasFile('imagen')) {
             try
             {
+//                $img = $request->file('imagen');
+//                Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
+//                $img->store('public/usuarios/perfil/imagenes');
+//                $file_name = "img_perfil_".Auth::user()->name;
+//                $alumno = User::findOrFail(Auth::user()->id);
+//                $alumno -> imagen = "$file_name";
+//                $alumno->save();
+    
                 $img = $request->file('imagen');
                 Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
                 $img->store('public/usuarios/perfil/imagenes');
+                Storage::move('/public/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
+                    '/public/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
                 $file_name = "img_perfil_".Auth::user()->name;
                 $alumno = User::findOrFail(Auth::user()->id);
                 $alumno -> imagen = "$file_name";
                 $alumno->save();
-                return redirect("/profile");
+                
             } catch (Exception $ex){
 
                 return $ex;
