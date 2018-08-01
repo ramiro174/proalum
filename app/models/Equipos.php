@@ -29,7 +29,7 @@ class Equipos extends Model
 	public function scopeMisequipos($query)
 	{
 		$usuario = Auth::user()->id;
-		return $query->whereHas('userMiembro', function ($q) use ($usuario) {
+		return $query->with('userLider')->whereHas('userMiembro', function ($q) use ($usuario) {
 			$q->where('user_id', $usuario);
 		})->get()->load("userMiembro");
 	}
@@ -40,7 +40,13 @@ class Equipos extends Model
 			$q->where('user_id', $usuario);
 		})->get()->load("userMiembro");
 	}
-
+	public function scopeMisequiposlider($query)
+	{
+		$usuario = Auth::user()->id;
+		return $query->whereHas('userLider', function ($q) use ($usuario) {
+			$q->where('user_lider_id', $usuario);
+		})->get()->load("userLider");
+	}
 	
 	public function scopeEquiposusuarios($query,$id)
 	{

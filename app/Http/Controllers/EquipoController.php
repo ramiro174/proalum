@@ -109,8 +109,20 @@ public function misEquipos()
 {
 
     $equipos = Equipos::misequipos();
+    $lider = Equipos::misequiposlider();
 
-    return view('equipos/listaequipos')->with(compact('equipos'));
+   $var = $lider;
+   
+    if (count($var) > 0) {
+       $lider = $lider[0]->userLider[0]->id; 
+
+    }
+    else
+    {
+        $lider = 0;
+    }
+    
+    return view('equipos/listaequipos')->with(compact('equipos','lider'));
 }
 public function misEquiposid($obj)
 {
