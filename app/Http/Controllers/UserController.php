@@ -63,7 +63,7 @@ class UserController extends Controller
         return $user;
     }
     public function imagenPerfil(Request $request){
-       return "sss";
+       return $request;
    
         if ($request->hasFile('imagen')) {
             try
