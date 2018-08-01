@@ -78,11 +78,9 @@ class UserController extends Controller
 //                $alumno->save();
     
                 $img = $request->file('imagen');
-                //Verificar si el campo imagen de Usuario es nulo
                 if (Auth::user()->imagen != null) {
                     Storage::delete('/usuarios/perfil/imagenes/' . Auth::user()->imagen);
                 }
-                
                 $img->store('/usuarios/perfil/imagenes');
                 Storage::move('/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
                     '/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );
