@@ -55,7 +55,7 @@ body{
 					@endif
 					@if($key->id == $lider)
 					@if($key->imagen != null)
-					<a href="/perfilalumno/{{$key->id}}"  class="rounded-circle  d-block"><img class="rounded-circle img-fluid d-block mx-auto borde-lider"	 src="<?php echo asset("storage/usuarios/perfil/imagenes")?>/{{$key->imagen}}" alt=""></a>
+					<a href="/perfilalumno/{{$key->id}}"  class="rounded-circle  d-block"><img class="rounded-circle img-fluid d-block mx-auto borde-lider"	 src="<?php echo asset("storage/usuarios/perfil/imagenes")?>/{{$key->imagen}}"  alt="/img/profile.png"></a>
 					@else
 					<a href="/perfilalumno/{{$key->id}}"  class="rounded-circle  d-block"><img class="rounded-circle img-fluid d-block mx-auto borde-lider"	 src="/img/profile.png" alt=""></a>
 					@endif

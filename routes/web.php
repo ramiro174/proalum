@@ -82,6 +82,10 @@ Route::post('/modaleditar','EquipoController@modaleditar');
 Route::post('/modalborrar','EquipoController@modalborrar');
 Route::post('/modaleditartitulo','EquipoController@modaleditartitulo');
 Route::post('/modaleditarproyecto','ProyectoController@modalEditarProyecto');
+Route::post('/modalagregardetalle','ProyectoController@modalAgregarDetalle');
+Route::post('/modalborrardetalle','ProyectoController@modalBorrarDetalle');
+Route::post('/modalborrarvinculo','ProyectoController@modalBorrarVinculo');
+Route::post('/modalagregarvinculo','ProyectoController@modalAgregarVinculo');
 
 });
 /*=======================PROALUMNO=============================*/

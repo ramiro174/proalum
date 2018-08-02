@@ -5,26 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\models\Equipos;
 use App\models\Proyectos;
+use App\models\Detalles;
 
 class ProyectoController extends Controller
 {   
 
     public function obtenerEquipos()
     {
-        $equipos = Equipos::misequipos();
+        $equipos = Equipos::misequiposlider();
         
         return view('registrarproyecto')->with(compact('equipos'));
     }
     public function buscarProyecto($obj)
     {   
         $proyecto = Proyectos::where('id',$obj)->first();
-        
+        $detalles = Detalles::where('proyectos_id',$obj)->get();
+
         $equipo = Equipos::with('userLider')->where('id',$proyecto->equipos_id)->first();
         $lider = $equipo->userLider[0]->pivot->user_lider_id;
         $proyectos = Proyectos::where('equipos_id',$proyecto->equipos_id)->get();
         $proyectos = $proyectos->keyBy('id');
         $proyectos->forget($proyecto->id);
-        return view('perfilproyecto')->with(compact('proyecto','equipo','proyectos','lider'));
+        return view('perfilproyecto')->with(compact('proyecto','equipo','proyectos','lider','detalles'));
     }
     public function obtenerProyectos()
     {
@@ -85,4 +87,68 @@ class ProyectoController extends Controller
         $proyecto->save();
         return "Cambios Registrados";
     }
+        public function modalAgregarDetalle(Request $request){
+       error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+        if ($request->hasFile('detalleimg')) {
+            try
+            {
+                $img = $request->file('detalleimg');
+                $img->store('/proyectos/detalles');
+                /*Storage::move('/usuarios/perfil/imagenes/'.$request->file('imagen')->hashName(),
+                    '/usuarios/perfil/imagenes/'. "img_perfil_".Auth::user()->name );*/
+                $file_name = $request->file('detalleimg')->hashName();
+                $detalle = new Detalles();
+                $detalle->descripcion = $request->input('detalledesc');
+                $detalle->imagen = $file_name;
+                $detalle->proyectos_id = $request->input('inputiddetalle');
+                $detalle->save();
+                
+                return redirect('/perfilproyecto/'.$request->input('inputiddetalle'));
+                
+            } catch (Exception $ex){
+
+                return $ex;
+
+            }
+            
+            
+        }
+        if($request->input('detalledesc') != null)
+        {
+            $detalle = new Detalles();
+                $detalle->descripcion = $request->input('detalledesc');
+                $detalle->proyectos_id = $request->input('inputiddetalle');
+                $detalle->save();
+                return redirect('/perfilproyecto/'.$request->input('inputiddetalle'));
+        }
+        return "nada";
+    }
+    public function modalBorrarDetalle(Request $r)
+{
+    
+    $detalle = Detalles::find($r->input('iddetalle'));
+    $detalle->delete();
+    $mensaje = "¡Cambios registrados exitosamente!";
+
+    return $mensaje;
+}
+public function modalBorrarVinculo(Request $r)
+{
+    
+    $proyecto = Proyectos::find($r->input('idproyecto'));
+    $proyecto->vinculo = null;
+    $proyecto->save();
+    $mensaje = "¡Vinculo Eliminado!";
+
+    return $mensaje;
+}
+public function modalAgregarVinculo(Request $r)
+{
+    $proyecto = Proyectos::find($r->input('idproyecto'));
+    $proyecto->vinculo = $r->input('vinculo');
+    $proyecto->save();
+    $mensaje = "¡Cambios registrados exitosamente!";
+    return $mensaje;
+}
 }

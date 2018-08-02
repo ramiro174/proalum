@@ -111,6 +111,7 @@ public function misEquipos()
     $equipos = Equipos::misequipos();
     $lider = Equipos::misequiposlider();
 
+    
    $var = $lider;
    
     if (count($var) > 0) {

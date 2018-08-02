@@ -80,7 +80,7 @@
           name="imagen" >
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary col-6 float-left" type="submit">s</button>
+          <button class="btn btn-primary col-6 float-left" type="submit">Aceptar</button>
           <button class="btn btn-danger col-6" data-dismiss="modal">Cancelar</button>
         </div>
       </form>

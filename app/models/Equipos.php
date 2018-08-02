@@ -20,7 +20,7 @@ class Equipos extends Model
 	public function userMiembro()
 	{
 		return $this->belongsToMany('App\models\User', "equipo_user", "equipo_id", "user_id")
-		->withPivot('user_id','titulo')->withTimestamps();
+		->withPivot('user_id','user_lider_id','titulo')->withTimestamps();
 	}
 	public function proyecto()
 	{
@@ -29,7 +29,7 @@ class Equipos extends Model
 	public function scopeMisequipos($query)
 	{
 		$usuario = Auth::user()->id;
-		return $query->with('userLider')->whereHas('userMiembro', function ($q) use ($usuario) {
+		return $query->whereHas('userMiembro', function ($q) use ($usuario) {
 			$q->where('user_id', $usuario);
 		})->get()->load("userMiembro");
 	}
