@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\models\Equipos;
 use App\models\Proyectos;
 use App\models\Detalles;
+use Illuminate\Support\Facades\Storage;
 
 class ProyectoController extends Controller
 {   
@@ -151,4 +152,39 @@ public function modalAgregarVinculo(Request $r)
     $mensaje = "¡Cambios registrados exitosamente!";
     return $mensaje;
 }
+public function imagenProyecto(Request $request)
+{
+        $proyecto = Proyectos::find($request->input('input-proyecto-id'));
+     error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+   
+        if ($request->hasFile('imagen')) {
+            try
+            {    
+                $img = $request->file('imagen');
+                if ($proyecto->imagen != null) {
+                    Storage::delete('/proyectos/' . $proyecto->imagen);
+                }
+                $img->store('/proyectos');
+                Storage::move('/proyectos/'.$request->file('imagen')->hashName(),
+                    '/proyectos/'. "img_perfil_".$proyecto->nombre_proyecto);
+                $file_name = "img_perfil_".$proyecto->nombre_proyecto;
+               
+                $proyecto -> imagen = "$file_name";
+                $proyecto->save();
+                return redirect('/perfilproyecto/'.$request->input('input-proyecto-id'));
+                
+            } catch (Exception $ex){
+
+                return $ex;
+
+            }
+            
+            
+        }
+        else{
+            return "nada ";
+        }
+}
+
 }
