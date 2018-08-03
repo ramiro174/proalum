@@ -55,28 +55,44 @@
 	<br>
 	<!-- /.row -->
 	<div class="row">
-		<h3 class="col-md-10 col-lg-10 col-sm-12">Detalles</h3> @if(Auth::check())
+		<h3 class="col-md-10 col-lg-10 col-sm-12">Detalles</h3> 
+		@if(Auth::check())
 		@if(Auth::user()->id == $lider)
 
 		<button data-toggle="modal" data-target="#agregarmodal" class="col-md-2 col-lg-2 col-sm-10 btn btn-sm btn-success boton-detalles">Agregar</button> <br>
 		@endif
 		@endif
 		<div class="row">
+			<div class="card col-md-3 col-sm-6 mb-4  img-size-small" style="height: 0px"></div>
+			<div class="card col-md-3 col-sm-6 mb-4  img-size-small" style="height: 0px"></div>
+			<div class="card col-md-3 col-sm-6 mb-4  img-size-small" style="height: 0px"></div>
+			<div class="card col-md-3 col-sm-6 mb-4  img-size-small" style="height: 0px"></div>
 
 			@foreach($detalles as $key)
 			<div class="card col-md-3 col-sm-6 mb-4  img-size-small">  
 
 				@if($key->imagen != null)
-				<a class="card-title heredar-color" href=""><img class="card-img img-fluid img-size-small" src="<?php echo asset("storage/proyectos/detalles")?>/{{$key->imagen}}" alt=""></a>
+				<a class="card-title heredar-color" href="#" ><img class="card-img img-fluid img-size-small" src="<?php echo asset("storage/proyectos/detalles")?>/{{$key->imagen}}" alt=""></a>
+				<div class="card-img-overlay transparente">
+					<a class="card-title heredar-color detalle-btn" href="#"accesskey="{{$key->imagen}}">
+						<p class="card-text esconder-texto-lista">{{$key->descripcion}}</p></a>
+						@if(Auth::check())
+						@if(Auth::user()->id == $lider)
+						<button  data-toggle="modal" data-target="#confirm-delete" value="{{$key->id}}" type="button" class="float-right eliminarbtn btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-times-circle-o cent-icon"></i></button>
+						@endif
+						@endif
+					</div>         
+				</div>
 				@else
 				<img class="card-img img-fluid img-size-small img-small" src="/img/placeholderimg.png" alt="">
-				@endif
 				<div class="card-img-overlay transparente">
-					<a class="card-title heredar-color" href="">
-						<p class="card-text">{{$key->descripcion}}</p></a>
+					<a class="card-title heredar-color detalle-btn" href="#" accesskey="/img/placeholderimg.png">
+						<p class="card-text esconder-texto-lista" >{{$key->descripcion}}</p></a>
 						<button  data-toggle="modal" data-target="#confirm-delete" value="{{$key->id}}" type="button" class="float-right eliminarbtn btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-times-circle-o cent-icon"></i></button>
 					</div>         
 				</div>
+				@endif
+				
 				@endforeach
 				
 					</div>
@@ -86,15 +102,18 @@
 					<h3 class="my-4 col-12">Mas de {{$equipo->nombreequipo}}</h3>
 					<br>
 					<div class="row">
-
+						<div class="card col-md-3 col-sm-10 mb-4  img-size-small" style="height: 0px;"></div>
+						<div class="card col-md-3 col-sm-10 mb-4  img-size-small" style="height: 0px;"></div>
+						<div class="card col-md-3 col-sm-10 mb-4  img-size-small" style="height: 0px;"></div>
+						<div class="card col-md-3 col-sm-10 mb-4  img-size-small" style="height: 0px;"></div>
 						@foreach($proyectos as $key)
 						<div class="card col-md-3 col-sm-10 mb-4  img-size-small">                   
 
-							<img class="card-img img-fluid img-size-small" src="img/diagramas.png" alt="">
+							<img class="card-img img-fluid img-size-small" src="/img/placeholderimg.png" alt="">
 
 							<div class="card-img-overlay transparente" >
 								<a class="card-title heredar-color" href="/perfilproyecto/{{$key->id}}"><h5>{{$key->nombre_proyecto}}</h5><br>
-									<p class="card-text ">{{$key->descripcion}}</p></a>
+									<p class="card-text esconder-texto-lista ">{{$key->descripcion}}</p></a>
 
 								</div>         
 							</div>
@@ -106,7 +125,7 @@
 
 								<div class="card-img-overlay transparente">
 									<a class="card-title heredar-color" href=""><h5>Proyecto</h5><br>
-										<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
+										<p class="card-text esconder-texto-lista">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
 
 									</div>         
 								</div>
@@ -116,7 +135,7 @@
 
 									<div class="card-img-overlay transparente">
 										<a class="card-title heredar-color" href=""><h5>Proyecto</h5><br>
-											<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
+											<p class="card-text esconder-texto-lista">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
 
 										</div>         
 									</div>
@@ -208,7 +227,7 @@
 
 					</div>
 					<div class="modal fade" id="descmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered modal-lg">
+						<div class="modal-dialog modal-dialog-centered modal-xl">
 							<div class="modal-content col-12">
 								<div class="modal-body col-12">
 									<div class="card  col-md-12">
@@ -291,6 +310,24 @@
 						</div>
 
 					</div>
+					<div class="modal fade" id="detallemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-lg">
+							<div class="modal-content col-12">
+								<div class="modal-body col-12">
+									<div class="card  col-md-12">
+										<div class="card-body col-12">
+											<img id="img-modal-detalle" class="col-12" name="img-modal-detalle" src="">
+
+											<hr>
+											<h4 id="desc-modal-detalle"></h4>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer align-content-center">
+									<button class="btn btn-primary btn-ok" data-dismiss="modal" >Ok</button>
+								</div>
+							</div>
+						</div>
 
 					@endsection
 					@section('scriptsAdicionales')
@@ -300,6 +337,16 @@
 								$detalle = $(this).val();
 								$('#borrardetalle').val($detalle);
 								console.log($('#borrardetalle').val());
+							});
+							$('.detalle-btn').click(function(){
+								$descripcion = $(this).children('p').text();
+								$source = $(this).attr('accesskey');
+								console.log($source);
+								$imagen = "<?php echo asset("storage/proyectos/detalles/")?>"+
+								"/"+ $source;
+								$('#img-modal-detalle').attr('src',$imagen);
+								$('#desc-modal-detalle').text($descripcion);
+								$('#detallemodal').modal('show');
 							});
 							$('#modalaceptar').click(function(){
 								if ($('input#nombre').val() != null && $('textarea#descripcion').val() != null) {

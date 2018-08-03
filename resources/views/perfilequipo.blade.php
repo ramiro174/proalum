@@ -53,12 +53,14 @@ body{
 					@if(Auth::check())
 					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					@endif
+					
 					@if($key->id == $lider)
 					@if($key->imagen != null)
 					<a href="/perfilalumno/{{$key->id}}"  class="rounded-circle  d-block"><img class="rounded-circle img-fluid d-block mx-auto borde-lider"	 src="<?php echo asset("storage/usuarios/perfil/imagenes")?>/{{$key->imagen}}"  alt="/img/profile.png"></a>
 					@else
-					<a href="/perfilalumno/{{$key->id}}"  class="rounded-circle  d-block"><img class="rounded-circle img-fluid d-block mx-auto borde-lider"	 src="/img/profile.png" alt=""></a>
+					<a  href="/perfilalumno/{{$key->id}}"  class="rounded-circle  d-block"><img class="rounded-circle img-fluid d-block mx-auto borde-lider"	 src="/img/profile.png" alt=""></a>
 					@endif
+
 					@else
 					@if($key->imagen != null)
 					<a href="/perfilalumno/{{$key->id}}" class="rounded-circle  d-block"><img  class="rounded-circle img-fluid d-block mx-auto img-alumno" src="<?php echo asset("storage/usuarios/perfil/imagenes")?>/{{$key->imagen}}" alt=""></a>

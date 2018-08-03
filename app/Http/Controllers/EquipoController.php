@@ -130,7 +130,7 @@ public function misEquiposid($obj)
 
     $equipos = Equipos::misequiposid($obj);
 
-    return view('equipos/listaequipos')->with(compact('equipos'));
+    return view('equipos/listaequiposalumno')->with(compact('equipos'));
 }
 
 public function buscarequipo($obj)
