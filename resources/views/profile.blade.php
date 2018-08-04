@@ -37,9 +37,7 @@
         <!-- <img src="{{ asset('public/images/' . @Auth::user()->imagen) }}"" class="rounded-circle img-thumbnail img-estilo-prof ">-->
         <img src="<?php echo asset("storage/usuarios/perfil/imagenes")?>/{{@Auth::user()->imagen}}"
         class="rounded-circle img-thumbnail img-estilo-prof ">
-
-        
-        @endif
+      @endif
         <div class="rounded-circle img-thumbnail sobrecapa-prof"><div class="boton-trsn align-self-center"><button data-toggle="modal" data-target="#modal-imagen" class="no-bordes btn btn-primary btn-sm align-self-auto" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button></div></div>
       </div>
     </div>
