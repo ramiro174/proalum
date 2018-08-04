@@ -88,7 +88,7 @@ class UserController extends Controller
                 $alumno = User::findOrFail(Auth::user()->id);
                 $alumno -> imagen = "$file_name";
                 $alumno->save();
-                return view('profile');
+                return redirect('/profile');
                 
             } catch (Exception $ex){
 

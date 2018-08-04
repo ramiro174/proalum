@@ -46,7 +46,7 @@
         {{@Auth::user()->name}}
       </h5>
       <hr>
-      <a href="/listaproyectos" class="btn btn-success btn-lg bg-primary text-white rounded btn-outline-light col-md-12 col-lg-6 col-sm-12  no-bordes" style="font-size: 100%">Proyectos en los que participo el Alumno</a>
+      <a href="/listaproyectos" class="btn btn-success btn-lg bg-primary text-white rounded btn-outline-light col-md-12 col-lg-6 col-sm-12  no-bordes" style="font-size: 100%">Mis Proyectos</a>
       <hr>
       
     </div>
@@ -78,7 +78,7 @@
           name="imagen" >
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary col-6 float-left" type="submit">s</button>
+          <button class="btn btn-primary col-6 float-left" type="submit">Aceptar</button>
           <button class="btn btn-danger col-6" data-dismiss="modal">Cancelar</button>
         </div>
       </form>

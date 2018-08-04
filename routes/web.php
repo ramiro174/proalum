@@ -77,11 +77,16 @@ Route::get('/projectprofile',function(){
 Route::get('/listaequipos','EquipoController@misEquipos');
 Route::get('/listaproyectos','ProyectoController@proyectosAlumno');
 Route::post('/subirimagen','UserController@imagenPerfil');
+Route::post('/subirimagenproyecto',"ProyectoController@imagenProyecto");
 Route::post('/modalagrega','EquipoController@modalagregar');
 Route::post('/modaleditar','EquipoController@modaleditar');
 Route::post('/modalborrar','EquipoController@modalborrar');
 Route::post('/modaleditartitulo','EquipoController@modaleditartitulo');
 Route::post('/modaleditarproyecto','ProyectoController@modalEditarProyecto');
+Route::post('/modalagregardetalle','ProyectoController@modalAgregarDetalle');
+Route::post('/modalborrardetalle','ProyectoController@modalBorrarDetalle');
+Route::post('/modalborrarvinculo','ProyectoController@modalBorrarVinculo');
+Route::post('/modalagregarvinculo','ProyectoController@modalAgregarVinculo');
 
 });
 /*=======================PROALUMNO=============================*/

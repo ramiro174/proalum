@@ -3,8 +3,30 @@
 }
 .img-alumno{
 	border:transparent solid 0.3rem !important;
-	
+	width: 15rem;
+	height: 15rem;
 }
+.detalle-medida
+{
+	width: 15rem;
+	height: 10rem;
+}
+.proyecto-img-medida
+{
+	width: 40rem;
+	height: 25rem;
+	min-width: 40rem;
+	min-height: 25rem;
+}
+.proyecto-img-thumbnail
+{
+	width: 15.2rem;
+	height: 10rem;
+}
+.modal-xl {
+    width: 90%;
+   max-width:1200px;
+  }
 .esconder-texto{
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -24,7 +46,8 @@
 }
 .borde-lider{
 	border:green solid 0.3rem !important;
-	
+	width: 15rem;
+	height: 15rem;
 	
 }
 .borde-lider:hover{
