@@ -88,6 +88,8 @@ Route::post('/modalborrardetalle','ProyectoController@modalBorrarDetalle');
 Route::post('/modalborrarvinculo','ProyectoController@modalBorrarVinculo');
 Route::post('/modalagregarvinculo','ProyectoController@modalAgregarVinculo');
 
+Route::post('/botonlike','ProyectoController@botonLike');
+
 });
 /*=======================PROALUMNO=============================*/
 

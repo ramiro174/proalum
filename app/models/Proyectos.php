@@ -9,7 +9,7 @@ class Proyectos extends Model
 {
     //protected $table='equipos';
 	protected $primaryKey='id';
-	protected $fillable=["nombre_proyecto","equipos_id","vinculo,","descripcion","imagen"];
+	protected $fillable=["nombre_proyecto","equipos_id","vinculo,","descripcion","imagen","votos"];
 
 	public function equipos(){
 		return $this->belongsTo('App\models\Equipos');

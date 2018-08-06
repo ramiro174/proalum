@@ -32,9 +32,11 @@ class ProyectoController extends Controller
     public function obtenerProyectos()
     {
         $obj = Proyectos::with('equipos')->get();
+        $masvotos = Proyectos::all()->sortBy('votos')->take(3);
+
         
         
-        return view('buscarproyectos')->with(compact('obj'));
+        return view('buscarproyectos')->with(compact('obj','masvotos'));
         
     }
     public function obtenerProyectosBuscador()
@@ -185,6 +187,21 @@ public function imagenProyecto(Request $request)
         else{
             return "nada ";
         }
+}
+public function botonLike(Request $r)
+{
+    $proyecto = Proyectos::where('id',$r->input('idproyecto'))->first();
+    
+    if($proyecto->votos != null)
+    {
+        $proyecto->votos = $proyecto->votos + 1;
+        $proyecto->save();
+        return "nada";
+    }else{
+    $proyecto->votos = 1;
+    $proyecto->save();
+    return "nada";
+}
 }
 
 }

@@ -20,7 +20,7 @@
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
-
+          {{csrf_field()}}
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -28,15 +28,22 @@
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+              @foreach($masvotos as $key)
+              @if($key->imagen != null)
+              <div class="carousel-item proyecto-img-carrousel">
+                <a href="/perfilproyecto/{{$key->id}}">
+                <img class="d-block col-12" src="<?php echo asset("storage/proyectos")?>/{{$key->imagen}}" alt="First slide"></a>
               </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
+              @else
+              <div class="carousel-item proyecto-img-carrousel">
+                <img class="d-block col-12" src="http://www.sefincoahuila.gob.mx/sistemas/entidades_paraestatales/documentos/saep_identificacion_general/1070216-LOGO%20UTT.jpg" alt="Second slide">
               </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+              @endif
+              @endforeach
+              <div class="carousel-item active proyecto-img-carrousel">
+                <img class="d-block col-12" src="http://www.sefincoahuila.gob.mx/sistemas/entidades_paraestatales/documentos/saep_identificacion_general/1070216-LOGO%20UTT.jpg" alt="Second slide">
               </div>
+              
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -55,7 +62,8 @@
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 @if($key->imagen != null)
-                <img class="card-img-top proyecto-img-thumbnail" src="<?php echo asset("storage/proyectos")?>/{{$key->imagen}}" alt="">
+                <a href="/perfilproyecto/{{$key->id}}"><img class="col-12 card-img-top proyecto-img-thumbnail" src="<?php echo asset("storage/proyectos")?>/{{$key->imagen}}" alt=""></a>
+                
                 @else
                 <img class="card-img-top" src="http://placehold.it/700x400" alt="">
                 @endif
@@ -70,7 +78,9 @@
                  
                 </div>
                 <div class="card-footer">
-                  
+                  <button accesskey="{{$key->id}}" class="boton-like btn border-0 btn-sm float-right"><i class="fa fa-sm fa-thumbs-up"></i>@if($key->votos != null)
+                  <small class="offset-1"><strong>{{$key->votos}}</strong></small>
+                  @endif</button>
                 </div>
               </div>
             </div>
@@ -201,6 +211,20 @@
       $('button #equipo').click(function(){
 
       });
+      $('.boton-like').click(function(){
+        $data={
+          "idproyecto":$(this).attr('accesskey'),
+          "_token":$("input[name*='_token']").val(),
+        };
+        $.ajax({
+              url     : "/botonlike",
+              type    : "post",
+              dataType: "JSON",
+              data    : $data,
+              success : function($r){}
+            });
+        setTimeout(location.reload.bind(location), 1000);
+      })
     });
   </script>
 @endsection
