@@ -22,6 +22,7 @@
       @foreach($proyectos as $key)
       <div class="col-md-6 col-lg-4">
         <a class="portfolio-item d-block mx-auto proyecto-boton" accesskey="{{$key->nombre_proyecto}}" href="#portfolio-modal-1">
+          <input type="hidden" id="id-proyecto" value="{{$key->id}}" name="">
           <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
             <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
               <i class="fa fa-search-plus fa-3x"></i>
@@ -139,9 +140,9 @@
           <hr class="star-dark mb-5">
           <img class="img-fluid mb-5" id="imagen-proyecto"alt="">
           <h4 id="descripcion-proyecto"></h4>
-          <button class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" data-dismiss="modal" href="#">
+          <a class="btn btn-primary btn-lg rounded-pill" id="boton-ver" d>
             <i class="fa fa-close"></i>
-            Close Project</button>
+            Ver Proyecto</a>
         </div>
       </div>
     </div>
@@ -165,7 +166,9 @@
         $('#nombre-proyecto').text($nombre);
         $('#descripcion-proyecto').text($descripcion);
         $('#imagen-proyecto').attr('src',$imagen);
+        $('#boton-ver').attr('href',/perfilproyecto/+$(this).children('input#id-proyecto').val());
         $('#portfolio-modal-1').modal('show');
+
 
     });
   });

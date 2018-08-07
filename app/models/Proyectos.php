@@ -11,6 +11,12 @@ class Proyectos extends Model
 	protected $primaryKey='id';
 	protected $fillable=["nombre_proyecto","equipos_id","vinculo,","descripcion","imagen","votos"];
 
+	public function userVotos()
+	{
+		return $this->belongsToMany('App\models\User', "proyectos_has_users", "proyectos_id", "users_id")
+		->withPivot('users_id')->withTimestamps();
+	}
+
 	public function equipos(){
 		return $this->belongsTo('App\models\Equipos');
 	}
@@ -36,6 +42,15 @@ class Proyectos extends Model
 		return $query->whereHas('equipos.userMiembro', function ($q) use ($usuario) {
 			$q->where('user_id', $usuario);
 		})->get();
+	}
+
+	public function scopeVotosAlumno($query,$idproyecto)
+	{
+		$usuario = Auth::user()->id;
+		$id = $idproyecto;
+		return $query->whereHas('userVotos', function ($q) use ($usuario,$id) {
+			$q->where('users_id', $usuario)->where('proyectos_id',$id);
+		})->get()->load("userVotos");
 	}
 	
 }

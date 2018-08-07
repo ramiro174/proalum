@@ -17,6 +17,7 @@ class Equipos extends Model
 		return $this->belongsToMany('App\models\User', "equipo_user", "equipo_id", "user_lider_id")
 		->withPivot('user_lider_id')->withTimestamps();
 	}
+	
 	public function userMiembro()
 	{
 		return $this->belongsToMany('App\models\User', "equipo_user", "equipo_id", "user_id")

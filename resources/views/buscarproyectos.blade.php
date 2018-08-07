@@ -79,34 +79,22 @@
                  
                 </div>
                 <div class="card-footer">
+                  @if(Auth::check())
                   <button accesskey="{{$key->id}}" class="boton-like btn border-0 btn-sm float-right"><i class="fa fa-sm fa-thumbs-up"></i>@if($key->votos != null)
                   <small class="offset-1"><strong>{{$key->votos}}</strong></small>
                   @endif</button>
+                  @else
+                  <p><strong>Login para Votar</strong></p>
+                  <button accesskey="{{$key->id}}" disabled="" class="boton-like btn border-0 btn-sm float-right"><i class="fa fa-sm fa-thumbs-up"></i>@if($key->votos != null)
+                  <small class="offset-1"><strong>{{$key->votos}}</strong></small>
+                  @endif</button>
+
+                  @endif
                 </div>
               </div>
             </div>
             
             @endforeach
-
-            
-
-          
-           
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a class="heredar-color" href="/perfilproyecto">Proyecto 5</a>
-                  </h4>
-                 <a class="heredar-color" href="#"><h5>Equipo 5</h5></a> 
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card-footer">
-                  
-                </div>
-              </div>
-            </div>
 
             
 
@@ -148,7 +136,7 @@
               type    : "post",
               dataType: "JSON",
               data    : $data,
-              success : function($r){}
+              success : function($r){console.log($r)}
             });
         setTimeout(location.reload.bind(location), 1000);
       })
