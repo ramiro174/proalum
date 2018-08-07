@@ -32,7 +32,7 @@ class ProyectoController extends Controller
     public function obtenerProyectos()
     {
         $obj = Proyectos::with('equipos')->get();
-        $masvotos = Proyectos::all()->sortBy('votos')->take(3);
+        $masvotos = Proyectos::all()->sortByDesc('votos')->take(3);
 
         
         
@@ -202,6 +202,11 @@ public function botonLike(Request $r)
     $proyecto->save();
     return "nada";
 }
+}
+public function bienvenido()
+{
+    $proyectos = Proyectos::all()->sortByDesc('votos')->take(6);
+    return view('bienvenidos')->with(compact('proyectos'));
 }
 
 }

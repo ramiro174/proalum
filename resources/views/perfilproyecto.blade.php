@@ -82,7 +82,7 @@
 				<a class="card-title heredar-color" href="#" ><img class="card-img img-fluid img-size-small" src="<?php echo asset("storage/proyectos/detalles")?>/{{$key->imagen}}" alt=""></a>
 				<div class="card-img-overlay transparente">
 					<a class="card-title heredar-color detalle-btn" href="#"accesskey="{{$key->imagen}}">
-						<p class="card-text esconder-texto-lista">{{$key->descripcion}}</p></a>
+						<p class="card-text esconder-texto-lista"><strong>{{$key->descripcion}}</strong></p></a>
 						@if(Auth::check())
 						@if(Auth::user()->id == $lider)
 						<button  data-toggle="modal" data-target="#confirm-delete" value="{{$key->id}}" type="button" class="float-right eliminarbtn btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-times-circle-o cent-icon"></i></button>

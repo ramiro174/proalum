@@ -36,7 +36,8 @@
               </div>
               @else
               <div class="carousel-item proyecto-img-carrousel">
-                <img class="d-block col-12" src="http://www.sefincoahuila.gob.mx/sistemas/entidades_paraestatales/documentos/saep_identificacion_general/1070216-LOGO%20UTT.jpg" alt="Second slide">
+                <a href="/perfilproyecto/{{$key->id}}">
+                <img class="d-block col-12" src="http://www.sefincoahuila.gob.mx/sistemas/entidades_paraestatales/documentos/saep_identificacion_general/1070216-LOGO%20UTT.jpg" alt="Second slide"></a>
               </div>
               @endif
               @endforeach
@@ -65,7 +66,7 @@
                 <a href="/perfilproyecto/{{$key->id}}"><img class="col-12 card-img-top proyecto-img-thumbnail" src="<?php echo asset("storage/proyectos")?>/{{$key->imagen}}" alt=""></a>
                 
                 @else
-                <img class="card-img-top" src="http://placehold.it/700x400" alt="">
+                <a href="/perfilproyecto/{{$key->id}}"><img class="card-img-top proyecto-img-thumbnail" src="http://www.sefincoahuila.gob.mx/sistemas/entidades_paraestatales/documentos/saep_identificacion_general/1070216-LOGO%20UTT.jpg" alt=""></a>
                 @endif
                 <div class="card-body">
                   <h4 class="card-title">
@@ -87,70 +88,10 @@
             
             @endforeach
 
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a class="heredar-color" href="/perfilproyecto">Proyecto 1</a>
-                  </h4>
-                 <a class="heredar-color" href="#"><h5>Equipo 1</h5></a> 
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
+            
 
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a class="heredar-color" href="/perfilproyecto">Proyecto 2</a>
-                  </h4>
-                <a class="heredar-color" href="#"><h5>Equipo 2</h5></a>  
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a class="heredar-color" href="/perfilproyecto">Proyecto 3</a>
-                  </h4>
-                <a class="heredar-color" href="#"><h5>Equipo 3</h5></a>  
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a class="heredar-color" href="/perfilproyecto">Proyecto 4</a>
-                  </h4>
-                <a class="heredar-color" href="#"><h5>Equipo 4</h5></a>  
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
+          
+           
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -162,26 +103,12 @@
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                  
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a class="heredar-color" href="/perfilproyecto">Proyecto 6</a>
-                  </h4>
-                  <a class="heredar-color" href="#"><h5>Equipo 6</h5></a>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
+            
 
           </div>
          

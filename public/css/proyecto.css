@@ -24,9 +24,19 @@
 	height: 10rem;
 }
 .proyecto-img-carrousel
-{
+{	max-height: 25rem;
 	/*width: 15.2rem;*/
-	height: 25rem;
+	min-height: 25rem;
+	height: auto;
+}
+.proyecto-img-bienvenidos
+{
+	max-height: 12rem;
+	max-width: 20rem;
+	min-height: 12rem;
+	min-width: 20rem;
+	width: auto;
+	height: auto;
 }
 .modal-xl {
     width: 90%;
