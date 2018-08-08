@@ -38,7 +38,8 @@
         <img src="<?php echo asset("storage/usuarios/perfil/imagenes")?>/{{@Auth::user()->imagen}}"
         class="rounded-circle img-thumbnail img-estilo-prof ">
       @endif
-        <div class="rounded-circle img-thumbnail sobrecapa-prof"><div class="boton-trsn align-self-center"><button data-toggle="modal" data-target="#modal-imagen" class="no-bordes btn btn-primary btn-sm align-self-auto" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button></div></div>
+        <div class="rounded-circle img-thumbnail sobrecapa-prof"><div class="boton-trsn align-self-center">
+          <button data-toggle="modal" data-target="#modal-imagen" class="no-bordes btn btn-primary btn-sm align-self-auto" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button><br><br><button data-toggle="modal" data-target="#modal-curriculo" class="no-bordes btn btn-primary btn-sm align-self-auto" href="">Curriculo<i class="fa fa-fw fa-file-text-o"></i></button></div></div>
       </div>
     </div>
     <div class="col-md-12">
@@ -78,7 +79,55 @@
           name="imagen" >
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary col-6 float-left" type="submit">Aceptar</button>
+          <button class="btn btn-primary col-6 float-left" type="submit">Subir Imagen</button>
+          <button class="btn btn-danger col-6" data-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal-curriculo">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      @if(Auth::user()->curriculo == null)
+      <form method="POST" id="form-modal" action="{{url('subircurriculo')}}" files="true" enctype="multipart/form-data">
+        
+          @endif
+        {{ csrf_field() }}
+        <div class="modal-body">
+         @if(Auth::user()->curriculo == null)
+          <input required="" class="btn col-sm-6 col-lg-12 col-md-12" accept="file/*" type="file" 
+          id="curriculo" name="curriculo" >
+          @endif
+        </div>
+        <div class="modal-footer">
+          @if(Auth::user()->curriculo == null)
+          <button class="btn btn-primary col-4 " style="margin-left: .1rem" type="submit">Subir Curriculo</button>
+          @else
+          <button class="btn btn-danger col-4 " id="borrar-curriculo" >Borrar Curriculo</button>
+          <button class="btn btn-warning col-4 " id="cambiar-modal" >Cambiar Curriculo</button>
+          @endif
+          <button class="btn  col-4" data-dismiss="modal">Cancelar</button>
+        </div>
+        @if(Auth::user()->curriculo == null)
+      </form>
+      @endif
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal-cambiar">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <form method="POST" action="{{url('subircurriculo')}}" files="true" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="modal-body">
+         
+          <input required="" class="btn col-sm-6 col-lg-12 col-md-12" accept="file/*" type="file" 
+          id="curriculo" name="curriculo" >
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary col-6 float-left" type="submit">Subir Curriculo</button>
           <button class="btn btn-danger col-6" data-dismiss="modal">Cancelar</button>
         </div>
       </form>
@@ -86,4 +135,31 @@
   </div>
 </div>
 
+@endsection
+@section('scriptsAdicionales')
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('button#borrar-curriculo').click(function(){
+            $('input#curriculo').attr('required',"false");
+            $data = { 
+              "_token":$("input[name*='_token']").val(),
+            }
+
+            $.ajax({
+              url     : "/borrarcurriculo",
+              type    : "post",
+              dataType: "JSON",
+              data    : $data,
+              success : function($r){location.reload();}
+            });
+            setTimeout(location.reload.bind(location), 500);
+    });
+    $('button#cambiar-modal').click(function(){
+        $('#modal-curriculo').modal('hide');
+        $('#modal-cambiar').modal('show');
+    });
+
+  });
+</script>
 @endsection

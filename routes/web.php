@@ -75,6 +75,8 @@
 		Route::get('/listaequipos','EquipoController@misEquipos');
 		Route::get('/listaproyectos','ProyectoController@proyectosAlumno');
 		Route::post('/subirimagen','UserController@imagenPerfil');
+		Route::post('/subircurriculo','UserController@subirCurriculo');
+		Route::post('/borrarcurriculo','UserController@borrarCurriculo');
 		Route::post('/subirimagenproyecto',"ProyectoController@imagenProyecto");
 		Route::post('/modalagrega','EquipoController@modalagregar');
 		Route::post('/modaleditar','EquipoController@modaleditar');

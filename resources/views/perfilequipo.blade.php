@@ -51,7 +51,11 @@ body{
 				@foreach($miembros as $key)
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
 					@if(Auth::check())
-					<button data-toggle="modal" data-target="#curriculum" class="btn btn-info btn-sm offset-4 pos-abs" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					@if($key->curriculo != null)
+					<button  class="btn btn-info btn-sm offset-4 pos-abs boton-curriculo" value="{{$key->curriculo}}"  href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					@else
+					<button  class="btn btn-info btn-sm offset-4 pos-abs " disabled=""  href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					@endif
 					@endif
 					
 					@if($key->id == $lider)
@@ -202,7 +206,7 @@ body{
 			</div>
 			<div class="modal-body">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<a href="prueba.txt" download="curriculumprueba" class="btn btn-primary btn-bs">Descargar <i class="fa fa-lg fa-download"></i></a>
+				<a href="#" id="descarga-curriculum" download="curriculo" class="btn btn-primary btn-bs">Descargar <i class="fa fa-lg fa-download"></i></a>
 			</div>      
 		</div>
 	</div>
@@ -241,6 +245,19 @@ body{
       }
     });
 	//Script de modals
+	$('.boton-curriculo').click(function(){
+		$archivo = $(this).val();
+		
+		$src = "<?php echo asset("/storage/usuarios/curriculos")?>"+"/"+$archivo;
+		//$src = "/prueba.txt"
+	
+		$('#descarga-curriculum').attr('href',$src);
+		$('#curriculum').modal('show');
+	});
+	$('a#descarga-curriculum').click(function(){
+
+	})
+
 	$('.eliminarbtn').click(function(){
 		$alumno = $(this).val();
 		$('#borraralumno').val($alumno);

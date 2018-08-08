@@ -132,7 +132,7 @@ class ProyectoController extends Controller
 {
     
     $detalle = Detalles::find($r->input('iddetalle'));
-    Storage::delete('/proyectos/detalles' . $detalle->imagen);
+    Storage::delete('/proyectos/detalles/' . $detalle->imagen);
     $detalle->delete();
     $mensaje = "¡Cambios registrados exitosamente!";
 

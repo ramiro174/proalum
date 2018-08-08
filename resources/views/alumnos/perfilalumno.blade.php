@@ -8,19 +8,6 @@
   <div class="row">
     <div class="offset-lg-2 col-lg-8 col-sm-8 main-section  offset-sm-2  text-center">
       <div class="row">
-        <!--          @if(Session::has('mensaje'))
-<p class="col-12 alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('mensaje') }}<button type="button" class="close" data-dismiss="alert">×</button> </p>
-            {{Session::forget('mensaje')}}
-@endif
-         
-            @if (Session::has('mensaje'))
-<div class="alert alert-success alert-block margin-top-15">
-  <button type="button" class="close" data-dismiss="alert">×</button> 
-        <strong>{{ Session::get('mensaje')}}</strong>
-        {{Session::forget('mensaje')}}
-        <h1>Prueba</h1>
-</div>
-@endif-->
 
 
 <div class="col-lg-12 col-sm-12  profile-header">
@@ -40,7 +27,14 @@
 
         
         @endif
-        
+        @if($user->curriculo != null)
+        <div class="rounded-circle img-thumbnail sobrecapa-prof">
+          <div class="boton-trsn align-self-center">
+          
+          <button data-toggle="modal" data-target="#modal-curriculo" class="no-bordes btn btn-primary btn-sm align-self-auto" >Curriculo<i class="fa fa-fw fa-file-text-o"></i></button>
+        </div>
+      </div>
+      @endif
       </div>
     </div>
     <div class="col-md-12">
@@ -65,24 +59,16 @@
 </div>
 </div>
 </div>
-<div class="modal fade" id="modal-imagen">
+<div class="modal fade" id="modal-curriculo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-
-      <form method="POST" action="{{url('subirimagenid/$user->id')}}" files="true" enctype="multipart/form-data">
-        {{ csrf_field() }}
-        <div class="modal-body">
-         
-          <input required="" class="btn col-sm-6 col-lg-12 col-md-12" accept="image/*" type="file" id="imagen" 
-          name="imagen" >
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary col-6 float-left" type="submit">Cambiar</button>
-          <button class="btn btn-danger col-6" data-dismiss="modal">Cancelar</button>
-        </div> 
-      </form>
-      
-      
+      <div class="modal-header fuente">
+        ¿Descargar Curriculum?
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <a href="<?php echo asset("/storage/usuarios/curriculos")?>/{{$user->curriculo}}" id="descarga-curriculum" download="curriculo_{{$user->name}}" class="btn btn-primary btn-bs">Descargar <i class="fa fa-lg fa-download"></i></a>
+      </div>      
     </div>
   </div>
 </div>

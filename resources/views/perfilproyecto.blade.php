@@ -30,7 +30,7 @@
 			@endif
 			@if(Auth::check())
 			@if(Auth::user()->id == $lider)
-			<button id="btneditar" name="btneditar" data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-md-5 offset-lg-5 no-bordes" href="">Editar<i class="fa fa-fw fa-pencil"></i></button>
+			<button id="btneditar" name="btneditar" data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-md-5 offset-lg-2 no-bordes" href="">Editar<i class="fa fa-fw fa-pencil"></i></button>
 			<button id="btn-cambiar-imagen" name="btn-cambiar-imagen" data-toggle="modal" data-target="#modal-cambiar-imagen" class="btn btn-sm btn-warning  no-bordes" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button>
 			@endif
 			@endif
