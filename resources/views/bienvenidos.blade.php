@@ -44,80 +44,27 @@
   </div>
 </section>
 <!-- About Section -->
-<section class="bg-primary text-white mb-0" id="about">
+<section class="bg-primary text-white " id="about">
   <div class="container">
     <h2 class="text-center text-uppercase text-white">acerca</h2>
     <hr class="star-light mb-5">
     <div class="row">
-      <div class="col-lg-4 ml-auto">
-        <p class="lead">proyecto creado para difundir el conocimiento de la carrera de tics</p>
+      <div class="col-lg-12  ">
+        <p class="lead">Proyecto creado para difundir el esfuerzo y conocimiento de los alumnos de la Universidad Tecnologica de Torreon de la carrera de Tecnologias en la Informacion y Comunicacion</p>
       </div>
-      <div class="col-lg-4 mr-auto">
-        <p class="lead">Cualquier empresa puede ver lo que se raliza en la utt</p>
-      </div>
+      
     </div>
-    <div class="text-center mt-4">
-      <a class="btn btn-xl btn-outline-light" href="#">
-        <i class="fa fa-download mr-2"></i>
-        Download Now!
-      </a>
-    </div>
+    
   </div>
 </section>
 <!-- Contact Section -->
-<section id="contact">
-  <div class="container">
-    <h2 class="text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-    <hr class="star-dark mb-5">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-        <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Name</label>
-              <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Email Address</label>
-              <input class="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address.">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Phone Number</label>
-              <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <label>Message</label>
-              <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <br>
-          <div id="success"></div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- Footer -->
 
 <div class="copyright py-4 text-center text-white">
   <div class="container">
-    <small>Copyright &copy; Your Website 2018</small>
+    
   </div>
 </div>
 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->

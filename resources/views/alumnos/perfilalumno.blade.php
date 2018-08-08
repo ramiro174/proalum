@@ -27,6 +27,7 @@
 
         
         @endif
+        @if(Auth::check())
         @if($user->curriculo != null)
         <div class="rounded-circle img-thumbnail sobrecapa-prof">
           <div class="boton-trsn align-self-center">
@@ -34,6 +35,7 @@
           <button data-toggle="modal" data-target="#modal-curriculo" class="no-bordes btn btn-primary btn-sm align-self-auto" >Curriculo<i class="fa fa-fw fa-file-text-o"></i></button>
         </div>
       </div>
+      @endif
       @endif
       </div>
     </div>

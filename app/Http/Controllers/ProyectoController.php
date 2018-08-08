@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Equipos;
+use App\models\User;
 use App\models\Proyectos;
 use App\models\Detalles;
 use Illuminate\Support\Facades\Storage;
@@ -69,8 +70,8 @@ class ProyectoController extends Controller
     }
     public function proyectosAlumnoid($obj){
         $proyectos = Proyectos::proyectosalumno($obj);
-        
-        return view('proyectos/listaproyectos')->with(compact('proyectos'));
+        $alumno = User::find($obj);
+        return view('proyectos/listaproyectos')->with(compact('proyectos','alumno'));
     }
     public function listaProyectosEquipo($obj)
     {

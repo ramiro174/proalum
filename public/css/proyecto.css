@@ -18,6 +18,26 @@
 	min-width: 40rem;
 	min-height: 25rem;
 }
+.proyecto-img-lista-proyectos
+{
+	width: 40rem;
+	height: 20rem;
+	
+	padding: 1rem;
+	
+}
+.usuario-img-lista-proyectos
+{
+	max-height: 3rem;
+	max-width: 5rem;
+	min-height: 3rem;
+	min-width: 5rem;
+	width: auto;
+	height: auto;
+	border-style: solid;
+	border-color: transparent;
+	border-radius: 50%;
+}
 .proyecto-img-thumbnail
 {
 	/*width: 15.2rem;*/

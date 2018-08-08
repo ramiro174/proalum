@@ -126,26 +126,8 @@
 					</div>
 					@endforeach
 
-					<div class="card col-md-3 col-sm-10 mb-4  img-size-small">                   
-
-						<img class="card-img img-fluid img-size-small" src="/img/placeholderimg.png" alt="">
-
-						<div class="card-img-overlay transparente">
-							<a class="card-title heredar-color" href=""><h5>Proyecto</h5><br>
-								<p class="card-text esconder-texto-lista">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
-
-							</div>         
-						</div>
-						<div class="card col-md-3 col-sm-10 mb-4 img-size-small">                   
-
-							<img class="card-img img-fluid img-size-small img-small" src="/img/placeholderimg.png" alt="">
-
-							<div class="card-img-overlay transparente">
-								<a class="card-title heredar-color" href=""><h5>Proyecto</h5><br>
-									<p class="card-text esconder-texto-lista">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
-
-								</div>         
-							</div>
+					
+						
 						</div>
 					</div>
 				</div>

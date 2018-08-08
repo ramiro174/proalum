@@ -47,7 +47,7 @@
         {{@Auth::user()->name}}
       </h5>
       <hr>
-      <a href="/listaproyectos" class="btn btn-success btn-lg bg-primary text-white rounded btn-outline-light col-md-12 col-lg-6 col-sm-12  no-bordes" style="font-size: 100%">Mis Proyectos</a>
+      <a href="/listaproyectosid/{{Auth::user()->id}}" class="btn btn-success btn-lg bg-success text-white rounded btn-outline-light col-md-12 col-lg-6 col-sm-12  no-bordes" style="font-size: 100%">Mis Proyectos</a>
       <hr>
       
     </div>
@@ -55,11 +55,12 @@
 </div>
 <div class="row user-social-detail">
   <div class="col-lg-6 col-sm-12  offset-lg-3">
-    <a href="/registerproject" class="col-12 btn btn-success btn-lg bg-success no-bordes text-white rounded btn-outline-light" >Registrar un Proyecto</a>
-    <hr>
     <a href="/registerteam" class="col-12 col-sm-12 col-lg-12 btn btn-success btn-lg bg-primary no-bordes text-white rounded btn-outline-light" >Registrar un Equipo</a>
+   
     <hr>
-    <a href="/listaequipos" class="col-12 btn btn-success btn-lg bg-success no-bordes text-white rounded btn-outline-light" >Mis Equipos</a>
+     <a href="/registerproject" class="col-12 btn btn-success btn-lg bg-success no-bordes text-white rounded btn-outline-light" >Registrar un Proyecto</a>
+    <hr>
+    <a href="/listaequipos" class="col-12 btn btn-success btn-lg bg-primary no-bordes text-white rounded btn-outline-light" >Mis Equipos</a>
     
     
   </div>

@@ -30,7 +30,7 @@ body{
 			</h1>
 			<br>
 			@if($equipo->mensaje == null)
-			Bienvenido a la pagina de perfil de los integrantes del equipo {{$equipo->nombreequipo}}
+			Bienvenido a la pagina de perfil de los integrantes de {{$equipo->nombreequipo}}
 			@else
 			<h5 class="col-sm-10" id="mensajeequipo">{{$equipo->mensaje}}</h5>
 			@endif
@@ -52,7 +52,7 @@ body{
 				<div class="col-lg-4 col-sm-6 text-center mb-4 borde-usuarios" >
 					@if(Auth::check())
 					@if($key->curriculo != null)
-					<button  class="btn btn-info btn-sm offset-4 pos-abs boton-curriculo" value="{{$key->curriculo}}"  href=""><i class="fa fa-lg fa-file-text-o"></i></button>
+					<button  class="btn btn-info btn-sm offset-4 pos-abs boton-curriculo" value="{{$key->curriculo}}" accesskey="{{$key->name}}" href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					@else
 					<button  class="btn btn-info btn-sm offset-4 pos-abs " disabled=""  href=""><i class="fa fa-lg fa-file-text-o"></i></button>
 					@endif
@@ -252,11 +252,10 @@ body{
 		//$src = "/prueba.txt"
 	
 		$('#descarga-curriculum').attr('href',$src);
+		$('#descarga-curriculum').attr('download',"curriculo_" + $(this).attr('accesskey'));
 		$('#curriculum').modal('show');
 	});
-	$('a#descarga-curriculum').click(function(){
-
-	})
+	
 
 	$('.eliminarbtn').click(function(){
 		$alumno = $(this).val();
