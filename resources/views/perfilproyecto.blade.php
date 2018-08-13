@@ -11,27 +11,34 @@
 		<h1 class="my-4" id="nombreproyecto">{{$proyecto->nombre_proyecto}}
 			<small><a href="/teamprofile/{{$equipo->id}}">{{$equipo->nombreequipo}}</a> </small><br>
 			@if($proyecto->vinculo != null)
-			<a href="{{$proyecto->vinculo}}" class="btn btn-dark" >Vinculo Github <i class="fa fa-lg fa-fw fa-github"></i></a>
+			<div class="btn-group" role="group" aria-label="Basic example">
+  
+
+			<a href="{{$proyecto->vinculo}}" class="btn btn-dark btn-secondary" >Vinculo Github <i class="fa fa-lg fa-fw fa-github"></i></a>
 			@if(Auth::check())
 			@if(Auth::user()->id == $lider)
-			<button  data-toggle="modal" data-target="#confirm-delete-vinculo"  type="button" class="eliminarvinculobtn btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-times-circle-o cent-icon"></i></button>
+			<button  data-toggle="modal" data-target="#confirm-delete-vinculo"  type="button" class="  eliminarvinculobtn btn btn-danger btn-sm col-1 editar-vinculo-boton"><i class="fa fa-lg fa-times-circle-o editar-vinculo-icono"></i></button>
 			@endif
 			@endif
-			
+			</div>
 			@else
-			<button class="btn btn-dark" disabled="">Vinculo Github <i class="fa fa-lg fa-fw fa-github"></i>
+			<div class="btn-group" role="group" aria-label="Basic example">
+			<button class="btn btn-dark btn-secondary" disabled="">Vinculo Github <i class="fa fa-lg fa-fw fa-github"></i>
 			</button>
+			
 			@if(Auth::check())
 			@if(Auth::user()->id == $lider)
-			<button  data-toggle="modal" data-target="#confirm-add-vinculo"  type="button" class="agregarvinculobtn btn btn-success btn-sm col-1 cent-button"><i class="fa fa-lg fa-plus-circle cent-icon"></i></button>
+			<button  data-toggle="modal" data-target="#confirm-add-vinculo"  type="button" class="agregarvinculobtn btn btn-success btn-sm col-1 editar-vinculo-boton"><i class="fa fa-lg fa-plus-circle editar-vinculo-icono"></i></button>
+		</div>
 			@endif
 			@endif
 			
 			@endif
+			
 			@if(Auth::check())
 			@if(Auth::user()->id == $lider)
-			<button id="btneditar" name="btneditar" data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-md-5 offset-lg-2 no-bordes" href="">Editar<i class="fa fa-fw fa-pencil"></i></button>
-			<button id="btn-cambiar-imagen" name="btn-cambiar-imagen" data-toggle="modal" data-target="#modal-cambiar-imagen" class="btn btn-sm btn-warning  no-bordes" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button>
+			<!--<button id="btneditar" name="btneditar" data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-md-5 offset-lg-2 no-bordes" href="">Editar<i class="fa fa-fw fa-pencil"></i></button>-->
+			<!--<button id="btn-cambiar-imagen" name="btn-cambiar-imagen" data-toggle="modal" data-target="#modal-cambiar-imagen" class="btn btn-sm btn-warning  no-bordes" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button>-->
 			@endif
 			@endif
 		</h1>
@@ -42,7 +49,14 @@
 			<div class="col-md-8">
 
 				@if($proyecto->imagen != null)
-				<img class="proyecto-img-medida img-fluid" src="<?php echo asset("storage/proyectos")?>/{{$proyecto->imagen}}" alt="">
+				
+					<img class="proyecto-img-medida img-fluid" src="<?php echo asset("storage/proyectos")?>/{{$proyecto->imagen}}" alt=""><br>
+					@if(Auth::check())
+					@if(Auth::user()->id == $lider)
+					<button id="btn-cambiar-imagen" name="btn-cambiar-imagen" data-toggle="modal" data-target="#modal-cambiar-imagen" class="btn btn-sm btn-warning  no-bordes" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button>
+					@endif
+					@endif
+				
 				@else
 				<img class="img-fluid" src="http://placehold.it/750x400" alt="">
 				@endif
@@ -50,7 +64,11 @@
 			</div>
 
 			<div class="col-md-4">
-				<h3 class="my-3">Descripcion del Proyecto</h3>
+				<h3 class="my-3">Descripcion del Proyecto @if(Auth::check())
+			@if(Auth::user()->id == $lider)
+			<button id="btneditar" name="btneditar" data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-md-5 offset-lg-2 no-bordes" href="">Editar<i class="fa fa-fw fa-pencil"></i></button>
+			@endif
+			@endif</h3>
 				<div class="esconder-texto">
 					<h5 >{{$proyecto->descripcion}}</h5>
 				</div>

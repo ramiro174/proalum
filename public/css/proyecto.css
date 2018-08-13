@@ -177,6 +177,23 @@ select.select-estilo > option{
 	transform: translate(-50%, -50%);
 	margin-top: 2px;
 }
+.editar-vinculo-icono
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 100%;
+	transform: translate(-50%, -50%);
+	margin-top: 10px;	
+}
+.editar-vinculo-boton
+{
+	position: relative;
+	margin: auto;
+	text-align: center;
+	height:2.5rem;
+	width: 20px;
+}
 .cent-button {
 	position: relative;
 	margin: auto;
