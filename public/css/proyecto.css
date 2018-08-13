@@ -1,3 +1,6 @@
+.portfolio .portfolio-item .portfolio-item-caption:hover{
+	opacity: .5;
+}
 .navbar-nav .open .dropdown-menu {
 	background-color:#2c3e50;
 }

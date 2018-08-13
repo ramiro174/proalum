@@ -88,7 +88,7 @@
           <img class="img-fluid mb-5" id="imagen-proyecto"alt="">
           <h4 id="descripcion-proyecto"></h4>
           <a class="btn btn-primary btn-lg rounded-pill" id="boton-ver" d>
-            <i class="fa fa-close"></i>
+            <i class="fa fa-search-plus"></i>
             Ver Proyecto</a>
         </div>
       </div>
