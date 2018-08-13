@@ -30,8 +30,8 @@
 			@endif
 			@if(Auth::check())
 			@if(Auth::user()->id == $lider)
-			<button id="btneditar" name="btneditar" data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-md-10 offset-lg-10 no-bordes" href="">Editar<i class="fa fa-fw fa-pencil"></i></button>
-			<button id="btn-cambiar-imagen" name="btn-cambiar-imagen" data-toggle="modal" data-target="#modal-cambiar-imagen" class="btn btn-sm btn-warning offset-md-10 offset-lg-10 no-bordes" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button>
+			<button id="btneditar" name="btneditar" data-toggle="modal" data-target="#editar" class="btn btn-sm btn-warning offset-md-5 offset-lg-2 no-bordes" href="">Editar<i class="fa fa-fw fa-pencil"></i></button>
+			<button id="btn-cambiar-imagen" name="btn-cambiar-imagen" data-toggle="modal" data-target="#modal-cambiar-imagen" class="btn btn-sm btn-warning  no-bordes" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button>
 			@endif
 			@endif
 		</h1>
@@ -82,7 +82,7 @@
 				<a class="card-title heredar-color" href="#" ><img class="card-img img-fluid img-size-small" src="<?php echo asset("storage/proyectos/detalles")?>/{{$key->imagen}}" alt=""></a>
 				<div class="card-img-overlay transparente">
 					<a class="card-title heredar-color detalle-btn" href="#"accesskey="{{$key->imagen}}">
-						<p class="card-text esconder-texto-lista">{{$key->descripcion}}</p></a>
+						<p class="card-text esconder-texto-lista"><strong>{{$key->descripcion}}</strong></p></a>
 						@if(Auth::check())
 						@if(Auth::user()->id == $lider)
 						<button  data-toggle="modal" data-target="#confirm-delete" value="{{$key->id}}" type="button" class="float-right eliminarbtn btn btn-danger btn-sm col-1 cent-button"><i class="fa fa-lg fa-times-circle-o cent-icon"></i></button>
@@ -116,7 +116,7 @@
 				@foreach($proyectos as $key)
 				<div class="card col-md-3 col-sm-10 mb-4  img-size-small">                   
 
-					<img class="card-img img-fluid img-size-small" src="/img/placeholderimg.png" alt="">
+					<img class="card-img img-fluid img-size-small" src="<?php echo asset("storage/proyectos")?>/{{$key->imagen}}" alt="">
 
 					<div class="card-img-overlay transparente" >
 						<a class="card-title heredar-color" href="/perfilproyecto/{{$key->id}}"><h5>{{$key->nombre_proyecto}}</h5><br>
@@ -126,26 +126,8 @@
 					</div>
 					@endforeach
 
-					<div class="card col-md-3 col-sm-10 mb-4  img-size-small">                   
-
-						<img class="card-img img-fluid img-size-small" src="/img/placeholderimg.png" alt="">
-
-						<div class="card-img-overlay transparente">
-							<a class="card-title heredar-color" href=""><h5>Proyecto</h5><br>
-								<p class="card-text esconder-texto-lista">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
-
-							</div>         
-						</div>
-						<div class="card col-md-3 col-sm-10 mb-4 img-size-small">                   
-
-							<img class="card-img img-fluid img-size-small img-small" src="/img/placeholderimg.png" alt="">
-
-							<div class="card-img-overlay transparente">
-								<a class="card-title heredar-color" href=""><h5>Proyecto</h5><br>
-									<p class="card-text esconder-texto-lista">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio.</p></a>
-
-								</div>         
-							</div>
+					
+						
 						</div>
 					</div>
 				</div>

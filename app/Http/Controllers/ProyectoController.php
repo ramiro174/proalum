@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Equipos;
+use App\models\User;
 use App\models\Proyectos;
 use App\models\Detalles;
 use Illuminate\Support\Facades\Storage;
+use Auth;
 
 class ProyectoController extends Controller
 {   
@@ -32,9 +34,11 @@ class ProyectoController extends Controller
     public function obtenerProyectos()
     {
         $obj = Proyectos::with('equipos')->get();
+        $masvotos = Proyectos::all()->sortByDesc('votos')->take(3);
+
         
         
-        return view('buscarproyectos')->with(compact('obj'));
+        return view('buscarproyectos')->with(compact('obj','masvotos'));
         
     }
     public function obtenerProyectosBuscador()
@@ -66,8 +70,8 @@ class ProyectoController extends Controller
     }
     public function proyectosAlumnoid($obj){
         $proyectos = Proyectos::proyectosalumno($obj);
-        
-        return view('proyectos/listaproyectos')->with(compact('proyectos'));
+        $alumno = User::find($obj);
+        return view('proyectos/listaproyectos')->with(compact('proyectos','alumno'));
     }
     public function listaProyectosEquipo($obj)
     {
@@ -129,6 +133,7 @@ class ProyectoController extends Controller
 {
     
     $detalle = Detalles::find($r->input('iddetalle'));
+    Storage::delete('/proyectos/detalles/' . $detalle->imagen);
     $detalle->delete();
     $mensaje = "¡Cambios registrados exitosamente!";
 
@@ -185,6 +190,40 @@ public function imagenProyecto(Request $request)
         else{
             return "nada ";
         }
+}
+public function botonLike(Request $r)
+{
+    $proyecto = Proyectos::where('id',$r->input('idproyecto'))->first();
+    $votousuario = new Proyectos();
+    $prueba = Proyectos::votosalumno($r->input('idproyecto'));
+    $votostotal = count($prueba);
+    
+    if($proyecto->votos != null)
+    {
+        if ($votostotal == 0) {
+            $proyecto->votos = $proyecto->votos + 1;
+        $proyecto->save();
+        $votousuario->userVotos()->attach([["proyectos_id"=>$r->input('idproyecto'),
+                                        "users_id"=>Auth::user()->id]]);
+        return "nada";
+        }
+        else{
+            return "nada";
+        }
+        
+    }else{
+    $proyecto->votos = 1;
+    $votousuario->userVotos()->attach([["proyectos_id"=>$r->input('idproyecto'),
+                                        "users_id"=>Auth::user()->id]]);
+    $proyecto->save();
+    return "nada";
+}
+}
+public function bienvenido()
+{
+    $proyectos = Proyectos::all()->sortByDesc('votos')->take(6);
+
+    return view('bienvenidos')->with(compact('proyectos'));
 }
 
 }

@@ -69,13 +69,6 @@ class UserController extends Controller
         if ($request->hasFile('imagen')) {
             try
             {
-//                $img = $request->file('imagen');
-//                Storage::delete('/public/usuarios/perfil/imagenes/' . Auth::user()->imagen);
-//                $img->store('public/usuarios/perfil/imagenes');
-//                $file_name = "img_perfil_".Auth::user()->name;
-//                $alumno = User::findOrFail(Auth::user()->id);
-//                $alumno -> imagen = "$file_name";
-//                $alumno->save();
     
                 $img = $request->file('imagen');
                 if (Auth::user()->imagen != null) {
@@ -101,6 +94,52 @@ class UserController extends Controller
         else{
             return "nada ";
         }
+    }
+
+    public function subirCurriculo(Request $request){
+       error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+        if ($request->hasFile('curriculo')) {
+            try
+            {
+                $curriculo = $request->file('curriculo');
+                if (Auth::user()->curriculo != null) {
+                    Storage::delete('/usuarios/curriculos/' . Auth::user()->curriculo);
+                }
+                $curriculo->store('/usuarios/curriculos');
+                $file_name = $request->file('curriculo')->hashName();
+                $alumno = User::findOrFail(Auth::user()->id);
+                $alumno -> curriculo = "$file_name";
+                $alumno->save();
+                return redirect('/profile');
+                
+            } 
+
+        
+            catch (Exception $ex){
+
+                return $ex;
+
+            }
+            
+            
+        }
+
+        else{
+            return "nada ";
+        }
+        return "nopasonada";
+    }
+
+    public function borrarCurriculo(Request $r)
+    {
+        $curriculo = User::find(Auth::user()->id);
+    Storage::delete('/usuarios/curriculos/' . Auth::user()->curriculo);
+    $curriculo->curriculo = null;
+    $curriculo->save();
+    $mensaje = "¡Cambios registrados exitosamente!";
+
+    return $mensaje;
     }
     public function perfilId($obj)
     {
