@@ -28,8 +28,22 @@ class EquipoController extends Controller
     });
         //Sube el equipo a la base de datos
     $equipo = new Equipos();
-    $equipo->nombreequipo = $r->input('name');
-    $equipo->save();
+    $equipos = Equipos::all();
+    $chequeo = false;
+    foreach ($equipos as $key) {
+        if ($key->nombreequipo == $r->input('name')) {
+            $chequeo = true;
+        }
+    }
+    if ($chequeo == false) {
+       $equipo->nombreequipo = $r->input('name');
+    $equipo->save(); 
+    }
+    else{
+        $r->session()->flash('alerta','Este nombre de equipo ya ha sido registrado antes!');
+    return view('profile');
+    }
+
         //Obtiene ID del equipo recien registrado atravez del nombre
     $idequipo = Equipos::where('nombreequipo', $r->input('name'))->first();
         //Registra al lider del equipo en la tabla pivote
@@ -38,6 +52,7 @@ class EquipoController extends Controller
     foreach ($resultado as $key) {
         $equipo->userMiembro()->attach($idequipo->id,["user_id"=>$key,"user_lider_id"=>Auth::user()->id]);
     }
+
     $r->session()->flash('mensaje','Equipo registrado exitosamente!');
     return view('profile');
 

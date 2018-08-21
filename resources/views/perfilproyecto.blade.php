@@ -42,7 +42,7 @@
 			@endif
 			@endif
 		</h1>
-
+			<hr>
 		<!-- Portfolio Item Row -->
 		<div class="row">
 
@@ -59,6 +59,7 @@
 				
 				@else
 				<img class="img-fluid" src="http://placehold.it/750x400" alt="">
+				<button id="btn-cambiar-imagen" name="btn-cambiar-imagen" data-toggle="modal" data-target="#modal-cambiar-imagen" class="btn btn-sm btn-warning  no-bordes" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button>
 				@endif
 				
 			</div>
@@ -124,7 +125,7 @@
 		</div>
 		<!-- Related Projects Row -->
 		<div class="row">
-			<h3 class="my-4 col-12">Mas de {{$equipo->nombreequipo}}</h3>
+			<h3 class="my-4 col-12">Mas del Equipo {{$equipo->nombreequipo}}</h3>
 			<br>
 			<div class="row">
 				<div class="card col-md-3 col-sm-10 mb-4  img-size-small" style="height: 0px;"></div>
@@ -238,7 +239,7 @@
 					<div class="modal-content col-12">
 						<div class="modal-body col-12">
 							<div class="card  col-md-12">
-								<div class="card-body col-12">
+								<div class="card-body col-12 text-justify">
 									<h4>{{$proyecto->descripcion}}</h4>
 								</div>
 							</div>
@@ -322,7 +323,7 @@
 					<div class="modal-content col-12">
 						<div class="modal-body col-12">
 							<div class="card  col-md-12">
-								<div class="card-body col-12">
+								<div class="card-body col-12 text-justify">
 									<img id="img-modal-detalle" class="col-12" name="img-modal-detalle" src="">
 
 									<hr>
