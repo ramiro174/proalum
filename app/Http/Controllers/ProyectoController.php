@@ -43,7 +43,7 @@ class ProyectoController extends Controller
     }
     public function obtenerProyectosBuscador()
     {
-        $obj = Proyectos::with('equipos')->get();
+        $obj = Proyectos::all()->sortByDesc('votos');
         
 
         return view('proyectos/buscador')->with(compact('obj'));
@@ -51,16 +51,30 @@ class ProyectoController extends Controller
     }
 
     public function registrarProyecto(Request $r)
-    {
-        $obj = new Proyectos();
+    {   $chequeo = false;
+        $proyectos = Proyectos::all();
+        foreach ($proyectos as $key) {
+            if ($key->nombre_proyecto == $r->input('name')) {
+                $chequeo = true;
+            }
+        }
+        if ($chequeo == false) {
+           $obj = new Proyectos();
 
         $obj->nombre_proyecto = $r->input('name');
         $obj->equipos_id = $r->input('equipo');
         $obj->vinculo = $r->input('vinculo');
         $obj->descripcion = $r->input('descripcion');
         $obj->save();
-        $r->session()->flash('mensaje','Equipo registrado exitosamente!');
+        $r->session()->flash('mensaje','Proyecto registrado exitosamente!');
+        return redirect('/profile'); 
+        }
+        else
+        {
+            $r->session()->flash('alerta','Este proyecto ya ha sido registrado anteriormente!');
         return redirect('/profile');
+        }
+        
     }
 
     public function proyectosAlumno(){

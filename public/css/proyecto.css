@@ -75,6 +75,8 @@
 	text-overflow: ellipsis;
 	height: 16.5rem;
 	white-space: normal;
+	text-align: justify;
+    text-justify: inter-word;
 }
 .esconder-texto-lista{
 	overflow: hidden;

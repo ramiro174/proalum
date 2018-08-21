@@ -16,22 +16,30 @@
     use App\models\User;
     use Illuminate\Http\Request;
 
-/*=======================PROALUMNO=============================*/
-    Route::get('/','ProyectoController@bienvenido');
-        Route::get('/register', function(){
-        return  view('auth/register');
-    });
-Route::get('/perfilproyecto/{id?}',[
-    'as' => 'obj',
-    'uses' => 'ProyectoController@buscarProyecto'
-]);
-Route::get("/login",function(){
-       return  view("auth/login");
-    });
+
+
+
+
+
+	/*=======================PROALUMNO=============================*/
+	Route::get('/','ProyectoController@bienvenido');
+	
+	Route::get('/register', function(){
+		return  view('auth/register');
+	});
+	Route::get('/perfilproyecto/{id?}',[
+		'as' => 'obj',
+		'uses' => 'ProyectoController@buscarProyecto'
+	]);
+	Route::get("/login",function(){
+		return  view("auth/login");
+	});
+
 
 Route::get('/teamprofile/{id?}',[
     'as' => 'obj',
     'uses'=>'EquipoController@buscarequipo']);
+
 
 Route::get('/teamprofilevista/{id?}',function($id){
     return view('perfilequipo');

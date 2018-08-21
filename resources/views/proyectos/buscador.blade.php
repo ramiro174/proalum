@@ -13,8 +13,8 @@
 				
 				<div class="offset-1">
 					<input type="text" autofocus="" class="search no-bordes no-focus fuente margin-bot-1" placeholder="Buscar.." name="">
-					<button class="sort btn btn-info btn-sm  col-lg-2 col-sm-2 col-md-2 offset-lg-1" data-sort="name">
-						Acomodar
+					<button class="sort btn btn-info btn-sm float-right col-lg-2 col-sm-2 col-md-2 offset-lg-1" data-sort="name">
+						ABC.. <i class="fa fa-sort-desc float-right"></i>
 					</button>
 					<hr>
 				</div>
