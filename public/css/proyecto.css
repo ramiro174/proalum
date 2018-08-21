@@ -4,6 +4,11 @@
 .navbar-nav .open .dropdown-menu {
 	background-color:#2c3e50;
 }
+.no-margin-padding
+{
+	margin-left: none;
+	padding-left: none;
+}
 .img-alumno{
 	border:transparent solid 0.3rem !important;
 	width: 15rem;
