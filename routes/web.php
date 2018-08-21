@@ -17,9 +17,7 @@
     use Illuminate\Http\Request;
 
 /*=======================PROALUMNO=============================*/
-    Route::get('/',  function () {
-        return  view('bienvenidos');
-     });
+    Route::get('/','ProyectoController@bienvenido');
         Route::get('/register', function(){
         return  view('auth/register');
     });
