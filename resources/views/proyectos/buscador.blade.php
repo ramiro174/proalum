@@ -31,70 +31,7 @@
 						</li>
 
 						@endforeach
-						<li class="margin-bot-5 margin-top-5">
-							<div class="card">
-								<h5 class="card-header name">C Proyecto 1</h5>
-								<div class="card-body">
-									<a href="/perfilproyecto" class="btn btn-primary ">Ver Proyecto</a>
-								</div>
-							</div>
-						</li>
-						<li class="margin-bot-5 margin-top-5">
-							<div class="card">
-								<h5 class="card-header name">A Proyecto 2</h5>
-								<div class="card-body">
-									<a href="/perfilproyecto" class="btn btn-primary ">Ver Proyecto</a>
-								</div>
-							</div>
-						</li>
-						<li class="margin-bot-5 margin-top-5">
-							<div class="card">
-								<h5 class="card-header name">D Proyecto 3</h5>
-								<div class="card-body">
-									<a href="/perfilproyecto" class="btn btn-primary ">Ver Proyecto</a>
-								</div>
-							</div>
-						</li>
-						<li class="margin-bot-5 margin-top-5">
-							<div class="card">
-								<h5 class="card-header name">B Proyecto 4</h5>
-								<div class="card-body">
-									<a href="/perfilproyecto" class="btn btn-primary ">Ver Proyecto</a>
-								</div>
-							</div>
-						</li>
-						<li class="margin-bot-5 margin-top-5">
-							<div class="card">
-								<h5 class="card-header name">J Proyecto 5</h5>
-								<div class="card-body">
-									<a href="/perfilproyecto" class="btn btn-primary ">Ver Proyecto</a>
-								</div>
-							</div>
-						</li>
-						<li class="margin-bot-5 margin-top-5">
-							<div class="card">
-								<h5 class="card-header name">G Proyecto 6</h5>
-								<div class="card-body">
-									<a href="/perfilproyecto" class="btn btn-primary ">Ver Proyecto</a>
-								</div>
-							</div>
-						</li>
-						<li class="margin-bot-5 margin-top-5">
-							<div class="card">
-								<h5 class="card-header name">F Proyecto 7</h5>
-								<div class="card-body">
-									<a href="/perfilproyecto" class="btn btn-primary ">Ver Proyecto</a>
-								</div>
-							</div>
-						</li>
-						<li class="margin-bot-5 margin-top-5">
-							<div class="card">
-								<h5 class="card-header name">E Proyecto 8</h5>
-								<div class="card-body">
-									<a href="/perfilproyecto" class="btn btn-primary ">Ver Proyecto</a>
-								</div>
-							</div>
-						</li>
+						
 					</ul>
 					<!--<ul class="pagination"></ul>-->
 				</div>
