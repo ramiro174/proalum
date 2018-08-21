@@ -213,32 +213,15 @@
 										</div>
 									</div>
 								</div>
-<<<<<<< HEAD
-							</div>
-							<div class="modal-footer align-content-center">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-								<button class="btn btn-primary btn-ok" type="submit">Aceptar</button>
-							</div>
-						</form>
-					</div>
-				</div>
 
-			</div>
-			<div class="modal fade" id="descmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered modal-xl">
-					<div class="modal-content col-12">
-						<div class="modal-body col-12">
-							<div class="card  col-md-12">
-								<div class="card-body col-12 text-justify">
-									<h4>{{$proyecto->descripcion}}</h4>
-=======
+
 								<div class="control-group">
 									<div class="form-group floating-label-form-group controls mb-0 pb-2">
 										<label>Descripcion</label>
 										<textarea class="form-control" required="required" id="detalledesc" name="detalledesc" rows="3" placeholder="Descripcion" ></textarea>
 										<p class="help-block text-danger"></p>
 									</div>
->>>>>>> 139856cfe39773cf4884a5f00494e17867b0f776
+
 								</div>
 								<input type="hidden" name="inputiddetalle" id="inputiddetalle" value="{{$proyecto->id}}">
 
@@ -335,23 +318,7 @@
 					<button class="btn btn-primary btn-ok" data-dismiss="modal" id="modalagregarvinculo">Aceptar</button>
 				</div>
 			</div>
-<<<<<<< HEAD
-			<div class="modal fade" id="detallemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered modal-lg">
-					<div class="modal-content col-12">
-						<div class="modal-body col-12">
-							<div class="card  col-md-12">
-								<div class="card-body col-12 text-justify">
-									<img id="img-modal-detalle" class="col-12" name="img-modal-detalle" src="">
 
-									<hr>
-									<h4 id="desc-modal-detalle"></h4>
-								</div>
-							</div>
-						</div>
-						<div class="modal-footer align-content-center">
-							<button class="btn btn-primary btn-ok" data-dismiss="modal" >Ok</button>
-=======
 		</div>
 
 	</div>
@@ -365,7 +332,7 @@
 
 							<hr>
 							<h4 id="desc-modal-detalle"></h4>
->>>>>>> 139856cfe39773cf4884a5f00494e17867b0f776
+
 						</div>
 					</div>
 				</div>
