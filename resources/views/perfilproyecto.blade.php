@@ -58,8 +58,13 @@
 				@endif
 				
 				@else
-				<img class="img-fluid" src="http://placehold.it/750x400" alt="">
+				<img class="img-fluid" 
+				src="http://www.sefincoahuila.gob.mx/sistemas/entidades_paraestatales/documentos/saep_identificacion_general/1070216-LOGO%20UTT.jpg" alt=""><br>
+				@if(Auth::check())
+				@if(Auth::user()->id == $lider)
 				<button id="btn-cambiar-imagen" name="btn-cambiar-imagen" data-toggle="modal" data-target="#modal-cambiar-imagen" class="btn btn-sm btn-warning  no-bordes" href="">Imagen<i class="fa fa-fw fa-picture-o"></i></button>
+				@endif
+				@endif
 				@endif
 				
 			</div>
@@ -81,7 +86,7 @@
 	<br>
 	<!-- /.row -->
 	<div class="row no-margin-padding">
-		<h3 class="col-md-10 col-lg-10 col-sm-12 ">Detalles</h3> 
+		<h3 class="col-md-10 col-lg-10 col-sm-12 no-margin-padding">Detalles</h3> 
 		@if(Auth::check())
 		@if(Auth::user()->id == $lider)
 
